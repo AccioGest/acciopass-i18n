@@ -1,0 +1,108 @@
+{
+  "status": {
+    "synced": "Everything is synced",
+    "syncing": "Syncing…",
+    "offline": "Offline",
+    "signedOut": "Session expired",
+    "restricted": "Read-only",
+    "error": "Sync failed",
+    "upgrade": "Update required",
+    "pending": {
+      "one": "{count} pending change",
+      "other": "{count} pending changes"
+    },
+    "withPending": "{state} · {pending}",
+    "lastSynced": "Last synced: {time}",
+    "account": "Account",
+    "sync": "Sync",
+    "syncNow": "Sync now",
+    "lock": "Lock",
+    "lockVault": "Lock the vault",
+    "region": "Vault status",
+    "hint": {
+      "offline": "Syncing needs a connection. Your changes are saved on this device.",
+      "signedOut": "Sign in again to sync.",
+      "upgrade": "Update AccioPass to sync again.",
+      "syncing": "A sync is already running."
+    }
+  },
+  "banners": {
+    "offline": {
+      "title": "Offline",
+      "message": "You can keep using your vault. Your changes are saved on this device and will be sent when the connection is back."
+    },
+    "session": {
+      "title": "Your session has expired",
+      "message": "Your data is still here; sign in to sync again.",
+      "action": "Sign in"
+    },
+    "upgrade": {
+      "title": "Update AccioPass",
+      "web": "This version can no longer connect to the server. Your vault is still available on this device, but it will not sync until you update. Reload the page to load the new version; you will need to unlock again afterwards.",
+      "native": "This version can no longer connect to the server. Your vault is still available on this device, but it will not sync until you update. Install the latest version from the app store.",
+      "reload": "Reload page"
+    }
+  },
+  "restricted": {
+    "suspendedTitle": "Your account is read-only",
+    "suspended": "AccioSoft has suspended your account.",
+    "statement": "Reason: {statement}",
+    "termsTitle": "Accept the new Terms and Conditions to carry on",
+    "terms": "They came into force on {date} and you have not accepted them yet.",
+    "termsNoDate": "They are in force and you have not accepted them yet.",
+    "stillWorks": "In the meantime you can view and copy your passwords and codes, export your data and delete the account. You cannot add, change or share anything.",
+    "pending": {
+      "one": "{count} change is saved on this device only: it will be sent when the account is back to normal.",
+      "other": "{count} changes are saved on this device only: they will be sent when the account is back to normal."
+    },
+    "help": "Help and complaints",
+    "review": "Review and accept"
+  },
+  "legal": {
+    "titleTerms": "We have updated the Terms and Conditions",
+    "titlePrivacy": "We have updated the Privacy Policy",
+    "titleBoth": "We have updated the Terms and the Privacy Policy",
+    "whatChanged": "What changes is in the documents themselves. Read them before you decide.",
+    "effective": "They come into force on {date}. If you have not accepted them by then, your account will be read-only until you do: you will be able to view, export and delete the account, but not to add or change anything.",
+    "overdue": "They came into force on {date}. Your account is read-only until you accept them.",
+    "overdueNoDate": "They are in force. Your account is read-only until you accept them.",
+    "acceptingTerms": "By pressing \"Accept\" you accept the new version of the Terms and Conditions.",
+    "acceptingPrivacy": "By pressing \"Accept\" you confirm that you have read the new version of the Privacy Policy. It is information about your data, not consent.",
+    "acceptingBoth": "By pressing \"Accept\" you accept the new version of the Terms and Conditions and confirm that you have read that of the Privacy Policy.",
+    "disagree": "If you do not agree, you can export your data and delete the account in Settings.",
+    "termsLink": "Read the Terms and Conditions",
+    "privacyLink": "Read the Privacy Policy",
+    "accept": "Accept",
+    "later": "Later",
+    "accepted": "Acceptance recorded. Thank you.",
+    "changedAgain": "The documents changed again while you were reading them. Review them once more before accepting."
+  },
+  "otherTab": {
+    "title": "AccioPass is open in another tab",
+    "message": "The vault can only be open in one tab at a time, so that no change is lost. This one has been locked.",
+    "action": "Use here",
+    "hint": "The other tab will lock, and you will need to unlock again here."
+  },
+  "splash": {
+    "loading": "Opening AccioPass…"
+  },
+  "crash": {
+    "title": "Something went wrong on this screen",
+    "message": "We could not show it. Your data is still saved and encrypted on this device: nothing was lost.",
+    "retry": "Try again",
+    "reload": "Reload the page"
+  },
+  "notFound": {
+    "title": "This page does not exist",
+    "message": "The link may be incomplete, or what you were looking for may have been deleted.",
+    "action": "Go to the start"
+  },
+  "recoveryReminder": {
+    "title": "Generate your recovery words",
+    "message": "You verified your e-mail at a different time from signing up, so we could not show you the recovery words. Without them you cannot recover the account if you forget the master password. Generate new ones in Settings > Security > Recovery words.",
+    "unconfirmedTitle": "Your recovery words are not confirmed",
+    "unconfirmedMessage": "The last recovery words generated on this device were never confirmed: the page was reloaded or locked first. If you did not write them down, the ones you hold may no longer work, and you could not recover the account if you forget the master password. Generate new ones and confirm them in Settings > Security > Recovery words.",
+    "action": "Generate words",
+    "later": "Not now"
+  }
+}

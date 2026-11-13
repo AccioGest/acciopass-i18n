@@ -1,0 +1,57 @@
+{
+  "title": "Security assistant",
+  "back": "Back to Security",
+  "intro": {
+    "title": "Ask anything about security",
+    "description": "Passwords, two-step verification, breaches, suspicious e-mails… It gives general advice: it cannot see your vault or your passwords."
+  },
+  "suggestions": {
+    "title": "To get started",
+    "leak": "What should I do if one of my passwords appears in a breach?",
+    "memorable": "How do I create a strong password I can remember?",
+    "twoFactor": "What is two-step verification and when should I turn it on?",
+    "phishing": "How do I spot an e-mail that is trying to steal my password?"
+  },
+  "reminder": "Do not paste passwords or codes here: the assistant does not need them.",
+  "input": {
+    "label": "Your question",
+    "placeholder": "Type your question",
+    "send": "Send"
+  },
+  "roles": {
+    "user": "You",
+    "assistant": "Assistant"
+  },
+  "log": "Conversation",
+  "typing": "The assistant is typing…",
+  "notSent": "Not sent.",
+  "retry": "Try again",
+  "memory": "The conversation only exists in the memory of this device and is erased when the vault locks.",
+  "clear": {
+    "action": "Clear conversation",
+    "title": "Clear the conversation?",
+    "message": "It is not saved anywhere: it cannot be brought back.",
+    "confirm": "Clear"
+  },
+  "quota": {
+    "remaining": {
+      "zero": "You have no questions left today. The daily limit renews at midnight (UTC).",
+      "one": "You have {count} question left today. The daily limit renews at midnight (UTC).",
+      "other": "You have {count} questions left today. The daily limit renews at midnight (UTC)."
+    },
+    "exceededTitle": "You have reached today’s question limit",
+    "exceeded": "Every account has a number of questions per day. You can ask again tomorrow.",
+    "exceededIn": "Every account has a number of questions per day. You can ask again in {time}."
+  },
+  "disabled": {
+    "title": "The assistant is turned off",
+    "description": "You switched it off in Preferences. While it stays off, AccioPass sends nothing to the AI.",
+    "action": "Open Preferences"
+  },
+  "unavailable": {
+    "title": "The assistant is not available right now",
+    "description": "This server does not have the AI running at the moment. The generator, the action plan and the breach check work without it.",
+    "retry": "Check again"
+  },
+  "offline": "The assistant needs a connection. Your conversation stays here for when it is back."
+}

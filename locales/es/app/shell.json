@@ -1,0 +1,108 @@
+{
+  "status": {
+    "synced": "Todo sincronizado",
+    "syncing": "Sincronizando…",
+    "offline": "Sin conexión",
+    "signedOut": "Sesión caducada",
+    "restricted": "Solo lectura",
+    "error": "No se ha podido sincronizar",
+    "upgrade": "Actualización necesaria",
+    "pending": {
+      "one": "{count} cambio pendiente",
+      "other": "{count} cambios pendientes"
+    },
+    "withPending": "{state} · {pending}",
+    "lastSynced": "Última sincronización: {time}",
+    "account": "Cuenta",
+    "sync": "Sincronizar",
+    "syncNow": "Sincronizar ahora",
+    "lock": "Bloquear",
+    "lockVault": "Bloquear la bóveda",
+    "region": "Estado de la bóveda",
+    "hint": {
+      "offline": "Sin conexión no se puede sincronizar. Tus cambios están guardados en este dispositivo.",
+      "signedOut": "Inicia sesión de nuevo para sincronizar.",
+      "upgrade": "Actualiza AccioPass para volver a sincronizar.",
+      "syncing": "Ya se está sincronizando."
+    }
+  },
+  "banners": {
+    "offline": {
+      "title": "Sin conexión",
+      "message": "Puedes seguir usando tu bóveda. Lo que cambies se guarda en este dispositivo y se enviará al recuperar la conexión."
+    },
+    "session": {
+      "title": "Tu sesión ha caducado",
+      "message": "Tus datos siguen aquí; inicia sesión para volver a sincronizar.",
+      "action": "Iniciar sesión"
+    },
+    "upgrade": {
+      "title": "Actualiza AccioPass",
+      "web": "Esta versión ya no puede conectarse con el servidor. Tu bóveda sigue disponible en este dispositivo, pero no se sincronizará hasta que actualices. Recarga la página para cargar la versión nueva; después tendrás que desbloquear otra vez.",
+      "native": "Esta versión ya no puede conectarse con el servidor. Tu bóveda sigue disponible en este dispositivo, pero no se sincronizará hasta que actualices. Instala la última versión desde la tienda de aplicaciones.",
+      "reload": "Recargar página"
+    }
+  },
+  "restricted": {
+    "suspendedTitle": "Tu cuenta está en solo lectura",
+    "suspended": "AccioSoft ha suspendido tu cuenta.",
+    "statement": "Motivo: {statement}",
+    "termsTitle": "Acepta los Términos y Condiciones nuevos para seguir",
+    "terms": "Entraron en vigor el {date} y todavía no los has aceptado.",
+    "termsNoDate": "Ya están en vigor y todavía no los has aceptado.",
+    "stillWorks": "Mientras tanto puedes consultar y copiar tus contraseñas y códigos, exportar tus datos y eliminar la cuenta. No puedes añadir, cambiar ni compartir nada.",
+    "pending": {
+      "one": "Hay {count} cambio guardado solo en este dispositivo: se enviará cuando la cuenta vuelva a la normalidad.",
+      "other": "Hay {count} cambios guardados solo en este dispositivo: se enviarán cuando la cuenta vuelva a la normalidad."
+    },
+    "help": "Ayuda y reclamaciones",
+    "review": "Revisar y aceptar"
+  },
+  "legal": {
+    "titleTerms": "Hemos actualizado los Términos y Condiciones",
+    "titlePrivacy": "Hemos actualizado la Política de Privacidad",
+    "titleBoth": "Hemos actualizado los Términos y la Política de Privacidad",
+    "whatChanged": "Lo que cambia está en los propios documentos. Léelos antes de decidir.",
+    "effective": "Entran en vigor el {date}. Si ese día no los has aceptado, tu cuenta quedará en solo lectura hasta que lo hagas: podrás consultar, exportar y eliminar la cuenta, pero no añadir ni cambiar nada.",
+    "overdue": "Entraron en vigor el {date}. Tu cuenta está en solo lectura hasta que los aceptes.",
+    "overdueNoDate": "Ya están en vigor. Tu cuenta está en solo lectura hasta que los aceptes.",
+    "acceptingTerms": "Al pulsar «Aceptar» aceptas la versión nueva de los Términos y Condiciones.",
+    "acceptingPrivacy": "Al pulsar «Aceptar» confirmas que has leído la versión nueva de la Política de Privacidad. Es información sobre tus datos, no un consentimiento.",
+    "acceptingBoth": "Al pulsar «Aceptar» aceptas la versión nueva de los Términos y Condiciones y confirmas que has leído la de la Política de Privacidad.",
+    "disagree": "Si no estás de acuerdo, puedes exportar tus datos y eliminar la cuenta en Ajustes.",
+    "termsLink": "Leer los Términos y Condiciones",
+    "privacyLink": "Leer la Política de Privacidad",
+    "accept": "Aceptar",
+    "later": "Más tarde",
+    "accepted": "Aceptación registrada. Gracias.",
+    "changedAgain": "Los documentos han vuelto a cambiar mientras los leías. Revísalos otra vez antes de aceptar."
+  },
+  "otherTab": {
+    "title": "AccioPass está abierto en otra pestaña",
+    "message": "La bóveda solo puede estar abierta en una pestaña a la vez, para que ningún cambio se pierda. Esta se ha bloqueado.",
+    "action": "Usar aquí",
+    "hint": "La otra pestaña se bloqueará y aquí tendrás que desbloquear de nuevo."
+  },
+  "splash": {
+    "loading": "Abriendo AccioPass…"
+  },
+  "crash": {
+    "title": "Algo ha fallado en esta pantalla",
+    "message": "No hemos podido mostrarla. Tus datos siguen guardados y cifrados en este dispositivo: no se ha perdido nada.",
+    "retry": "Volver a intentarlo",
+    "reload": "Recargar la página"
+  },
+  "notFound": {
+    "title": "Esta página no existe",
+    "message": "Puede que el enlace esté incompleto o que lo que buscabas se haya eliminado.",
+    "action": "Ir al inicio"
+  },
+  "recoveryReminder": {
+    "title": "Genera tus palabras de recuperación",
+    "message": "Verificaste tu correo en un momento distinto al del registro, así que no pudimos mostrarte las palabras de recuperación. Sin ellas no podrás recuperar la cuenta si olvidas la contraseña maestra. Genera unas nuevas en Ajustes > Seguridad > Palabras de recuperación.",
+    "unconfirmedTitle": "Tus palabras de recuperación no están confirmadas",
+    "unconfirmedMessage": "Las últimas palabras de recuperación que se generaron en este dispositivo no llegaron a confirmarse: la página se recargó o se bloqueó antes. Si no las apuntaste, puede que las que tengas ya no sirvan y no podrías recuperar la cuenta si olvidas la contraseña maestra. Genera unas nuevas y confírmalas en Ajustes > Seguridad > Palabras de recuperación.",
+    "action": "Generar palabras",
+    "later": "Ahora no"
+  }
+}

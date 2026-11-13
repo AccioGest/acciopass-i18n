@@ -1,0 +1,41 @@
+name: validar
+
+# Un solo resultado «validar» por petición de cambios: el de «pull_request»,
+# que comprueba el resultado de fusionarla con main. Los push solo se validan
+# en main (la rama de Crowdin, l10n_main, recibe un commit por fichero).
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validar-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validar:
+    name: validar
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          # El commit de fusión y sus dos padres: lo que hace falta para saber
+          # qué ficheros cambia la petición.
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Pruebas del validador
+        run: npm test
+      - name: Validar las traducciones
+        run: npm run validate
+      - name: Una petición de Crowdin solo toca traducciones
+        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'l10n_')
+        run: git diff --name-only --no-renames -z HEAD^1 HEAD | node scripts/check-l10n-pr.mjs

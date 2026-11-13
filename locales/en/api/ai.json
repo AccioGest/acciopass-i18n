@@ -1,0 +1,114 @@
+{
+  "list": {
+    "two": "{first} and {second}",
+    "start": "{first}, {rest}",
+    "middle": "{first}, {rest}",
+    "end": "{first} and {last}"
+  },
+  "generator": {
+    "pin": "Numeric PIN with {length} digits.",
+    "passphrase": "Passphrase of {words} {language} words, {details}: easy to remember and hard to guess.",
+    "wordlist": {
+      "es": "Spanish",
+      "en": "English"
+    },
+    "separator": {
+      "none": "with no separator",
+      "spaces": "separated by spaces",
+      "custom": "separated by \"{separator}\""
+    },
+    "capitalised": "capitalised",
+    "withNumber": "with a number",
+    "random": "Random password of {length} characters with {classes}.",
+    "classes": {
+      "uppercase": "uppercase letters",
+      "lowercase": "lowercase letters",
+      "digits": "digits",
+      "symbols": "symbols",
+      "symbolsOnly": "symbols (only {symbols})"
+    },
+    "noAmbiguous": "Without look-alike characters (0/O, 1/l/I).",
+    "forWifi": "Meant to be typed on TVs and consoles.",
+    "forBank": "Longer than usual because it protects a financial account.",
+    "onDevice": "It is generated on your device and never leaves it."
+  },
+  "report": {
+    "startWith": "Start with {items}.",
+    "more": "{count} more",
+    "breached": {
+      "title": {
+        "one": "Change {count} leaked password",
+        "other": "Change {count} leaked passwords"
+      },
+      "detail": "They appear in known data breaches and attackers try them automatically. Change them today on each service using the generator, and sign out the open sessions there."
+    },
+    "reused": {
+      "title": {
+        "one": "Stop reusing {count} password",
+        "other": "Stop reusing {count} passwords"
+      },
+      "detail": "If one of those services is breached, every account sharing the password is exposed. Generate a different one for each, starting with e-mail and banking."
+    },
+    "weak": {
+      "title": {
+        "one": "Strengthen {count} weak password",
+        "other": "Strengthen {count} weak passwords"
+      },
+      "detail": "They are short or predictable and can be guessed quickly. Replace them with random passwords of at least 16 characters or a five-word passphrase."
+    },
+    "accountTwoFactor": {
+      "title": "Turn on two-step verification for AccioPass",
+      "detail": "Your vault holds every other key. In Settings → Security you can require a code on top of the master password; keep the recovery codes somewhere safe."
+    },
+    "noTwoFactor": {
+      "title": {
+        "one": "Add a second factor to {count} account",
+        "other": "Add a second factor to {count} accounts"
+      },
+      "detail": "With a time-based code, a stolen password is not enough to get in. Turn it on in the security settings of each service and store the code in AccioPass."
+    },
+    "old": {
+      "title": {
+        "one": "Review {count} old password",
+        "other": "Review {count} old passwords"
+      },
+      "detail": "They have not been changed in a long time. Routine rotation is not needed, but renew the ones on important accounts and any created before you used a manager."
+    },
+    "insecureUrl": {
+      "title": {
+        "one": "Fix {count} unencrypted address",
+        "other": "Fix {count} unencrypted addresses"
+      },
+      "detail": "They use http://, so the password travels unencrypted. Change the saved address to https:// and, if the site does not support it, never reuse a password there."
+    },
+    "allGood": {
+      "title": "All good",
+      "detail": "Keep generating a different password for every new account and leave breach monitoring on: you will be told if anything changes."
+    },
+    "problems": {
+      "breached": {
+        "one": "{count} leaked",
+        "other": "{count} leaked"
+      },
+      "reused": {
+        "one": "{count} reused",
+        "other": "{count} reused"
+      },
+      "weak": {
+        "one": "{count} weak",
+        "other": "{count} weak"
+      }
+    },
+    "summary": {
+      "emptyVault": "Your vault is still empty. Add your accounts so their security can be reviewed.",
+      "nothingToFix": "Your security score is {score}/100 and we found nothing that needs fixing.",
+      "withProblems": "Your security score is {score}/100. Passwords with problems: {problems}. {advice}",
+      "startWithBreached": "Start with the leaked ones: they are at the highest risk.",
+      "inPriorityOrder": "Fix them in order of priority.",
+      "goodShape": "Your security score is {score}/100. Your passwords are in good shape; a few improvements would make your accounts harder to attack."
+    }
+  },
+  "assistant": {
+    "unavailable": "The assistant is not available right now. Everything else keeps working without it: the generator creates passwords on your device, the security report points out leaked, reused or weak passwords, and the breach check runs when you unlock your vault. Try again later and, in the meantime, never share passwords or codes with anyone who asks for them."
+  }
+}

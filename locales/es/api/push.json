@@ -1,0 +1,10 @@
+{
+  "loginApproval": {
+    "title": "¿Intentas iniciar sesión?",
+    "body": "Alguien está iniciando sesión en tu cuenta de AccioPass. Abre la app para confirmar que eres tú."
+  },
+  "breach": {
+    "title": "Contraseñas filtradas detectadas",
+    "body": "Abre AccioPass para ver cuáles son y cambiarlas."
+  }
+}

@@ -1,0 +1,434 @@
+{
+  "shared": {
+    "back": "Volver a Ajustes",
+    "loading": "Cargando…",
+    "loadFailed": "No hemos podido cargar esta información.",
+    "retry": "Reintentar",
+    "unknownPlace": "Ubicación desconocida",
+    "unknownIp": "IP desconocida",
+    "ip": "IP {ip}",
+    "approximate": "Las ubicaciones son aproximadas: se deducen de la dirección IP.",
+    "offline": "Sin conexión. Podrás hacer cambios aquí cuando la recuperes.",
+    "offlineStale": "Sin conexión. Ves lo último que se cargó; puede haber cambiado.",
+    "offlineEmpty": "Sin conexión. Esta información se consulta en el servidor: vuelve cuando la recuperes.",
+    "restricted": "Tu cuenta está en solo lectura: aquí puedes consultar, cerrar sesiones, desautorizar dispositivos y revocar claves de API, pero no añadir ni cambiar nada.",
+    "sessionEnded": "Tu sesión ha caducado. Inicia sesión de nuevo para ver y cambiar esto.",
+    "platform": {
+      "web": "Navegador",
+      "ios": "iPhone o iPad",
+      "android": "Android",
+      "desktop": "Ordenador",
+      "other": "Dispositivo"
+    }
+  },
+  "reauth": {
+    "password": "Contraseña maestra",
+    "passwordRequired": "Escribe tu contraseña maestra.",
+    "wrongPassword": "La contraseña maestra no es correcta. Vuelve a escribirla.",
+    "why": "Te la pedimos otra vez porque este cambio afecta a cómo se entra en tu cuenta.",
+    "code": "Código de verificación",
+    "codeHint": "Los 6 dígitos que muestra ahora tu app de autenticación.",
+    "codeRequired": "Escribe el código de 6 dígitos de tu app de autenticación.",
+    "codeFormat": "El código tiene 6 dígitos. Compruébalo en tu app de autenticación.",
+    "codeWrong": "El código no es correcto. Comprueba que es el actual y vuelve a escribirlo.",
+    "recoveryCode": "Código de recuperación",
+    "recoveryCodeHint": "Uno de los códigos que guardaste al activar la verificación en dos pasos. Cada uno sirve una sola vez.",
+    "recoveryCodeRequired": "Escribe uno de tus códigos de recuperación.",
+    "recoveryCodeFormat": "Un código de recuperación tiene 10 caracteres, como ABCDE-FGH23.",
+    "recoveryCodeWrong": "Ese código de recuperación no es válido o ya se ha usado.",
+    "useRecoveryCode": "Usar un código de recuperación",
+    "useAuthenticator": "Usar la app de autenticación",
+    "deriving": "Comprobando tu contraseña maestra en este dispositivo. El cálculo es lento a propósito; tarda unos segundos.",
+    "locked": "Demasiados códigos erróneos. Por seguridad, podrás volver a intentarlo en {time}.",
+    "lockedSoon": "Demasiados códigos erróneos. Por seguridad, espera unos minutos antes de volver a intentarlo."
+  },
+  "twoFactor": {
+    "title": "Verificación en dos pasos",
+    "intro": "Además de tu contraseña maestra, AccioPass pide un código de 6 dígitos de una app de autenticación para iniciar sesión.",
+    "status": {
+      "on": "Activada",
+      "off": "Desactivada",
+      "onTitle": "Tu cuenta pide un segundo paso",
+      "onBody": "Para iniciar sesión hacen falta tu contraseña maestra y un código de tu app de autenticación.",
+      "offTitle": "Tu cuenta entra con un solo paso",
+      "offBody": "Ahora un dispositivo nuevo se confirma con un código que te enviamos por correo o desde otro dispositivo de confianza. Con la verificación en dos pasos, quien consiga tu contraseña y tu correo seguirá sin poder entrar."
+    },
+    "enable": "Activar verificación en dos pasos",
+    "steps": "Paso {current} de {total}",
+    "password": {
+      "title": "Confirma tu contraseña maestra",
+      "body": "Activar el segundo paso cambia cómo se entra en tu cuenta, así que primero comprobamos que eres tú.",
+      "submit": "Continuar"
+    },
+    "setup": {
+      "title": "Añade AccioPass a tu app de autenticación",
+      "scan": "Abre tu app de autenticación en otro dispositivo y escanea este código QR.",
+      "qrLabel": "Código QR para añadir AccioPass a tu app de autenticación",
+      "manual": "¿No puedes escanearlo? Escribe esta clave a mano en la app.",
+      "secret": "Clave de configuración",
+      "secretCopied": "Clave copiada",
+      "whereTitle": "Guárdalo fuera de esta bóveda",
+      "where": "Usa otra app u otro dispositivo, no el autenticador de esta misma cuenta. El código se pide antes de abrir la bóveda: si viviera dentro, no podrías leerlo al iniciar sesión, y quien entrase en tu cuenta tendría las dos llaves a la vez.",
+      "codeLabel": "Escribe el código de 6 dígitos que muestra la app",
+      "codeHint": "Así comprobamos que la app ha quedado bien configurada.",
+      "codeRequired": "Escribe los 6 dígitos que muestra la app.",
+      "codeWrong": "Ese código no coincide. Espera al siguiente y escríbelo sin prisa; comprueba también que la hora del dispositivo es correcta.",
+      "submit": "Activar",
+      "restart": "Empezar de nuevo",
+      "expired": "La configuración ha caducado o se empezó en otro sitio. Empieza de nuevo para obtener un código QR nuevo."
+    },
+    "codes": {
+      "title": "Guarda tus códigos de recuperación",
+      "titleRegenerated": "Tus códigos de recuperación nuevos",
+      "enabled": "La verificación en dos pasos está activada.",
+      "regenerated": "Los códigos anteriores han dejado de funcionar.",
+      "body": "Si pierdes el dispositivo con tu app de autenticación, cada uno de estos códigos te deja entrar una vez. Solo los verás ahora.",
+      "listLabel": "Códigos de recuperación",
+      "copy": "Copiar códigos",
+      "copied": "Códigos copiados. Pégalos en un lugar seguro.",
+      "download": "Descargar",
+      "save": "Guardar",
+      "downloaded": "Archivo descargado. Guárdalo en un lugar seguro y bórralo de la carpeta de descargas.",
+      "downloadFailed": "No se ha podido guardar el archivo. Copia los códigos o apúntalos a mano.",
+      "fileTitle": "AccioPass — códigos de recuperación de la verificación en dos pasos",
+      "fileAccount": "Cuenta: {email}",
+      "fileGenerated": "Generados el {date}",
+      "fileExplanation": "Cada código sirve una sola vez, en lugar del código de tu app de autenticación. Guárdalos donde solo tú puedas verlos, lejos de tu contraseña maestra.",
+      "saved": "He guardado estos códigos en un lugar seguro",
+      "savedRequired": "Marca la casilla cuando los hayas guardado: no podremos volver a mostrártelos.",
+      "done": "Terminar"
+    },
+    "recovery": {
+      "title": "Códigos de recuperación",
+      "remaining": {
+        "one": "Te queda {count} código de recuperación sin usar.",
+        "other": "Te quedan {count} códigos de recuperación sin usar."
+      },
+      "none": "No te queda ningún código de recuperación.",
+      "lowHint": "Genera códigos nuevos antes de quedarte sin ninguno.",
+      "noneHint": "Si pierdes tu app de autenticación no podrás entrar. Genera códigos nuevos ahora.",
+      "about": "Te dejan entrar si no tienes a mano tu app de autenticación. Cada uno sirve una vez.",
+      "regenerate": "Generar códigos nuevos",
+      "regenerateTitle": "Generar códigos de recuperación nuevos",
+      "regenerateBody": "Los códigos que tengas guardados dejarán de funcionar y te mostraremos diez nuevos.",
+      "regenerateSubmit": "Generar códigos"
+    },
+    "disable": {
+      "title": "Desactivar la verificación en dos pasos",
+      "rowTitle": "Desactivar",
+      "rowBody": "Tu cuenta volverá a entrar con la contraseña maestra y, en un dispositivo nuevo, un código por correo.",
+      "body": "Tu cuenta quedará protegida solo por la contraseña maestra y tu correo. Los códigos de recuperación dejarán de servir.",
+      "submit": "Desactivar",
+      "done": "Verificación en dos pasos desactivada"
+    }
+  },
+  "devices": {
+    "title": "Dispositivos",
+    "intro": "Los dispositivos donde se ha iniciado sesión en tu cuenta. Uno de confianza entra solo con tu contraseña maestra; uno nuevo tiene que pasar antes una verificación.",
+    "listLabel": "Dispositivos de tu cuenta",
+    "current": "Este dispositivo",
+    "trusted": "De confianza",
+    "untrusted": "Sin verificar",
+    "untrustedHint": "Acertó la contraseña maestra pero no ha completado la verificación.",
+    "lastActive": "Última actividad: {time}",
+    "activeNow": "Activo ahora",
+    "sessions": {
+      "zero": "Sin sesión abierta",
+      "one": "{count} sesión abierta",
+      "other": "{count} sesiones abiertas"
+    },
+    "actionsFor": "Acciones de {name}",
+    "rename": {
+      "action": "Renombrar",
+      "title": "Renombrar dispositivo",
+      "body": "Un nombre que te ayude a reconocerlo, como «Portátil de casa».",
+      "label": "Nombre del dispositivo",
+      "required": "Escribe un nombre.",
+      "tooLong": "El nombre no puede pasar de {max} caracteres.",
+      "invalid": "El nombre tiene que caber en una línea, sin caracteres especiales de control.",
+      "submit": "Guardar",
+      "done": "Nombre guardado"
+    },
+    "revoke": {
+      "action": "Desautorizar",
+      "title": "¿Desautorizar «{name}»?",
+      "body": "Sus sesiones se cerrarán al momento y dejará de ser un dispositivo de confianza: para volver a entrar tendrá que pasar la verificación otra vez.",
+      "confirm": "Desautorizar dispositivo",
+      "done": {
+        "zero": "Dispositivo desautorizado.",
+        "one": "Dispositivo desautorizado. Se ha cerrado {count} sesión.",
+        "other": "Dispositivo desautorizado. Se han cerrado {count} sesiones."
+      },
+      "currentTitle": "¿Desautorizar este dispositivo?",
+      "currentBody": "Cerrarás la sesión aquí ahora mismo y, para volver a entrar, tendrás que pasar la verificación otra vez. La copia cifrada de tu bóveda seguirá guardada en este dispositivo.",
+      "currentConfirm": "Desautorizar y cerrar sesión"
+    },
+    "empty": "No hay ningún dispositivo que mostrar.",
+    "openSessions": {
+      "title": "Sesiones abiertas",
+      "description": "Cada inicio de sesión abre una. Cerrar una sesión no retira la confianza al dispositivo: podrá volver a entrar con la contraseña maestra.",
+      "listLabel": "Sesiones abiertas de tu cuenta",
+      "current": "Esta sesión",
+      "started": "Abierta el {date}",
+      "lastUsed": "Último uso: {time}",
+      "method": {
+        "password": "Con contraseña maestra",
+        "google": "Con Google",
+        "apple": "Con Apple",
+        "github": "Con GitHub",
+        "other": "Otro método"
+      },
+      "close": "Cerrar",
+      "closeLabel": "Cerrar la sesión de {name}",
+      "closeTitle": "¿Cerrar la sesión de «{name}»?",
+      "closeBody": "Ese dispositivo tendrá que volver a iniciar sesión. Seguirá siendo de confianza.",
+      "closeConfirm": "Cerrar sesión",
+      "closed": "Sesión cerrada",
+      "closeOthers": "Cerrar las demás sesiones",
+      "closeOthersTitle": "¿Cerrar las demás sesiones?",
+      "closeOthersBody": {
+        "one": "Se cerrará {count} sesión en otro dispositivo. La de este dispositivo sigue abierta.",
+        "other": "Se cerrarán {count} sesiones en otros dispositivos. La de este dispositivo sigue abierta."
+      },
+      "closeOthersConfirm": "Cerrar las demás",
+      "closedOthers": {
+        "zero": "No había más sesiones abiertas.",
+        "one": "Se ha cerrado {count} sesión.",
+        "other": "Se han cerrado {count} sesiones."
+      },
+      "onlyThis": "Solo está abierta la sesión de este dispositivo."
+    }
+  },
+  "history": {
+    "title": "Actividad de inicio de sesión",
+    "intro": "Cada vez que alguien ha intentado entrar en tu cuenta, lo consiguiera o no. Lo más reciente, primero.",
+    "listLabel": "Inicios de sesión, del más reciente al más antiguo",
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "result": {
+      "success": "Inicio de sesión correcto",
+      "failed": "Intento fallido",
+      "challenged": "Pendiente de verificación",
+      "approved": "Aprobado desde otro dispositivo",
+      "denied": "Rechazado desde otro dispositivo",
+      "locked": "Bloqueado por demasiados intentos"
+    },
+    "resultHint": {
+      "success": "Se abrió una sesión.",
+      "failed": "La contraseña o el código no eran correctos. No se abrió ninguna sesión.",
+      "challenged": "La contraseña era correcta y faltaba el segundo paso.",
+      "approved": "Confirmaste el inicio de sesión en otro de tus dispositivos.",
+      "denied": "Alguien acertó tu contraseña maestra y lo rechazaste. Si no la has cambiado desde entonces, cámbiala.",
+      "locked": "Hubo demasiados intentos seguidos y la cuenta quedó en pausa unos minutos."
+    },
+    "method": {
+      "password": "Contraseña maestra",
+      "google": "Google",
+      "apple": "Apple",
+      "github": "GitHub",
+      "other": "Otro método"
+    },
+    "newDevice": "Dispositivo nuevo",
+    "unknownDevice": "Dispositivo desconocido",
+    "empty": {
+      "title": "Todavía no hay actividad",
+      "description": "Aquí aparecerán los inicios de sesión de tu cuenta."
+    },
+    "loadMore": "Cargar más",
+    "loadMoreFailed": "No hemos podido cargar más actividad.",
+    "end": "No hay actividad más antigua."
+  },
+  "apiKeys": {
+    "title": "Claves de API",
+    "intro": "Una clave de API deja que un programa —un script, una copia de seguridad, otra aplicación— use tu cuenta sin iniciar sesión. Cada clave tiene solo los permisos que tú le des.",
+    "encryptedTitle": "Solo dan acceso a datos cifrados",
+    "encrypted": "Una clave no descifra nada: quien la use necesita además tu contraseña maestra para leer la bóveda. Sustituye a la sesión, no al cifrado.",
+    "docs": "Ver la documentación de la API",
+    "listTitle": "Tus claves",
+    "listLabel": "Claves de API de tu cuenta",
+    "count": "{count} de {limit}",
+    "limit": "Puedes tener hasta {limit} claves activas a la vez.",
+    "limitReached": "Has llegado al máximo de {limit} claves activas. Revoca alguna que ya no uses para crear otra.",
+    "passwordNote": "Al cambiar la contraseña maestra o recuperar la cuenta se revocan todas las claves: tendrás que crearlas de nuevo.",
+    "empty": {
+      "title": "No tienes ninguna clave",
+      "description": "Crea una cuando quieras conectar un programa a tu cuenta."
+    },
+    "create": "Crear clave",
+    "prefix": "Empieza por {prefix}…",
+    "created": "Creada el {date}",
+    "expires": "Caduca el {date}",
+    "expired": "Caducó el {date}",
+    "noExpiry": "No caduca",
+    "lastUsed": "Último uso: {time}",
+    "lastUsedFrom": "Último uso: {time}, desde la IP {ip}",
+    "neverUsed": "Sin usar todavía",
+    "status": {
+      "expired": "Caducada",
+      "expiringSoon": "Caduca pronto"
+    },
+    "permissions": "Permisos",
+    "scopes": {
+      "vaultRead": {
+        "label": "Leer la bóveda",
+        "description": "Descargar tus elementos cifrados y recibir avisos de cambios."
+      },
+      "vaultWrite": {
+        "label": "Escribir en la bóveda",
+        "description": "Crear, cambiar y eliminar elementos cifrados."
+      },
+      "sharesRead": {
+        "label": "Leer lo compartido",
+        "description": "Ver los elementos compartidos contigo y con quién compartes."
+      },
+      "sharesWrite": {
+        "label": "Gestionar lo compartido",
+        "description": "Compartir elementos, cambiar permisos y responder invitaciones."
+      },
+      "breachesRead": {
+        "label": "Consultar filtraciones",
+        "description": "Comprobar contraseñas contra filtraciones conocidas y leer el resumen."
+      },
+      "breachesWrite": {
+        "label": "Registrar filtraciones",
+        "description": "Guardar el resultado de una comprobación de filtraciones."
+      },
+      "accountRead": {
+        "label": "Leer la cuenta",
+        "description": "Ver tu correo, tus preferencias y las claves cifradas de la cuenta."
+      },
+      "aiUse": {
+        "label": "Usar la IA",
+        "description": "Llamar al asistente y a las funciones de IA con tus permisos."
+      }
+    },
+    "form": {
+      "title": "Crear clave de API",
+      "name": "Nombre",
+      "nameHint": "Para reconocerla después: «Copia de seguridad», «Script del NAS».",
+      "nameRequired": "Ponle un nombre a la clave.",
+      "nameTooLong": "El nombre no puede pasar de {max} caracteres.",
+      "nameInvalid": "El nombre tiene que caber en una línea, sin caracteres especiales de control.",
+      "scopes": "Permisos",
+      "scopesHint": "Marca solo lo que el programa necesite. Escribir no incluye leer.",
+      "scopesRequired": "Marca al menos un permiso.",
+      "expiry": "Caducidad",
+      "expiryOptions": {
+        "30": "30 días",
+        "90": "90 días",
+        "365": "365 días",
+        "never": "Nunca"
+      },
+      "expiryNever": "Una clave sin caducidad funciona hasta que la revoques o cambies la contraseña maestra.",
+      "confirm": "Confirma que eres tú",
+      "submit": "Crear clave"
+    },
+    "secret": {
+      "title": "Copia tu clave ahora",
+      "warningTitle": "No podrás volver a verla",
+      "warning": "AccioPass solo guarda una huella de la clave. Si la pierdes, tendrás que revocarla y crear otra.",
+      "copied": "Clave copiada. Pégala en un lugar seguro.",
+      "name": "Clave «{name}»",
+      "copyHint": "Cópiala con el botón de copiar y guárdala en un sitio seguro: no la escribas a mano.",
+      "acknowledge": "He copiado la clave y la he guardado en un lugar seguro",
+      "acknowledgeRequired": "Marca la casilla cuando la hayas guardado: al cerrar ya no se podrá ver.",
+      "done": "Hecho"
+    },
+    "revoke": {
+      "action": "Revocar",
+      "label": "Revocar la clave {name}",
+      "title": "¿Revocar «{name}»?",
+      "body": "Dejará de funcionar al momento en cualquier programa que la use. No se puede deshacer.",
+      "confirm": "Revocar clave",
+      "done": "Clave revocada"
+    }
+  },
+  "linked": {
+    "title": "Cuentas vinculadas",
+    "intro": "Vincula una cuenta de Google, Apple o GitHub para iniciar sesión con ella en lugar de escribir tu correo y tu contraseña maestra.",
+    "vaultTitle": "La bóveda se abre siempre con tu contraseña maestra",
+    "vault": "Entrar con uno de estos proveedores abre tu cuenta, pero no descifra nada: la clave de tu bóveda sale de la contraseña maestra, que solo conoces tú. El proveedor confirma quién eres; no tiene, ni puede tener, tus datos.",
+    "listLabel": "Proveedores de inicio de sesión",
+    "providers": {
+      "google": "Google",
+      "apple": "Apple",
+      "github": "GitHub"
+    },
+    "linkedNoEmail": "Vinculada",
+    "linkedOn": "Desde el {date}",
+    "lastLogin": "Último inicio de sesión: {time}",
+    "neverUsed": "Todavía no se ha usado para entrar",
+    "notLinked": "Sin vincular",
+    "unavailable": "No disponible en este servidor",
+    "simulated": "Servidor de desarrollo: los proveedores están simulados.",
+    "justLinked": "Cuenta vinculada. Ya puedes iniciar sesión con ella; la bóveda se seguirá abriendo con tu contraseña maestra.",
+    "link": {
+      "action": "Vincular",
+      "label": "Vincular {provider}",
+      "title": "Vincular {provider}",
+      "body": "Primero confirma tu contraseña maestra. Después te llevaremos a {provider} para que elijas la cuenta; al volver tendrás que desbloquear la bóveda.",
+      "submit": "Continuar con {provider}"
+    },
+    "unlink": {
+      "action": "Desvincular",
+      "label": "Desvincular {provider}",
+      "title": "¿Desvincular {provider}?",
+      "body": "Ya no podrás iniciar sesión con {provider}. Seguirás entrando con tu correo y tu contraseña maestra, y tu bóveda no cambia.",
+      "submit": "Desvincular",
+      "done": "{provider} desvinculado"
+    }
+  },
+  "recoveryWords": {
+    "title": "Palabras de recuperación",
+    "whatTitle": "Para qué sirven",
+    "what": "Son las 24 palabras que te mostramos al crear la cuenta. Con ellas y tu correo puedes elegir una contraseña maestra nueva si olvidas la actual. Sin ellas, nadie puede devolverte el acceso: tampoco AccioSoft.",
+    "cannotShowTitle": "No podemos volver a mostrártelas",
+    "cannotShow": "AccioPass no guarda tus palabras: solo se enseñan una vez, en tu dispositivo. Si no las encuentras, la única forma de tenerlas es generar unas nuevas.",
+    "generateTitle": "Generar palabras nuevas",
+    "generate": "Hazlo si las has perdido o si crees que alguien ha podido verlas. Te mostraremos 24 palabras nuevas y comprobaremos que las has apuntado.",
+    "oldStopTitle": "Las anteriores dejan de funcionar al momento",
+    "oldStop": "En cuanto se generen las nuevas, las palabras que tengas guardadas ya no servirán para recuperar la cuenta. Ten a mano papel y bolígrafo antes de empezar.",
+    "action": "Generar palabras nuevas",
+    "sheetTitle": "Generar palabras de recuperación nuevas",
+    "sheetBody": "Las palabras anteriores dejarán de funcionar en cuanto confirmes. A continuación verás las nuevas: no cierres la app hasta haberlas guardado.",
+    "submit": "Generar palabras nuevas",
+    "done": "Palabras de recuperación nuevas guardadas. Las anteriores ya no sirven.",
+    "needsUnlocked": "Sin conexión no se pueden cambiar: el servidor tiene que registrar las nuevas."
+  },
+  "password": {
+    "title": "Cambiar contraseña maestra",
+    "intro": "La contraseña maestra abre tu bóveda y tu cuenta. Elige una larga que no uses en ningún otro sitio.",
+    "current": "Contraseña maestra actual",
+    "currentRequired": "Escribe tu contraseña maestra actual.",
+    "currentWrong": "La contraseña maestra actual no es correcta. Vuelve a escribirla.",
+    "next": "Contraseña maestra nueva",
+    "same": "La contraseña nueva tiene que ser distinta de la actual.",
+    "effectsTitle": "Qué pasa al cambiarla",
+    "effects": {
+      "sessions": "Se cerrará la sesión en tus otros dispositivos. En ellos tendrás que entrar con la contraseña nueva.",
+      "apiKeys": "Se revocarán todas tus claves de API. Tendrás que crearlas de nuevo.",
+      "words": "Tus palabras de recuperación siguen siendo las mismas.",
+      "vault": "Tu bóveda no se vuelve a cifrar entera: solo cambia la clave que la protege, así que es rápido."
+    },
+    "submit": "Cambiar contraseña maestra",
+    "deriving": "Comprobando la contraseña actual y protegiendo la clave de tu bóveda con la nueva. Son dos cálculos lentos a propósito; pueden tardar unos segundos. No cierres esta pantalla.",
+    "maybeChanged": "Se ha cortado la conexión antes de recibir la respuesta, así que no sabemos si el cambio ha llegado. Tu bóveda sigue abierta. La próxima vez, prueba primero con la contraseña nueva y, si no funciona, con la anterior.",
+    "done": {
+      "title": "Contraseña maestra cambiada",
+      "body": "A partir de ahora, tu bóveda y tu cuenta se abren con la contraseña nueva. Te hemos enviado un correo de aviso.",
+      "sessions": {
+        "zero": "No había sesiones abiertas en otros dispositivos.",
+        "one": "Se ha cerrado {count} sesión en otro dispositivo.",
+        "other": "Se han cerrado {count} sesiones en otros dispositivos."
+      },
+      "apiKeys": {
+        "zero": "No tenías claves de API.",
+        "one": "Se ha revocado {count} clave de API. Créala de nuevo si la necesitas.",
+        "other": "Se han revocado {count} claves de API. Créalas de nuevo si las necesitas."
+      },
+      "words": "Tus palabras de recuperación no han cambiado.",
+      "back": "Volver a Ajustes",
+      "toApiKeys": "Ir a Claves de API"
+    }
+  }
+}

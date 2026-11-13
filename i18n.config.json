@@ -1,0 +1,12 @@
+{
+  "formatVersion": 1,
+  "sourceLocale": "es",
+  "projects": {
+    "app": {
+      "description": "Textos de la aplicación (Expo / React Native): un fichero por funcionalidad."
+    },
+    "api": {
+      "description": "Textos que la API dice a una persona: correos, notificaciones push, mensajes de error y respuestas del asistente."
+    }
+  }
+}

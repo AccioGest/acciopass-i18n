@@ -1,0 +1,168 @@
+{
+  "title": "Share",
+  "titleNamed": "Share “{name}”",
+  "accessTitle": "Access to “{name}”",
+  "explain": {
+    "title": "What sharing means",
+    "body": "Whoever receives this item will see all of its content — the password, any previous ones saved with it and the notes — and will be able to use it. While you share it, every change you make reaches them by itself within seconds. If you later remove their access, they stop receiving changes, but what they have already seen they know: change the password on the service then.",
+    "note": "Whoever receives this note will be able to read all of it. While you share it, every change you make reaches them by itself within seconds. If you later remove their access, they stop receiving changes, but what they have already read they know.",
+    "code": "Whoever receives this code will have it in their list of codes and will generate the same verification codes as you, because they also receive the key the codes are computed from. While you share it, every change you make reaches them by itself within seconds. If you later remove their access, it disappears from their list, but the key they have already received they know: set up two-step verification again on the service then.",
+    "encrypted": "It travels end-to-end encrypted: only the people you choose can open it. We cannot."
+  },
+  "offline": "Sharing needs a connection: the server has to be asked who has access. Try again when it is back.",
+  "add": {
+    "title": "Add people",
+    "description": "They need an AccioPass account. They will get an invitation they can accept or decline.",
+    "email": "The person’s e-mail",
+    "emailPlaceholder": "name@example.com",
+    "find": "Find",
+    "role": "Permission",
+    "roleFor": "Permission for {email}",
+    "staged": "To invite",
+    "unstage": "Remove {email} from the list",
+    "submit": {
+      "one": "Share with {count} person",
+      "other": "Share with {count} people"
+    },
+    "submitMore": {
+      "one": "Invite {count} person",
+      "other": "Invite {count} people"
+    },
+    "done": {
+      "one": "Invitation sent",
+      "other": "Invitations sent"
+    },
+    "placesLeft": {
+      "one": "There is room for {count} more person.",
+      "other": "There is room for {count} more people."
+    },
+    "full": "This item is already shared with the maximum of 25 people, counting you. Remove someone to add another person.",
+    "problems": {
+      "empty": "Write the person’s e-mail.",
+      "invalid": "Write a valid e-mail address, such as name@example.com.",
+      "self": "That is your own e-mail. This item is already yours.",
+      "member": "That person already has access or a pending invitation.",
+      "staged": "They are already on the list of people to invite.",
+      "full": "There is no room for anyone else: the maximum is 25 people, counting you."
+    }
+  },
+  "fingerprint": {
+    "label": "Their key fingerprint",
+    "explain": "Compare it with that person over another channel (in person or by phone) if you want to be sure it is them. They see it on this same item once accepted, under “See who has access”.",
+    "explainMember": "It lets you check over another channel (in person or by phone) that each person is who they say: the fingerprint you see here must be the one they see as their own.",
+    "copy": "Copy fingerprint",
+    "show": "Show key fingerprint",
+    "yours": "Your key fingerprint"
+  },
+  "roles": {
+    "owner": "Owner",
+    "editor": "Can edit",
+    "viewer": "Read only",
+    "editorHint": "Can view, copy and change the item.",
+    "viewerHint": "Can view and copy, but not change anything.",
+    "you": "You",
+    "youWithRole": "You · {role}"
+  },
+  "status": {
+    "pending": "Invitation pending",
+    "accepted": "Accepted",
+    "declined": "Declined",
+    "removed": "Access removed",
+    "left": "Left"
+  },
+  "members": {
+    "title": "People with access",
+    "count": {
+      "one": "{count} person, counting you",
+      "other": "{count} people, counting you"
+    },
+    "onlyYou": "For now only you have access.",
+    "memberLine": "{role} · {status}",
+    "actions": "Actions for {email}",
+    "makeEditor": "Let them edit",
+    "makeViewer": "Make read only",
+    "remove": "Remove access",
+    "roleChanged": "Permission changed",
+    "sharedBy": "Shared by {email}",
+    "yourRoleViewer": "Your permission is read only: you can view and copy it, not change it.",
+    "yourRoleEditor": "You have permission to edit: what you change updates for everyone with access.",
+    "managedByOwner": "Only {email} can invite more people or change permissions."
+  },
+  "remove": {
+    "title": "Remove access for {email}?",
+    "message": "We will encrypt the item again with a new key for those who stay, so {email} will not be able to read anything that changes from now on. What they have already seen they know: we recommend changing the password on the service too.",
+    "messagePending": "They have not accepted the invitation yet, so they have not seen the content. The invitation will be withdrawn.",
+    "messageCode": "We will encrypt the code again with a new key for those who stay, and it will disappear from {email}’s list of codes. They have already received the key the codes are computed from: we recommend setting up two-step verification again on the service.",
+    "confirm": "Remove access",
+    "done": "Access removed",
+    "afterTitle": "Access removed for {email}",
+    "after": "The item is now encrypted with a new key. If {email} got to see the password, change it now on the service and save the new one here.",
+    "afterCode": "The code is no longer in {email}’s list. If they got to see the key the codes are computed from, set up two-step verification again on the service and save the new code here.",
+    "afterAction": "Change password"
+  },
+  "stop": {
+    "title": "Stop sharing",
+    "description": "The item becomes yours alone again and disappears from the other people’s vaults.",
+    "descriptionCode": "The code becomes yours alone again and disappears from the other people’s lists of codes.",
+    "action": "Stop sharing",
+    "confirmTitle": "Stop sharing “{name}”?",
+    "confirmMessage": {
+      "one": "It will be private again and will disappear from the other person’s vault. What they have already seen they know: if it is a password, change it on the service.",
+      "other": "It will be private again and will disappear from the vaults of the other {count} people. What they have already seen they know: if it is a password, change it on the service."
+    },
+    "confirmMessageNobody": "It will be a private item again. Any invitations still pending will be withdrawn.",
+    "confirmMessageCode": {
+      "one": "It will be private again and will disappear from the other person’s list of codes. They have already received the key the codes are computed from: set up two-step verification again on the service if they should no longer get in.",
+      "other": "It will be private again and will disappear from the other {count} people’s lists of codes. They have already received the key the codes are computed from: set up two-step verification again on the service if they should no longer get in."
+    },
+    "done": "No longer shared. It is yours alone again."
+  },
+  "leave": {
+    "title": "Stop using this item",
+    "description": "It disappears from your vault. The others keep it.",
+    "titleCode": "Stop receiving this code",
+    "descriptionCode": "It disappears from your list of codes. The others keep it.",
+    "action": "Stop using"
+  },
+  "invitations": {
+    "title": "Invitations",
+    "subtitle": {
+      "one": "{count} pending",
+      "other": "{count} pending"
+    },
+    "explain": "When you accept, the item appears in your vault — or in Codes, if it is a verification code — and you see its content. If the person sharing it changes it, yours updates by itself.",
+    "from": "{email} wants to share an item with you",
+    "roleViewer": "You will be able to view and copy it, but not change it.",
+    "roleEditor": "You will be able to view, copy and change it.",
+    "hidden": "You will not know what it is until you accept: its content is encrypted and only opens for whoever accepts.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "acceptLabel": "Accept the invitation from {email}",
+    "declineLabel": "Decline the invitation from {email}",
+    "accepted": "Accepted. It is now in your vault.",
+    "acceptedCode": "Accepted. It is now in your list of codes.",
+    "open": "Open",
+    "declined": "Invitation declined",
+    "declineTitle": "Decline the invitation from {email}?",
+    "declineMessage": "Nothing will be added to your vault. {email} can invite you again later.",
+    "emptyTitle": "You have no pending invitations",
+    "emptyDescription": "When someone shares an item with you, it will appear here for you to accept or decline.",
+    "back": "Back to the vault",
+    "offline": "Accepting or declining invitations needs a connection.",
+    "knownOnly": "Only accept invitations from people you know."
+  },
+  "errors": {
+    "recipientNotFound": "We have not found anyone with that e-mail, or that person does not allow being found. Check the address with them.",
+    "lookupLimit": "You have looked up many people in a short time. Wait a while before looking for someone else.",
+    "membersLimit": "An item can be shared with at most 25 people, counting you. Remove someone to add another person.",
+    "inviteeFull": "That person has too many unanswered invitations. Ask them to review them and try again.",
+    "ownedLimit": "You have reached the maximum number of shared items for your account. Stop sharing one you no longer need.",
+    "alreadyMember": "That person already has access or a pending invitation.",
+    "changed": "The item or its permissions changed in the meantime. You now see the current version: review it and try again.",
+    "notOwner": "Only the person sharing the item can manage access.",
+    "gone": "This item is no longer shared. It may have been deleted, or your access may have been removed.",
+    "invitationGone": "This invitation is no longer available: the person who sent it has withdrawn it.",
+    "offline": "There is no connection to AccioPass. Sharing needs the internet: try again when it is back.",
+    "keyMismatch": "That person’s key does not match the fingerprint shown, so we have not sent anything. Look them up again."
+  }
+}

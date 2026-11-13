@@ -1,0 +1,35 @@
+{
+  "title": "Legal documents",
+  "names": {
+    "terminos": "Terms and conditions",
+    "privacidad": "Privacy policy",
+    "aviso-legal": "Legal notice"
+  },
+  "shortNames": {
+    "terminos": "Terms",
+    "privacidad": "Privacy",
+    "aviso-legal": "Legal notice"
+  },
+  "contents": "Contents",
+  "contentsOpen": "Show contents",
+  "updated": "Last updated",
+  "version": "Version",
+  "save": "Save",
+  "print": "Print",
+  "saved": "Document saved. It is in your downloads.",
+  "saveUnavailable": "We could not save the document on this device.",
+  "savedSource": "AccioPass document, a product of ACCIOSOFT S.L. Copy saved from the app.",
+  "spanishOnly": "This document is only available in Spanish, the language in which the contract is concluded.",
+  "pendingMark": "PENDING",
+  "pendingNotice": {
+    "one": "This document still has {count} detail to be completed. It is marked in the text as “PENDING”.",
+    "other": "This document still has {count} details to be completed. They are marked in the text as “PENDING”."
+  },
+  "others": "Other documents",
+  "help": "Help and complaints",
+  "productOf": "AccioPass is a product of AccioSoft.",
+  "notFound": {
+    "title": "This document does not exist",
+    "description": "These are the three legal documents of AccioPass."
+  }
+}

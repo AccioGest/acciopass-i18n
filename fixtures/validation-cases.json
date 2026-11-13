@@ -1,0 +1,2656 @@
+{
+  "formatVersion": 1,
+  "description": [
+    "Shared validation cases of the AccioPass translation format (README.md, \"Reglas\").",
+    "The validator of this repository (scripts/validate.mjs), the loader of the API (acciopass-backend) and the overlay of the app (acciopass-frontend) must each give exactly these verdicts; the three repositories run this same file in their tests (the other two keep a copy, refreshed by their \"npm run i18n:sync\").",
+    "messages: validateMessage(source, candidate) for a translation -> status \"ok\" (with the value to use), \"untranslated\" (empty: the source is used, no error) or \"invalid\".",
+    "sourceMessages: the same for a message of the source language -> \"ok\" or \"invalid\". The app does not run these: its source language is compiled into the build.",
+    "bundles: whole repositories. Each case is \"base\" with \"files\" laid over it (an object is written as canonical JSON, a string verbatim, null removes the file). expect.validator is the verdict of the repository validator (\"ok\" | \"error\"); expect.api whether a running API takes the bundle (\"accepted\") or keeps the catalogue it had (\"rejected\"); expect.messages, when present, lists per non-source locale the full keys of project \"app\" that survive message by message, in source order - what the validator returns in `messages`, what the API serves when it accepts the bundle, and what the app keeps if it is ever handed those files. expect.locales, when present, lists the languages a running API offers after accepting the bundle (GET /i18n), the source first and the rest by code: a language needs a valid locale.json and at least one valid text of project \"app\" to be offered.",
+    "protectedKeys: the key prefixes, per project, that are never taken from a live catalogue: the app and the API only ever show those texts as compiled into their build (README.md, \"Textos protegidos\"). The list is owned by the code of each consumer; this copy is what their tests compare it with, so that it cannot change in one place only."
+  ],
+  "protectedKeys": {
+    "app": [
+      "approvals.",
+      "auth.",
+      "accountSecurity.",
+      "security.",
+      "legal.",
+      "shell.legal.",
+      "shell.restricted.",
+      "shell.recoveryReminder.",
+      "settings.reauth.",
+      "settings.account.",
+      "sharing.fingerprint."
+    ],
+    "api": [
+      "emails.",
+      "push.loginApproval."
+    ]
+  },
+  "messages": [
+    {
+      "name": "a plain translation",
+      "source": "Guardar",
+      "candidate": "Save",
+      "status": "ok",
+      "value": "Save"
+    },
+    {
+      "name": "the same placeholders",
+      "source": "Hola, {name}",
+      "candidate": "Hello, {name}",
+      "status": "ok",
+      "value": "Hello, {name}"
+    },
+    {
+      "name": "a placeholder dropped",
+      "source": "Hola, {name}",
+      "candidate": "Hello",
+      "status": "ok",
+      "value": "Hello"
+    },
+    {
+      "name": "a placeholder used twice",
+      "source": "Hola, {name}",
+      "candidate": "{name}, hello {name}",
+      "status": "ok",
+      "value": "{name}, hello {name}"
+    },
+    {
+      "name": "an invented placeholder",
+      "source": "Hola, {name}",
+      "candidate": "Hello, {user}",
+      "status": "invalid"
+    },
+    {
+      "name": "an invented placeholder next to a real one",
+      "source": "Hola, {name}",
+      "candidate": "Hello, {name} {password}",
+      "status": "invalid"
+    },
+    {
+      "name": "a placeholder where the source has none",
+      "source": "Guardar",
+      "candidate": "Save {x}",
+      "status": "invalid"
+    },
+    {
+      "name": "{count} in a message that is not a plural",
+      "source": "Hola, {name}",
+      "candidate": "Hello {count}",
+      "status": "invalid"
+    },
+    {
+      "name": "a placeholder that differs only in case",
+      "source": "Hola, {name}",
+      "candidate": "Hello, {Name}",
+      "status": "invalid"
+    },
+    {
+      "name": "braces that are not a placeholder",
+      "source": "Guardar",
+      "candidate": "Save { now }",
+      "status": "ok",
+      "value": "Save { now }"
+    },
+    {
+      "name": "ICU-looking syntax is plain text (a warning in the repository, never interpreted)",
+      "source": "Guardar",
+      "candidate": "Save {n, number}",
+      "status": "ok",
+      "value": "Save {n, number}"
+    },
+    {
+      "name": "an ICU plural, whose branches read as invented placeholders",
+      "source": "Guardar",
+      "candidate": "{n, plural, one {x} other {y}}",
+      "status": "invalid"
+    },
+    {
+      "name": "an HTML tag",
+      "source": "Guardar",
+      "candidate": "Save <b>now</b>",
+      "status": "invalid"
+    },
+    {
+      "name": "a closing tag alone",
+      "source": "Guardar",
+      "candidate": "Save </b>",
+      "status": "invalid"
+    },
+    {
+      "name": "a script tag",
+      "source": "Guardar",
+      "candidate": "<script>alert(1)</script>",
+      "status": "invalid"
+    },
+    {
+      "name": "an upper-case tag with an event handler",
+      "source": "Guardar",
+      "candidate": "<IMG src=x onerror=alert(1)>",
+      "status": "invalid"
+    },
+    {
+      "name": "an unclosed tag at the end",
+      "source": "Guardar",
+      "candidate": "Save <a",
+      "status": "invalid"
+    },
+    {
+      "name": "markup in a text whose source also has a less-than sign",
+      "source": "Menos de 5 < 6",
+      "candidate": "Less than 5 <b>6</b>",
+      "status": "invalid"
+    },
+    {
+      "name": "a less-than sign in a sentence",
+      "source": "Menos de 5",
+      "candidate": "x < 5 and 3 <4",
+      "status": "ok",
+      "value": "x < 5 and 3 <4"
+    },
+    {
+      "name": "a heart",
+      "source": "Guardar",
+      "candidate": "Save <3",
+      "status": "ok",
+      "value": "Save <3"
+    },
+    {
+      "name": "HTML entities are plain text",
+      "source": "Guardar",
+      "candidate": "Save &lt;b&gt; &amp; go",
+      "status": "ok",
+      "value": "Save &lt;b&gt; &amp; go"
+    },
+    {
+      "name": "a new https address",
+      "source": "Abre la app",
+      "candidate": "Open https://evil.example/login",
+      "status": "invalid"
+    },
+    {
+      "name": "a new http address",
+      "source": "Abre la app",
+      "candidate": "Open http://evil.example",
+      "status": "invalid"
+    },
+    {
+      "name": "a new www address",
+      "source": "Abre la app",
+      "candidate": "Open www.evil.example",
+      "status": "invalid"
+    },
+    {
+      "name": "an address in upper case",
+      "source": "Abre la app",
+      "candidate": "Open HTTPS://EVIL.EXAMPLE",
+      "status": "invalid"
+    },
+    {
+      "name": "an address glued to a word",
+      "source": "Abre la app",
+      "candidate": "Openhttps://evil.example",
+      "status": "invalid"
+    },
+    {
+      "name": "the address of the source, with other punctuation after it",
+      "source": "Mira https://acciosoft.com.",
+      "candidate": "See https://acciosoft.com!",
+      "status": "ok",
+      "value": "See https://acciosoft.com!"
+    },
+    {
+      "name": "the address of the source with more path",
+      "source": "Mira https://acciosoft.com.",
+      "candidate": "See https://acciosoft.com/login",
+      "status": "invalid"
+    },
+    {
+      "name": "another host that starts the same",
+      "source": "Mira https://acciosoft.com.",
+      "candidate": "See https://acciosoft.com.evil.example",
+      "status": "invalid"
+    },
+    {
+      "name": "the address of the source with another scheme",
+      "source": "Mira https://acciosoft.com.",
+      "candidate": "See http://acciosoft.com",
+      "status": "invalid"
+    },
+    {
+      "name": "the address of the source in another case",
+      "source": "Mira https://acciosoft.com.",
+      "candidate": "See https://ACCIOSOFT.com",
+      "status": "invalid"
+    },
+    {
+      "name": "the address of the source with credentials in front",
+      "source": "Mira https://acciosoft.com.",
+      "candidate": "See https://acciosoft.com@evil.example",
+      "status": "invalid"
+    },
+    {
+      "name": "both addresses of the source",
+      "source": "Más en https://acciopass.example/ayuda y en www.acciopass.example.",
+      "candidate": "More at https://acciopass.example/ayuda and at www.acciopass.example.",
+      "status": "ok",
+      "value": "More at https://acciopass.example/ayuda and at www.acciopass.example."
+    },
+    {
+      "name": "one address of the source, the other dropped",
+      "source": "Más en https://acciopass.example/ayuda y en www.acciopass.example.",
+      "candidate": "More at www.acciopass.example",
+      "status": "ok",
+      "value": "More at www.acciopass.example"
+    },
+    {
+      "name": "an address of the source next to a new one",
+      "source": "Más en https://acciopass.example/ayuda y en www.acciopass.example.",
+      "candidate": "More at www.acciopass.example or www.evil.example",
+      "status": "invalid"
+    },
+    {
+      "name": "the word https without an address",
+      "source": "Usa https",
+      "candidate": "Use https, not http",
+      "status": "ok",
+      "value": "Use https, not http"
+    },
+    {
+      "name": "a bare scheme the source also has",
+      "source": "Usan http://, cambia a https://",
+      "candidate": "They use http://, switch to https://",
+      "status": "ok",
+      "value": "They use http://, switch to https://"
+    },
+    {
+      "name": "a bare scheme the source lacks",
+      "source": "Guardar",
+      "candidate": "http://",
+      "status": "invalid"
+    },
+    {
+      "name": "other schemes are addresses too",
+      "source": "Guardar",
+      "candidate": "mailto:a@b.example or ftp://x.example",
+      "status": "invalid"
+    },
+    {
+      "name": "a bell character",
+      "source": "Guardar",
+      "candidate": "Save\u0007",
+      "status": "invalid"
+    },
+    {
+      "name": "a NUL character",
+      "source": "Guardar",
+      "candidate": "Save\u0000",
+      "status": "invalid"
+    },
+    {
+      "name": "a carriage return",
+      "source": "Guardar",
+      "candidate": "Save\r\nnow",
+      "status": "invalid"
+    },
+    {
+      "name": "a tab",
+      "source": "Guardar",
+      "candidate": "Save\tnow",
+      "status": "invalid"
+    },
+    {
+      "name": "an escape character",
+      "source": "Guardar",
+      "candidate": "Save\u001b[31m",
+      "status": "invalid"
+    },
+    {
+      "name": "a DEL character",
+      "source": "Guardar",
+      "candidate": "Save\u007f",
+      "status": "invalid"
+    },
+    {
+      "name": "a C1 control character",
+      "source": "Guardar",
+      "candidate": "Save\u0085",
+      "status": "invalid"
+    },
+    {
+      "name": "a line break",
+      "source": "Guardar\nahora",
+      "candidate": "Save\nnow",
+      "status": "ok",
+      "value": "Save\nnow"
+    },
+    {
+      "name": "a line break the source lacks",
+      "source": "Guardar",
+      "candidate": "Save\nnow",
+      "status": "ok",
+      "value": "Save\nnow"
+    },
+    {
+      "name": "a bidirectional override",
+      "source": "Guardar",
+      "candidate": "Save \u202e now",
+      "status": "invalid"
+    },
+    {
+      "name": "a non-breaking space, accents, CJK and emoji",
+      "source": "Guardar",
+      "candidate": "Enregistrer ! 保存 🙂",
+      "status": "ok",
+      "value": "Enregistrer ! 保存 🙂"
+    },
+    {
+      "name": "an empty translation",
+      "source": "Guardar",
+      "candidate": "",
+      "status": "untranslated"
+    },
+    {
+      "name": "a blank translation",
+      "source": "Guardar",
+      "candidate": "   ",
+      "status": "untranslated"
+    },
+    {
+      "name": "a translation of line breaks only",
+      "source": "Guardar",
+      "candidate": "\n\n",
+      "status": "untranslated"
+    },
+    {
+      "name": "as long as a short source allows (source + 200)",
+      "source": "Sí",
+      "candidate": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "status": "ok",
+      "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "one more than a short source allows",
+      "source": "Sí",
+      "candidate": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "status": "invalid"
+    },
+    {
+      "name": "three times a long source",
+      "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "candidate": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "status": "ok",
+      "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "more than three times a long source",
+      "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "candidate": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "status": "invalid"
+    },
+    {
+      "name": "exactly the absolute cap",
+      "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "candidate": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "status": "ok",
+      "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "over the absolute cap",
+      "source": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "candidate": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "status": "invalid"
+    },
+    {
+      "name": "a number",
+      "source": "Guardar",
+      "candidate": 42,
+      "status": "invalid"
+    },
+    {
+      "name": "null",
+      "source": "Guardar",
+      "candidate": null,
+      "status": "invalid"
+    },
+    {
+      "name": "a list",
+      "source": "Guardar",
+      "candidate": [
+        "Save"
+      ],
+      "status": "invalid"
+    },
+    {
+      "name": "a boolean",
+      "source": "Guardar",
+      "candidate": true,
+      "status": "invalid"
+    },
+    {
+      "name": "a plural for a plain text",
+      "source": "Guardar",
+      "candidate": {
+        "one": "Save",
+        "other": "Saves"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "an empty plural for a plain text",
+      "source": "Guardar",
+      "candidate": {
+        "one": "",
+        "other": ""
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plain text for a plural",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": "{count} items",
+      "status": "invalid"
+    },
+    {
+      "name": "an empty text for a plural",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": "",
+      "status": "invalid"
+    },
+    {
+      "name": "a full plural",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "zero": "No items",
+        "one": "{count} item",
+        "other": "{count} items"
+      },
+      "status": "ok",
+      "value": {
+        "zero": "No items",
+        "one": "{count} item",
+        "other": "{count} items"
+      }
+    },
+    {
+      "name": "a full plural written in another order",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "other": "{count} items",
+        "one": "{count} item",
+        "zero": "No items"
+      },
+      "status": "ok",
+      "value": {
+        "zero": "No items",
+        "one": "{count} item",
+        "other": "{count} items"
+      }
+    },
+    {
+      "name": "a plural without zero",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "{count} item",
+        "other": "{count} items"
+      },
+      "status": "ok",
+      "value": {
+        "one": "{count} item",
+        "other": "{count} items"
+      }
+    },
+    {
+      "name": "a plural without {count}",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "One item",
+        "other": "Several items"
+      },
+      "status": "ok",
+      "value": {
+        "one": "One item",
+        "other": "Several items"
+      }
+    },
+    {
+      "name": "a \"zero\" the source does not have",
+      "source": {
+        "one": "{count} elemento de {owner}",
+        "other": "{count} elementos de {owner}"
+      },
+      "candidate": {
+        "zero": "Nothing of {owner}",
+        "one": "{count} item of {owner}",
+        "other": "{count} items of {owner}"
+      },
+      "status": "ok",
+      "value": {
+        "zero": "Nothing of {owner}",
+        "one": "{count} item of {owner}",
+        "other": "{count} items of {owner}"
+      }
+    },
+    {
+      "name": "an empty \"zero\" is dropped",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "zero": "",
+        "one": "{count} item",
+        "other": "{count} items"
+      },
+      "status": "ok",
+      "value": {
+        "one": "{count} item",
+        "other": "{count} items"
+      }
+    },
+    {
+      "name": "a blank \"zero\" is dropped",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "zero": "  ",
+        "one": "{count} item",
+        "other": "{count} items"
+      },
+      "status": "ok",
+      "value": {
+        "one": "{count} item",
+        "other": "{count} items"
+      }
+    },
+    {
+      "name": "a plural missing \"other\"",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "{count} item"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural missing \"one\"",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "other": "{count} items"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with only \"zero\"",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "zero": "None"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with an unknown form",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "a",
+        "other": "b",
+        "few": "c"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with a form that is not a text",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "a",
+        "other": 7
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural whose \"zero\" is not a text",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "zero": null,
+        "one": "a",
+        "other": "b"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with markup in one form",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "{count} item",
+        "other": "<a href=\"x\">{count}</a>"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with an invented placeholder",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "{count} item",
+        "other": "{count} items of {user}"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with a new address in \"zero\"",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "zero": "www.evil.example",
+        "one": "a",
+        "other": "b"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with a control character",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "a\u0007",
+        "other": "b"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural form longer than its source form allows",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "other": "b"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural form as long as its source form allows",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "other": "b"
+      },
+      "status": "ok",
+      "value": {
+        "one": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "other": "b"
+      }
+    },
+    {
+      "name": "a \"zero\" the source lacks, longer than \"other\" allows",
+      "source": {
+        "one": "{count} elemento de {owner}",
+        "other": "{count} elementos de {owner}"
+      },
+      "candidate": {
+        "zero": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "one": "a",
+        "other": "b"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a \"zero\" the source lacks, as long as \"other\" allows",
+      "source": {
+        "one": "{count} elemento de {owner}",
+        "other": "{count} elementos de {owner}"
+      },
+      "candidate": {
+        "zero": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "one": "a",
+        "other": "b"
+      },
+      "status": "ok",
+      "value": {
+        "zero": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "one": "a",
+        "other": "b"
+      }
+    },
+    {
+      "name": "a plural form may use an address from another form of the source",
+      "source": {
+        "one": "Uno, mira https://acciosoft.com",
+        "other": "Varios"
+      },
+      "candidate": {
+        "one": "One",
+        "other": "Many, see https://acciosoft.com"
+      },
+      "status": "ok",
+      "value": {
+        "one": "One",
+        "other": "Many, see https://acciosoft.com"
+      }
+    },
+    {
+      "name": "a plural with every form empty",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "",
+        "other": ""
+      },
+      "status": "untranslated"
+    },
+    {
+      "name": "a plural with every form empty, \"zero\" included",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "zero": "",
+        "one": "",
+        "other": ""
+      },
+      "status": "untranslated"
+    },
+    {
+      "name": "a plural with a blank \"one\" (half translated)",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "",
+        "other": "{count} items"
+      },
+      "status": "untranslated"
+    },
+    {
+      "name": "a plural with a blank \"other\" (half translated)",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "{count} item",
+        "other": " "
+      },
+      "status": "untranslated"
+    },
+    {
+      "name": "a plural with only \"zero\" translated",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "zero": "None",
+        "one": "",
+        "other": ""
+      },
+      "status": "untranslated"
+    },
+    {
+      "name": "an object that is not a plural, for a plain text",
+      "source": "Guardar",
+      "candidate": {
+        "title": "Save"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "an object that is not a plural, for a plural",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "nested": {
+          "key": "value"
+        }
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "an empty object for a plain text",
+      "source": "Guardar",
+      "candidate": {},
+      "status": "invalid"
+    },
+    {
+      "name": "an empty object for a plural",
+      "source": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {},
+      "status": "invalid"
+    },
+    {
+      "name": "a bare domain",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "Confirm your password at acciopass-login.com/unlock",
+      "status": "invalid"
+    },
+    {
+      "name": "a bare domain without a path",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "Go to acciopass-security.com now",
+      "status": "invalid"
+    },
+    {
+      "name": "an e-mail address",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "Write to security@acciopass-support.com",
+      "status": "invalid"
+    },
+    {
+      "name": "a protocol-relative address",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "Open //evil.example/login",
+      "status": "invalid"
+    },
+    {
+      "name": "an intent scheme",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "intent://scan/#Intent;scheme=x;end",
+      "status": "invalid"
+    },
+    {
+      "name": "a javascript scheme",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "javascript:alert(1)",
+      "status": "invalid"
+    },
+    {
+      "name": "a tel scheme",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "tel:900123456",
+      "status": "invalid"
+    },
+    {
+      "name": "a telephone number",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "Call 900 123 456 to confirm",
+      "status": "invalid"
+    },
+    {
+      "name": "a telephone number with separators",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "Call +1 (900) 123-45-67",
+      "status": "invalid"
+    },
+    {
+      "name": "an IP address",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "Open 10.0.0.1/login",
+      "status": "invalid"
+    },
+    {
+      "name": "a Markdown link to a bare domain",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "[Unlock here](evil.example/unlock)",
+      "status": "invalid"
+    },
+    {
+      "name": "full-width letters that fold into an address",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "ｈｔｔｐｓ：／／evil.example",
+      "status": "invalid"
+    },
+    {
+      "name": "an ideographic full stop as the dot of a domain",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "evil。example",
+      "status": "invalid"
+    },
+    {
+      "name": "a joiner inside a scheme",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "h\u200dttps://evil.example",
+      "status": "invalid"
+    },
+    {
+      "name": "the address of the source followed by an apostrophe and another host",
+      "source": "Mira https://acciosoft.com.",
+      "candidate": "See https://acciosoft.com'@evil.example/",
+      "status": "invalid"
+    },
+    {
+      "name": "a domain where the source has an e-mail address of that domain",
+      "source": "Escribe a ayuda@acciosoft.com",
+      "candidate": "Go to acciosoft.com",
+      "status": "invalid"
+    },
+    {
+      "name": "the bare domain of the source",
+      "source": "Escríbela como acciosoft.com",
+      "candidate": "Write it as acciosoft.com.",
+      "status": "ok",
+      "value": "Write it as acciosoft.com."
+    },
+    {
+      "name": "the e-mail address of the source",
+      "source": "Escribe a ayuda@acciosoft.com.",
+      "candidate": "Write to ayuda@acciosoft.com",
+      "status": "ok",
+      "value": "Write to ayuda@acciosoft.com"
+    },
+    {
+      "name": "a documentation domain needs no source",
+      "source": "Algo como nombre@ejemplo.com o ejemplo.com",
+      "candidate": "Something like name@example.com or example.org",
+      "status": "ok",
+      "value": "Something like name@example.com or example.org"
+    },
+    {
+      "name": "a documentation domain with a path is an address",
+      "source": "Hemos bloqueado un inicio de sesión.",
+      "candidate": "Open example.com/unlock",
+      "status": "invalid"
+    },
+    {
+      "name": "the telephone number of the source with a country prefix",
+      "source": "Por teléfono, en el 950 674 456.",
+      "candidate": "By phone, on +34 950 674 456.",
+      "status": "ok",
+      "value": "By phone, on +34 950 674 456."
+    },
+    {
+      "name": "the telephone number of the source with a long prefix",
+      "source": "Por teléfono, en el 950 674 456.",
+      "candidate": "By phone, on 0034 91 950 674 456.",
+      "status": "invalid"
+    },
+    {
+      "name": "decimals, versions, times and abbreviations are not addresses",
+      "source": "Mide 3,5 mm a las 10:30 (versión 1.2)",
+      "candidate": "It measures 3.5 mm at 10:30 a.m. (version 1.2), i.e. small and/or light",
+      "status": "ok",
+      "value": "It measures 3.5 mm at 10:30 a.m. (version 1.2), i.e. small and/or light"
+    },
+    {
+      "name": "ideographic full stops between sentences",
+      "source": "Hola. Adiós.",
+      "candidate": "你好。再见。",
+      "status": "ok",
+      "value": "你好。再见。"
+    },
+    {
+      "name": "a left-to-right mark",
+      "source": "Guardar",
+      "candidate": "Save\u200e",
+      "status": "invalid"
+    },
+    {
+      "name": "a bidirectional isolate",
+      "source": "No soy yo",
+      "candidate": "Deny \u2067evorppa\u2069",
+      "status": "invalid"
+    },
+    {
+      "name": "a zero-width space alone",
+      "source": "Guardar",
+      "candidate": "\u200b",
+      "status": "invalid"
+    },
+    {
+      "name": "a zero-width space inside a word",
+      "source": "Guardar",
+      "candidate": "Sa\u200bve",
+      "status": "invalid"
+    },
+    {
+      "name": "a braille blank alone",
+      "source": "Guardar",
+      "candidate": "\u2800",
+      "status": "invalid"
+    },
+    {
+      "name": "a Hangul filler alone",
+      "source": "Guardar",
+      "candidate": "\u3164",
+      "status": "invalid"
+    },
+    {
+      "name": "a word joiner",
+      "source": "Guardar",
+      "candidate": "Save\u2060",
+      "status": "invalid"
+    },
+    {
+      "name": "a soft hyphen",
+      "source": "Guardar",
+      "candidate": "Sa\u00adve",
+      "status": "invalid"
+    },
+    {
+      "name": "a line separator between words",
+      "source": "Guardar",
+      "candidate": "a\u2028b\u2029c",
+      "status": "invalid"
+    },
+    {
+      "name": "tag characters",
+      "source": "Guardar",
+      "candidate": "Save\udb40\udc41\udb40\udc7f",
+      "status": "invalid"
+    },
+    {
+      "name": "a byte-order mark inside a text",
+      "source": "Guardar",
+      "candidate": "Sa\ufeffve",
+      "status": "invalid"
+    },
+    {
+      "name": "a zero-width non-joiner inside a word",
+      "source": "Guardar",
+      "candidate": "می\u200cخواهم",
+      "status": "ok",
+      "value": "می\u200cخواهم"
+    },
+    {
+      "name": "an emoji with a variation selector and a joiner",
+      "source": "Guardar",
+      "candidate": "Save ❤\ufe0f 👨\u200d👩",
+      "status": "ok",
+      "value": "Save ❤\ufe0f 👨\u200d👩"
+    },
+    {
+      "name": "joiners and variation selectors alone are an empty translation",
+      "source": "Guardar",
+      "candidate": "\u200d\ufe0f\u200c",
+      "status": "untranslated"
+    },
+    {
+      "name": "a plural whose \"one\" is only a joiner (half translated)",
+      "source": {
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "\u200d",
+        "other": "{count} items"
+      },
+      "status": "untranslated"
+    },
+    {
+      "name": "a plural with a zero-width space as \"one\"",
+      "source": {
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "candidate": {
+        "one": "\u200b",
+        "other": "{count} items"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a shorthand format control",
+      "source": "Guardar",
+      "candidate": "Save\ud82f\udca0",
+      "status": "invalid"
+    },
+    {
+      "name": "a musical format control",
+      "source": "Guardar",
+      "candidate": "Sa\ud834\udd73ve",
+      "status": "invalid"
+    },
+    {
+      "name": "an unassigned default-ignorable code point",
+      "source": "Guardar",
+      "candidate": "Save\udb40\udc80",
+      "status": "invalid"
+    },
+    {
+      "name": "a language tag character alone",
+      "source": "Guardar",
+      "candidate": "\udb40\udc01",
+      "status": "invalid"
+    }
+  ],
+  "sourceMessages": [
+    {
+      "name": "a plain text",
+      "candidate": "Guardar",
+      "status": "ok"
+    },
+    {
+      "name": "a text with placeholders, an address, a line break and comparison signs",
+      "candidate": "Hola, {name}: 3 < 5\nMira https://acciosoft.com",
+      "status": "ok"
+    },
+    {
+      "name": "a plural",
+      "candidate": {
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "status": "ok"
+    },
+    {
+      "name": "a plural with zero",
+      "candidate": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "status": "ok"
+    },
+    {
+      "name": "an empty text",
+      "candidate": "",
+      "status": "invalid"
+    },
+    {
+      "name": "a blank text",
+      "candidate": "  ",
+      "status": "invalid"
+    },
+    {
+      "name": "markup",
+      "candidate": "Pulsa <b>Guardar</b>",
+      "status": "invalid"
+    },
+    {
+      "name": "a control character",
+      "candidate": "Guardar\t",
+      "status": "invalid"
+    },
+    {
+      "name": "a text at the absolute cap",
+      "candidate": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "status": "ok"
+    },
+    {
+      "name": "a text over the absolute cap",
+      "candidate": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "status": "invalid"
+    },
+    {
+      "name": "a number",
+      "candidate": 7,
+      "status": "invalid"
+    },
+    {
+      "name": "null",
+      "candidate": null,
+      "status": "invalid"
+    },
+    {
+      "name": "a list",
+      "candidate": [
+        "a"
+      ],
+      "status": "invalid"
+    },
+    {
+      "name": "a plural missing \"other\"",
+      "candidate": {
+        "one": "Uno"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with an empty form",
+      "candidate": {
+        "one": "Uno",
+        "other": ""
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with an empty \"zero\"",
+      "candidate": {
+        "zero": "",
+        "one": "Uno",
+        "other": "Varios"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with a form that is not a text",
+      "candidate": {
+        "one": "Uno",
+        "other": 3
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a plural with markup",
+      "candidate": {
+        "one": "Uno",
+        "other": "<i>Varios</i>"
+      },
+      "status": "invalid"
+    },
+    {
+      "name": "a bidirectional override in the source",
+      "candidate": "Hola \u202eodnum",
+      "status": "invalid"
+    },
+    {
+      "name": "a zero-width space in the source",
+      "candidate": "Ho\u200bla",
+      "status": "invalid"
+    },
+    {
+      "name": "only a joiner",
+      "candidate": "\u200d",
+      "status": "invalid"
+    },
+    {
+      "name": "a bare domain, an e-mail address and a telephone number in the source",
+      "candidate": "Escribe a ayuda@acciosoft.com, entra en acciosoft.com o llama al 950 674 456",
+      "status": "ok"
+    }
+  ],
+  "base": {
+    "i18n.config.json": {
+      "formatVersion": 1,
+      "sourceLocale": "es",
+      "projects": {
+        "app": {},
+        "api": {}
+      }
+    },
+    "locales/es/locale.json": {
+      "name": "Español",
+      "englishName": "Spanish"
+    },
+    "locales/es/app/common.json": {
+      "actions": {
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      },
+      "greeting": "Hola, {name}",
+      "items": {
+        "zero": "Sin elementos",
+        "one": "{count} elemento",
+        "other": "{count} elementos"
+      },
+      "help": "Más información en https://acciopass.example/ayuda."
+    },
+    "locales/es/app/vault.json": {
+      "empty": "Tu bóveda está vacía",
+      "title": "Bóveda"
+    },
+    "locales/es/api/emails.json": {
+      "welcome": {
+        "subject": "Te damos la bienvenida a AccioPass",
+        "body": "Hola, {name}:\ntu cuenta ya está lista."
+      }
+    },
+    "locales/en/locale.json": {
+      "name": "English",
+      "englishName": "English"
+    },
+    "locales/en/app/common.json": {
+      "actions": {
+        "save": "Save",
+        "cancel": "Cancel"
+      },
+      "greeting": "Hello, {name}",
+      "items": {
+        "zero": "No items",
+        "one": "{count} item",
+        "other": "{count} items"
+      },
+      "help": "More information at https://acciopass.example/ayuda."
+    },
+    "locales/en/app/vault.json": {
+      "empty": "Your vault is empty",
+      "title": "Vault"
+    },
+    "locales/en/api/emails.json": {
+      "welcome": {
+        "subject": "Welcome to AccioPass",
+        "body": "Hello {name},\nyour account is ready."
+      }
+    }
+  },
+  "bundles": [
+    {
+      "name": "the base: Spanish and a complete English",
+      "files": {},
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        },
+        "locales": [
+          "es",
+          "en"
+        ]
+      }
+    },
+    {
+      "name": "an incomplete translation",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save"
+          }
+        },
+        "locales/en/app/vault.json": null
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save"
+          ]
+        }
+      }
+    },
+    {
+      "name": "empty texts, as Crowdin exports what nobody translated",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "",
+            "cancel": "Cancel"
+          },
+          "greeting": "",
+          "items": {
+            "zero": "",
+            "one": "",
+            "other": ""
+          },
+          "help": ""
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.cancel",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a half-translated plural is left out, without an error",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "Hello, {name}",
+          "items": {
+            "one": "{count} item",
+            "other": ""
+          },
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a translation written in another key order",
+      "files": {
+        "locales/en/app/common.json": {
+          "help": "More information at https://acciopass.example/ayuda.",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "greeting": "Hello, {name}",
+          "actions": {
+            "cancel": "Cancel",
+            "save": "Save"
+          }
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a new language with a few texts",
+      "files": {
+        "locales/pt/locale.json": {
+          "name": "Português",
+          "englishName": "Portuguese"
+        },
+        "locales/pt/app/common.json": {
+          "actions": {
+            "save": "Guardar"
+          },
+          "greeting": "Olá, {name}"
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ],
+          "pt": [
+            "common.actions.save",
+            "common.greeting"
+          ]
+        },
+        "locales": [
+          "es",
+          "en",
+          "pt"
+        ]
+      }
+    },
+    {
+      "name": "a regional language",
+      "files": {
+        "locales/pt-BR/locale.json": {
+          "name": "Português (Brasil)",
+          "englishName": "Portuguese (Brazil)"
+        },
+        "locales/pt-BR/app/vault.json": {
+          "title": "Cofre"
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ],
+          "pt-BR": [
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a new language with locale.json and no texts yet is not offered",
+      "files": {
+        "locales/pt/locale.json": {
+          "name": "Português",
+          "englishName": "Portuguese"
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ],
+          "pt": []
+        },
+        "locales": [
+          "es",
+          "en"
+        ]
+      }
+    },
+    {
+      "name": "markup in one message: only that message is lost to the app, the bundle is refused",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "<a href=\"x\">{name}</a>",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "an invented placeholder",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "Hi {name}, type {masterPassword}",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a foreign address",
+      "files": {
+        "locales/en/app/vault.json": {
+          "empty": "Sign in again at https://evil.example",
+          "title": "Vault"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "two bad messages in two files",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "Hello, {name}",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More at www.evil.example"
+        },
+        "locales/en/app/vault.json": {
+          "empty": "Your vault is empty",
+          "title": "Vault\u0007"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "vault.empty"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a key the source does not have",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "Hello, {name}",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More information at https://acciopass.example/ayuda.",
+          "more": "More"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a message turned into a group",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": {
+            "formal": "Good day"
+          },
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a group turned into a message",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": "Actions",
+          "greeting": "Hello, {name}",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a plural turned into a text",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "Hello, {name}",
+          "items": "{count} items",
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a text turned into a plural",
+      "files": {
+        "locales/en/app/vault.json": {
+          "empty": "Your vault is empty",
+          "title": {
+            "one": "Vault",
+            "other": "Vaults"
+          }
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a plural with a form the format does not have",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "Hello, {name}",
+          "items": {
+            "one": "a",
+            "few": "b",
+            "other": "c"
+          },
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a \"__proto__\" key",
+      "files": {
+        "locales/en/app/vault.json": "{\n  \"empty\": \"Your vault is empty\",\n  \"title\": \"Vault\",\n  \"__proto__\": {\n    \"polluted\": \"yes\"\n  }\n}\n"
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a \"constructor\" key inside a group",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel",
+            "constructor": "x"
+          },
+          "greeting": "Hello, {name}",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a key with a dot",
+      "files": {
+        "locales/en/app/vault.json": {
+          "empty": "Your vault is empty",
+          "title": "Vault",
+          "a.b": "x"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a translated file that is a list",
+      "files": {
+        "locales/en/app/vault.json": [
+          "Vault"
+        ]
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a translated file that is not JSON",
+      "files": {
+        "locales/en/app/vault.json": "{ \"title\": \"Vault\", }\n"
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a key written twice in one object",
+      "files": {
+        "locales/en/app/vault.json": "{\n  \"empty\": \"Your vault is empty\",\n  \"title\": \"Vault\",\n  \"title\": \"Type your master password at evil.example\"\n}\n"
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "a bad text among the texts of the API",
+      "files": {
+        "locales/en/api/emails.json": {
+          "welcome": {
+            "subject": "Welcome to AccioPass",
+            "body": "Hello {name}, confirm at https://evil.example"
+          }
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a file the source language does not have: an error in the repository, skipped by a running API",
+      "files": {
+        "locales/en/app/extra.json": {
+          "hello": "Hello"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a file of one project placed in the other",
+      "files": {
+        "locales/en/api/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "Hello, {name}",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More information at https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a language folder whose name is not a locale code: an error in the repository, skipped by a running API",
+      "files": {
+        "locales/EN_us/locale.json": {
+          "name": "English (US)",
+          "englishName": "English (US)"
+        },
+        "locales/EN_us/app/vault.json": {
+          "empty": "Your vault is empty",
+          "title": "Vault"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "accepted",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a language without locale.json is not published; the rest is served",
+      "files": {
+        "locales/pt/app/vault.json": {
+          "title": "Cofre"
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "locales": [
+          "es",
+          "en"
+        ],
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a locale.json with an address in the name",
+      "files": {
+        "locales/en/locale.json": {
+          "name": "English www.evil.example",
+          "englishName": "English"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "a locale.json with markup in the name",
+      "files": {
+        "locales/en/locale.json": {
+          "name": "<b>English</b>",
+          "englishName": "English"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "a locale.json with an unknown field",
+      "files": {
+        "locales/en/locale.json": {
+          "name": "English",
+          "englishName": "English",
+          "direction": "rtl"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "an empty text in the source language",
+      "files": {
+        "locales/es/app/common.json": {
+          "actions": {
+            "save": "Guardar",
+            "cancel": "Cancelar"
+          },
+          "greeting": "",
+          "items": {
+            "zero": "Sin elementos",
+            "one": "{count} elemento",
+            "other": "{count} elementos"
+          },
+          "help": "Más información en https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "markup in the source language",
+      "files": {
+        "locales/es/app/vault.json": {
+          "empty": "Tu bóveda está vacía",
+          "title": "<b>Bóveda</b>"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "half a plural in the source language",
+      "files": {
+        "locales/es/app/common.json": {
+          "actions": {
+            "save": "Guardar",
+            "cancel": "Cancelar"
+          },
+          "greeting": "Hola, {name}",
+          "items": {
+            "one": "Uno"
+          },
+          "help": "Más información en https://acciopass.example/ayuda."
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "no source language",
+      "files": {
+        "locales/es/locale.json": null,
+        "locales/es/app/common.json": null,
+        "locales/es/app/vault.json": null,
+        "locales/es/api/emails.json": null
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "a format version from the future",
+      "files": {
+        "i18n.config.json": {
+          "formatVersion": 2,
+          "sourceLocale": "es",
+          "projects": {
+            "app": {},
+            "api": {}
+          }
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "a group named like a method every object has, in the source",
+      "files": {
+        "locales/es/app/common.json": {
+          "actions": {
+            "save": "Guardar",
+            "cancel": "Cancelar"
+          },
+          "greeting": "Hola, {name}",
+          "items": {
+            "zero": "Sin elementos",
+            "one": "{count} elemento",
+            "other": "{count} elementos"
+          },
+          "help": "Más información en https://acciopass.example/ayuda.",
+          "hasOwnProperty": {
+            "call": "hola"
+          }
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "a text named toString in the source",
+      "files": {
+        "locales/es/app/common.json": {
+          "actions": {
+            "save": "Guardar",
+            "cancel": "Cancelar"
+          },
+          "greeting": "Hola, {name}",
+          "items": {
+            "zero": "Sin elementos",
+            "one": "{count} elemento",
+            "other": "{count} elementos"
+          },
+          "help": "Más información en https://acciopass.example/ayuda.",
+          "toString": "hola"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "a nested key named valueOf in the source",
+      "files": {
+        "locales/es/app/vault.json": {
+          "empty": "Tu bóveda está vacía",
+          "title": "Bóveda",
+          "more": {
+            "valueOf": "hola"
+          }
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    },
+    {
+      "name": "a key named toString in a translation",
+      "files": {
+        "locales/en/app/common.json": {
+          "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+          },
+          "greeting": "Hello, {name}",
+          "items": {
+            "zero": "No items",
+            "one": "{count} item",
+            "other": "{count} items"
+          },
+          "help": "More information at https://acciopass.example/ayuda.",
+          "toString": {
+            "call": "x"
+          }
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a file named like a method every object has",
+      "files": {
+        "locales/es/app/toString.json": {
+          "call": "hola"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "accepted",
+        "locales": [
+          "es",
+          "en"
+        ],
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a bare domain in a translation",
+      "files": {
+        "locales/en/app/vault.json": {
+          "empty": "Confirm it at acciopass-login.com",
+          "title": "Vault"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "an invisible translation",
+      "files": {
+        "locales/en/app/vault.json": {
+          "empty": "\u200b",
+          "title": "Vault"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a bidirectional override in a translation",
+      "files": {
+        "locales/en/app/vault.json": {
+          "empty": "Empty",
+          "title": "Vault \u202ex"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected",
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a language added in Crowdin: every file exported empty and no locale.json",
+      "files": {
+        "locales/fr/app/common.json": {
+          "actions": {
+            "save": "",
+            "cancel": ""
+          },
+          "greeting": "",
+          "items": {
+            "zero": "",
+            "one": "",
+            "other": ""
+          },
+          "help": ""
+        },
+        "locales/fr/app/vault.json": {
+          "empty": "",
+          "title": ""
+        },
+        "locales/fr/api/emails.json": {
+          "welcome": {
+            "subject": "",
+            "body": ""
+          }
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "locales": [
+          "es",
+          "en"
+        ],
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ]
+        }
+      }
+    },
+    {
+      "name": "a language with locale.json whose files are all empty is not offered",
+      "files": {
+        "locales/fr/locale.json": {
+          "name": "Français",
+          "englishName": "French"
+        },
+        "locales/fr/app/common.json": {
+          "actions": {
+            "save": "",
+            "cancel": ""
+          },
+          "greeting": "",
+          "items": {
+            "zero": "",
+            "one": "",
+            "other": ""
+          },
+          "help": ""
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "locales": [
+          "es",
+          "en"
+        ],
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ],
+          "fr": []
+        }
+      }
+    },
+    {
+      "name": "a language with texts of the API only is not offered",
+      "files": {
+        "locales/fr/locale.json": {
+          "name": "Français",
+          "englishName": "French"
+        },
+        "locales/fr/api/emails.json": {
+          "welcome": {
+            "subject": "Welcome to AccioPass",
+            "body": "Hello {name},\nyour account is ready."
+          }
+        }
+      },
+      "expect": {
+        "validator": "ok",
+        "api": "accepted",
+        "locales": [
+          "es",
+          "en"
+        ],
+        "messages": {
+          "en": [
+            "common.actions.save",
+            "common.actions.cancel",
+            "common.greeting",
+            "common.items",
+            "common.help",
+            "vault.empty",
+            "vault.title"
+          ],
+          "fr": []
+        }
+      }
+    },
+    {
+      "name": "a language without locale.json and a hostile text: still refused",
+      "files": {
+        "locales/fr/app/vault.json": {
+          "title": "<b>Coffre</b>"
+        }
+      },
+      "expect": {
+        "validator": "error",
+        "api": "rejected"
+      }
+    }
+  ]
+}

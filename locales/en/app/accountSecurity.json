@@ -1,0 +1,434 @@
+{
+  "shared": {
+    "back": "Back to Settings",
+    "loading": "Loading…",
+    "loadFailed": "We could not load this information.",
+    "retry": "Try again",
+    "unknownPlace": "Unknown location",
+    "unknownIp": "Unknown IP",
+    "ip": "IP {ip}",
+    "approximate": "Locations are approximate: they are worked out from the IP address.",
+    "offline": "You are offline. You can make changes here once you are back online.",
+    "offlineStale": "You are offline. This is what was loaded last; it may have changed.",
+    "offlineEmpty": "You are offline. This information is read from the server: come back once you are online.",
+    "restricted": "Your account is read-only: here you can look, close sessions, deauthorise devices and revoke API keys, but not add or change anything.",
+    "sessionEnded": "Your session has expired. Sign in again to see and change this.",
+    "platform": {
+      "web": "Browser",
+      "ios": "iPhone or iPad",
+      "android": "Android",
+      "desktop": "Computer",
+      "other": "Device"
+    }
+  },
+  "reauth": {
+    "password": "Master password",
+    "passwordRequired": "Type your master password.",
+    "wrongPassword": "That is not your master password. Type it again.",
+    "why": "We ask for it again because this change affects how your account is signed in to.",
+    "code": "Verification code",
+    "codeHint": "The 6 digits your authenticator app shows right now.",
+    "codeRequired": "Type the 6-digit code from your authenticator app.",
+    "codeFormat": "The code has 6 digits. Check it in your authenticator app.",
+    "codeWrong": "That code is not right. Check that it is the current one and type it again.",
+    "recoveryCode": "Recovery code",
+    "recoveryCodeHint": "One of the codes you saved when you turned on two-step verification. Each works only once.",
+    "recoveryCodeRequired": "Type one of your recovery codes.",
+    "recoveryCodeFormat": "A recovery code has 10 characters, like ABCDE-FGH23.",
+    "recoveryCodeWrong": "That recovery code is not valid or has already been used.",
+    "useRecoveryCode": "Use a recovery code",
+    "useAuthenticator": "Use the authenticator app",
+    "deriving": "Checking your master password on this device. The calculation is slow on purpose; it takes a few seconds.",
+    "locked": "Too many wrong codes. For your security, you can try again in {time}.",
+    "lockedSoon": "Too many wrong codes. For your security, wait a few minutes before trying again."
+  },
+  "twoFactor": {
+    "title": "Two-step verification",
+    "intro": "On top of your master password, AccioPass asks for a 6-digit code from an authenticator app to sign in.",
+    "status": {
+      "on": "On",
+      "off": "Off",
+      "onTitle": "Your account asks for a second step",
+      "onBody": "Signing in takes your master password and a code from your authenticator app.",
+      "offTitle": "Your account signs in with one step",
+      "offBody": "Right now a new device is confirmed with a code we e-mail you, or from another trusted device. With two-step verification, someone who gets hold of your password and your mailbox still cannot get in."
+    },
+    "enable": "Turn on two-step verification",
+    "steps": "Step {current} of {total}",
+    "password": {
+      "title": "Confirm your master password",
+      "body": "Turning on the second step changes how your account is signed in to, so first we check that it is you.",
+      "submit": "Continue"
+    },
+    "setup": {
+      "title": "Add AccioPass to your authenticator app",
+      "scan": "Open your authenticator app on another device and scan this QR code.",
+      "qrLabel": "QR code to add AccioPass to your authenticator app",
+      "manual": "Cannot scan it? Type this key into the app by hand.",
+      "secret": "Set-up key",
+      "secretCopied": "Key copied",
+      "whereTitle": "Keep it outside this vault",
+      "where": "Use another app or another device, not the authenticator of this same account. The code is asked for before the vault opens: if it lived inside, you could not read it when signing in, and whoever got into your account would hold both keys at once.",
+      "codeLabel": "Type the 6-digit code the app shows",
+      "codeHint": "This is how we check the app has been set up correctly.",
+      "codeRequired": "Type the 6 digits the app shows.",
+      "codeWrong": "That code does not match. Wait for the next one and type it carefully; also check that the device clock is right.",
+      "submit": "Turn on",
+      "restart": "Start again",
+      "expired": "The set-up has expired or was started somewhere else. Start again to get a new QR code."
+    },
+    "codes": {
+      "title": "Save your recovery codes",
+      "titleRegenerated": "Your new recovery codes",
+      "enabled": "Two-step verification is on.",
+      "regenerated": "The previous codes have stopped working.",
+      "body": "If you lose the device with your authenticator app, each of these codes lets you in once. You will only see them now.",
+      "listLabel": "Recovery codes",
+      "copy": "Copy codes",
+      "copied": "Codes copied. Paste them somewhere safe.",
+      "download": "Download",
+      "save": "Save",
+      "downloaded": "File downloaded. Keep it somewhere safe and delete it from your downloads folder.",
+      "downloadFailed": "The file could not be saved. Copy the codes or write them down.",
+      "fileTitle": "AccioPass — recovery codes for two-step verification",
+      "fileAccount": "Account: {email}",
+      "fileGenerated": "Generated on {date}",
+      "fileExplanation": "Each code works only once, in place of the code from your authenticator app. Keep them where only you can see them, away from your master password.",
+      "saved": "I have saved these codes somewhere safe",
+      "savedRequired": "Tick the box once you have saved them: we will not be able to show them again.",
+      "done": "Finish"
+    },
+    "recovery": {
+      "title": "Recovery codes",
+      "remaining": {
+        "one": "You have {count} unused recovery code left.",
+        "other": "You have {count} unused recovery codes left."
+      },
+      "none": "You have no recovery codes left.",
+      "lowHint": "Generate new codes before you run out.",
+      "noneHint": "If you lose your authenticator app you will not be able to sign in. Generate new codes now.",
+      "about": "They let you in when your authenticator app is not at hand. Each works once.",
+      "regenerate": "Generate new codes",
+      "regenerateTitle": "Generate new recovery codes",
+      "regenerateBody": "The codes you have saved will stop working and we will show you ten new ones.",
+      "regenerateSubmit": "Generate codes"
+    },
+    "disable": {
+      "title": "Turn off two-step verification",
+      "rowTitle": "Turn off",
+      "rowBody": "Your account will sign in with the master password again and, on a new device, a code by e-mail.",
+      "body": "Your account will be protected by the master password and your mailbox only. The recovery codes will stop working.",
+      "submit": "Turn off",
+      "done": "Two-step verification turned off"
+    }
+  },
+  "devices": {
+    "title": "Devices",
+    "intro": "The devices your account has been signed in to. A trusted one gets in with just your master password; a new one has to pass a verification first.",
+    "listLabel": "Devices of your account",
+    "current": "This device",
+    "trusted": "Trusted",
+    "untrusted": "Not verified",
+    "untrustedHint": "It had the right master password but has not completed the verification.",
+    "lastActive": "Last active: {time}",
+    "activeNow": "Active now",
+    "sessions": {
+      "zero": "No open session",
+      "one": "{count} open session",
+      "other": "{count} open sessions"
+    },
+    "actionsFor": "Actions for {name}",
+    "rename": {
+      "action": "Rename",
+      "title": "Rename device",
+      "body": "A name that helps you recognise it, like “Home laptop”.",
+      "label": "Device name",
+      "required": "Type a name.",
+      "tooLong": "The name cannot be longer than {max} characters.",
+      "invalid": "The name has to fit on one line, without control characters.",
+      "submit": "Save",
+      "done": "Name saved"
+    },
+    "revoke": {
+      "action": "Deauthorise",
+      "title": "Deauthorise “{name}”?",
+      "body": "Its sessions close at once and it stops being a trusted device: to get back in it will have to pass the verification again.",
+      "confirm": "Deauthorise device",
+      "done": {
+        "zero": "Device deauthorised.",
+        "one": "Device deauthorised. {count} session was closed.",
+        "other": "Device deauthorised. {count} sessions were closed."
+      },
+      "currentTitle": "Deauthorise this device?",
+      "currentBody": "You will be signed out here right now and, to get back in, you will have to pass the verification again. The encrypted copy of your vault stays on this device.",
+      "currentConfirm": "Deauthorise and sign out"
+    },
+    "empty": "There are no devices to show.",
+    "openSessions": {
+      "title": "Open sessions",
+      "description": "Each sign-in opens one. Closing a session does not withdraw the device’s trust: it can sign in again with the master password.",
+      "listLabel": "Open sessions of your account",
+      "current": "This session",
+      "started": "Opened on {date}",
+      "lastUsed": "Last used: {time}",
+      "method": {
+        "password": "With master password",
+        "google": "With Google",
+        "apple": "With Apple",
+        "github": "With GitHub",
+        "other": "Another method"
+      },
+      "close": "Close",
+      "closeLabel": "Close the session of {name}",
+      "closeTitle": "Close the session of “{name}”?",
+      "closeBody": "That device will have to sign in again. It stays trusted.",
+      "closeConfirm": "Close session",
+      "closed": "Session closed",
+      "closeOthers": "Close the other sessions",
+      "closeOthersTitle": "Close the other sessions?",
+      "closeOthersBody": {
+        "one": "{count} session on another device will be closed. The one on this device stays open.",
+        "other": "{count} sessions on other devices will be closed. The one on this device stays open."
+      },
+      "closeOthersConfirm": "Close the others",
+      "closedOthers": {
+        "zero": "There were no other open sessions.",
+        "one": "{count} session was closed.",
+        "other": "{count} sessions were closed."
+      },
+      "onlyThis": "Only the session of this device is open."
+    }
+  },
+  "history": {
+    "title": "Sign-in activity",
+    "intro": "Every time someone tried to get into your account, whether they made it or not. Most recent first.",
+    "listLabel": "Sign-ins, from the most recent to the oldest",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "result": {
+      "success": "Successful sign-in",
+      "failed": "Failed attempt",
+      "challenged": "Waiting for verification",
+      "approved": "Approved from another device",
+      "denied": "Denied from another device",
+      "locked": "Blocked after too many attempts"
+    },
+    "resultHint": {
+      "success": "A session was opened.",
+      "failed": "The password or the code was wrong. No session was opened.",
+      "challenged": "The password was right and the second step was still missing.",
+      "approved": "You confirmed the sign-in on another of your devices.",
+      "denied": "Someone had your master password right and you turned them down. If you have not changed it since, change it.",
+      "locked": "There were too many attempts in a row and the account was paused for a few minutes."
+    },
+    "method": {
+      "password": "Master password",
+      "google": "Google",
+      "apple": "Apple",
+      "github": "GitHub",
+      "other": "Another method"
+    },
+    "newDevice": "New device",
+    "unknownDevice": "Unknown device",
+    "empty": {
+      "title": "No activity yet",
+      "description": "The sign-ins of your account will appear here."
+    },
+    "loadMore": "Load more",
+    "loadMoreFailed": "We could not load more activity.",
+    "end": "There is no older activity."
+  },
+  "apiKeys": {
+    "title": "API keys",
+    "intro": "An API key lets a program — a script, a backup, another application — use your account without signing in. Each key has only the permissions you give it.",
+    "encryptedTitle": "They only give access to encrypted data",
+    "encrypted": "A key decrypts nothing: whoever uses it also needs your master password to read the vault. It stands in for the session, not for the encryption.",
+    "docs": "See the API documentation",
+    "listTitle": "Your keys",
+    "listLabel": "API keys of your account",
+    "count": "{count} of {limit}",
+    "limit": "You can have up to {limit} active keys at a time.",
+    "limitReached": "You have reached the maximum of {limit} active keys. Revoke one you no longer use to create another.",
+    "passwordNote": "Changing the master password or recovering the account revokes every key: you will have to create them again.",
+    "empty": {
+      "title": "You have no keys",
+      "description": "Create one when you want to connect a program to your account."
+    },
+    "create": "Create key",
+    "prefix": "Starts with {prefix}…",
+    "created": "Created on {date}",
+    "expires": "Expires on {date}",
+    "expired": "Expired on {date}",
+    "noExpiry": "Does not expire",
+    "lastUsed": "Last used: {time}",
+    "lastUsedFrom": "Last used: {time}, from IP {ip}",
+    "neverUsed": "Not used yet",
+    "status": {
+      "expired": "Expired",
+      "expiringSoon": "Expires soon"
+    },
+    "permissions": "Permissions",
+    "scopes": {
+      "vaultRead": {
+        "label": "Read the vault",
+        "description": "Download your encrypted items and receive change notices."
+      },
+      "vaultWrite": {
+        "label": "Write to the vault",
+        "description": "Create, change and delete encrypted items."
+      },
+      "sharesRead": {
+        "label": "Read shared items",
+        "description": "See the items shared with you and who you share with."
+      },
+      "sharesWrite": {
+        "label": "Manage sharing",
+        "description": "Share items, change permissions and answer invitations."
+      },
+      "breachesRead": {
+        "label": "Check breaches",
+        "description": "Check passwords against known breaches and read the summary."
+      },
+      "breachesWrite": {
+        "label": "Record breaches",
+        "description": "Save the result of a breach check."
+      },
+      "accountRead": {
+        "label": "Read the account",
+        "description": "See your e-mail, your preferences and the account’s encrypted keys."
+      },
+      "aiUse": {
+        "label": "Use the AI",
+        "description": "Call the assistant and the AI features with your permissions."
+      }
+    },
+    "form": {
+      "title": "Create API key",
+      "name": "Name",
+      "nameHint": "To recognise it later: “Backup”, “NAS script”.",
+      "nameRequired": "Give the key a name.",
+      "nameTooLong": "The name cannot be longer than {max} characters.",
+      "nameInvalid": "The name has to fit on one line, without control characters.",
+      "scopes": "Permissions",
+      "scopesHint": "Tick only what the program needs. Writing does not include reading.",
+      "scopesRequired": "Tick at least one permission.",
+      "expiry": "Expiry",
+      "expiryOptions": {
+        "30": "30 days",
+        "90": "90 days",
+        "365": "365 days",
+        "never": "Never"
+      },
+      "expiryNever": "A key without an expiry works until you revoke it or change the master password.",
+      "confirm": "Confirm it is you",
+      "submit": "Create key"
+    },
+    "secret": {
+      "title": "Copy your key now",
+      "warningTitle": "You will not be able to see it again",
+      "warning": "AccioPass only keeps a fingerprint of the key. If you lose it, you will have to revoke it and create another.",
+      "copied": "Key copied. Paste it somewhere safe.",
+      "name": "Key “{name}”",
+      "copyHint": "Copy it with the copy button and keep it somewhere safe: do not type it out by hand.",
+      "acknowledge": "I have copied the key and saved it somewhere safe",
+      "acknowledgeRequired": "Tick the box once you have saved it: after closing, it cannot be seen again.",
+      "done": "Done"
+    },
+    "revoke": {
+      "action": "Revoke",
+      "label": "Revoke the key {name}",
+      "title": "Revoke “{name}”?",
+      "body": "It stops working at once in any program that uses it. This cannot be undone.",
+      "confirm": "Revoke key",
+      "done": "Key revoked"
+    }
+  },
+  "linked": {
+    "title": "Linked accounts",
+    "intro": "Link a Google, Apple or GitHub account to sign in with it instead of typing your e-mail and master password.",
+    "vaultTitle": "The vault always opens with your master password",
+    "vault": "Signing in with one of these providers opens your account, but decrypts nothing: the key to your vault comes from the master password, which only you know. The provider confirms who you are; it does not have, and cannot have, your data.",
+    "listLabel": "Sign-in providers",
+    "providers": {
+      "google": "Google",
+      "apple": "Apple",
+      "github": "GitHub"
+    },
+    "linkedNoEmail": "Linked",
+    "linkedOn": "Since {date}",
+    "lastLogin": "Last sign-in: {time}",
+    "neverUsed": "Not used to sign in yet",
+    "notLinked": "Not linked",
+    "unavailable": "Not available on this server",
+    "simulated": "Development server: the providers are simulated.",
+    "justLinked": "Account linked. You can now sign in with it; the vault still opens with your master password.",
+    "link": {
+      "action": "Link",
+      "label": "Link {provider}",
+      "title": "Link {provider}",
+      "body": "First confirm your master password. Then we will take you to {provider} to choose the account; when you come back you will have to unlock the vault.",
+      "submit": "Continue with {provider}"
+    },
+    "unlink": {
+      "action": "Unlink",
+      "label": "Unlink {provider}",
+      "title": "Unlink {provider}?",
+      "body": "You will no longer be able to sign in with {provider}. You can still sign in with your e-mail and master password, and your vault does not change.",
+      "submit": "Unlink",
+      "done": "{provider} unlinked"
+    }
+  },
+  "recoveryWords": {
+    "title": "Recovery words",
+    "whatTitle": "What they are for",
+    "what": "They are the 24 words we showed you when you created the account. With them and your e-mail you can choose a new master password if you forget the current one. Without them, nobody can give you access back — not even AccioSoft.",
+    "cannotShowTitle": "We cannot show them to you again",
+    "cannotShow": "AccioPass does not keep your words: they are shown only once, on your device. If you cannot find them, the only way to have them is to generate new ones.",
+    "generateTitle": "Generate new words",
+    "generate": "Do it if you have lost them or think someone may have seen them. We will show you 24 new words and check that you have written them down.",
+    "oldStopTitle": "The previous ones stop working at once",
+    "oldStop": "As soon as the new ones are generated, the words you have saved will no longer recover the account. Have pen and paper ready before you start.",
+    "action": "Generate new words",
+    "sheetTitle": "Generate new recovery words",
+    "sheetBody": "The previous words stop working as soon as you confirm. You will see the new ones next: do not close the app until you have saved them.",
+    "submit": "Generate new words",
+    "done": "New recovery words saved. The previous ones no longer work.",
+    "needsUnlocked": "They cannot be changed offline: the server has to record the new ones."
+  },
+  "password": {
+    "title": "Change master password",
+    "intro": "The master password opens your vault and your account. Choose a long one that you use nowhere else.",
+    "current": "Current master password",
+    "currentRequired": "Type your current master password.",
+    "currentWrong": "That is not your current master password. Type it again.",
+    "next": "New master password",
+    "same": "The new password has to be different from the current one.",
+    "effectsTitle": "What happens when you change it",
+    "effects": {
+      "sessions": "You will be signed out on your other devices. There you will have to sign in with the new password.",
+      "apiKeys": "All your API keys will be revoked. You will have to create them again.",
+      "words": "Your recovery words stay the same.",
+      "vault": "Your vault is not re-encrypted as a whole: only the key that protects it changes, so it is quick."
+    },
+    "submit": "Change master password",
+    "deriving": "Checking the current password and protecting your vault key with the new one. These are two calculations that are slow on purpose; they can take a few seconds. Do not close this screen.",
+    "maybeChanged": "The connection dropped before the answer arrived, so we do not know whether the change went through. Your vault is still open. Next time, try the new password first and, if it does not work, the previous one.",
+    "done": {
+      "title": "Master password changed",
+      "body": "From now on, your vault and your account open with the new password. We have sent you a notice by e-mail.",
+      "sessions": {
+        "zero": "There were no open sessions on other devices.",
+        "one": "{count} session on another device was closed.",
+        "other": "{count} sessions on other devices were closed."
+      },
+      "apiKeys": {
+        "zero": "You had no API keys.",
+        "one": "{count} API key was revoked. Create it again if you need it.",
+        "other": "{count} API keys were revoked. Create them again if you need them."
+      },
+      "words": "Your recovery words have not changed.",
+      "back": "Back to Settings",
+      "toApiKeys": "Go to API keys"
+    }
+  }
+}

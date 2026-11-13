@@ -1,0 +1,317 @@
+{
+  "common": {
+    "notYou": "If this was not you, change your master password right away and review your open sessions in Settings → Security.",
+    "openApp": "Open AccioPass",
+    "securityFooter": "Automated message about your account security. Please do not reply.",
+    "serviceFooter": "Automated message from the AccioPass service. Please do not reply.",
+    "legalLine": "AccioPass is a service of ACCIOSOFT S.L. · Tax ID B70711395 · Avda. Bulevar de El Ejido, 436 4 E, 04700 El Ejido (Almería), Spain",
+    "labels": {
+      "device": "Device",
+      "method": "Method",
+      "ipAddress": "IP address",
+      "date": "Date",
+      "termsAndConditions": "Terms and Conditions",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "supportCategories": {
+      "help": "Question",
+      "complaint": "Complaint",
+      "privacy": "Personal data request",
+      "illegalContent": "Notice of illegal content"
+    }
+  },
+  "verifyEmail": {
+    "subject": "{code} is your AccioPass verification code",
+    "heading": "Confirm your e-mail",
+    "body": "Enter this code in AccioPass to verify your e-mail address and activate your account.",
+    "footnote": "The code expires in {minutes} minutes. If you did not create an AccioPass account, ignore this message: nothing is activated without the code."
+  },
+  "accountExists": {
+    "subject": "You already have an AccioPass account",
+    "heading": "Someone tried to sign up with your e-mail",
+    "received": "We received a sign-up request for this address, but an account already exists. Nothing has been changed.",
+    "ifYou": "If it was you, sign in with your master password. If you forgot it, you can recover the account with your 24 recovery words."
+  },
+  "newLogin": {
+    "subject": "New sign-in to your AccioPass account",
+    "heading": "New sign-in",
+    "body": "Your account was signed in to from a device we had not seen before."
+  },
+  "loginCode": {
+    "subject": "{code} is your AccioPass sign-in code",
+    "heading": "Confirm the sign-in",
+    "body": "Someone is signing in to your account from a device we do not recognise. If it is you, enter this code on that device to finish.",
+    "footnote": {
+      "one": "The code expires in {count} minute. If it is not you, do not give it to anyone and change your master password right away: whoever is trying has already passed the first step.",
+      "other": "The code expires in {count} minutes. If it is not you, do not give it to anyone and change your master password right away: whoever is trying has already passed the first step."
+    }
+  },
+  "loginDenied": {
+    "subject": "A sign-in to your AccioPass account was rejected",
+    "heading": "Sign-in rejected",
+    "body": "A sign-in attempt to your account was rejected from one of your devices. No session was opened and that device received no data.",
+    "withPassword": "To get that far, whoever tried had to enter your master password correctly: someone else knows it. Change it right away in Settings → Security and, if you are not using it yet, turn on two-step verification.",
+    "withProvider": "To get that far, whoever tried signed in with your {provider} account: someone else has access to it. Secure it right away and, in the meantime, unlink it in Settings → Security.",
+    "footnote": "If the attempt was yours and you rejected it by mistake, just sign in again: nothing needs to change."
+  },
+  "loginLocked": {
+    "subject": "We temporarily locked sign-in to your account",
+    "heading": "Too many failed attempts",
+    "body": "Someone tried to sign in to your account with a wrong password many times in a row. As a precaution, sign-in is paused for 15 minutes.",
+    "vaultSafe": "Your vault is still encrypted with your master password: nobody has accessed your data."
+  },
+  "loginChallengeLocked": {
+    "subject": "We temporarily locked sign-in to your account",
+    "heading": "Too many wrong codes",
+    "body": "Someone passed the first step of signing in to your account and then got the verification code wrong many times in a row. As a precaution, sign-in is paused for 15 minutes. No session was opened.",
+    "withPassword": "If this was not you, someone else knows your master password: change it right away in Settings → Security.",
+    "withProvider": "If this was not you, someone else has access to your {provider} account: secure it right away and, in the meantime, unlink it in Settings → Security."
+  },
+  "twoFactorEnabled": {
+    "subject": "Two-step verification turned on",
+    "heading": "Two-step verification is on",
+    "body": "From now on, signing in to your account needs your master password and a code from your authenticator app.",
+    "keepCodes": "Keep your recovery codes somewhere safe: you will need them if you lose your device."
+  },
+  "twoFactorDisabled": {
+    "subject": "Two-step verification turned off",
+    "heading": "Two-step verification is off",
+    "body": "Your account is again protected by the master password only. We recommend turning it back on."
+  },
+  "recoveryCodesRegenerated": {
+    "subject": "New recovery codes generated",
+    "heading": "Recovery codes replaced",
+    "body": "New recovery codes were generated for two-step verification. The previous ones no longer work."
+  },
+  "passwordChanged": {
+    "subject": "Your master password was changed",
+    "heading": "Master password updated",
+    "body": "The master password of your account was changed and sessions on your other devices were closed.",
+    "apiKeysRevoked": "Every API key of the account was revoked as well: they were created under the previous password. If you were using one, create a new one in Settings → API keys.",
+    "footnote": "If this was not you, recover the account immediately with your 24 recovery words."
+  },
+  "recoveryCode": {
+    "subject": "{code} is your account recovery code",
+    "heading": "Account recovery",
+    "body": "Enter this code together with your 24 recovery words to set a new master password.",
+    "footnote": "The code expires in {minutes} minutes. If you did not ask to recover your account, ignore this message: nobody can finish without the recovery words."
+  },
+  "accountRecovered": {
+    "subject": "Your AccioPass account was recovered",
+    "heading": "Account recovered",
+    "body": "A new master password was set using your recovery words and every session was closed.",
+    "apiKeysRevoked": "Every API key of the account was revoked as well. If you were using one, create a new one in Settings → API keys.",
+    "footnote": "If this was not you, someone has your recovery words. Contact us immediately."
+  },
+  "breachAlert": {
+    "subject": {
+      "one": "One of your passwords appears in a data breach",
+      "other": "{count} of your passwords appear in data breaches"
+    },
+    "heading": "Leaked passwords detected",
+    "found": {
+      "one": "While checking your vault we found 1 new password that appears in known data breaches.",
+      "other": "While checking your vault we found {count} new passwords that appear in known data breaches."
+    },
+    "total": {
+      "one": "In total you have {count} compromised password waiting to be changed. Open AccioPass to see which ones and replace them.",
+      "other": "In total you have {count} compromised passwords waiting to be changed. Open AccioPass to see which ones and replace them."
+    },
+    "byDesign": "By design we cannot tell you here which services are affected: your vault is encrypted and only your devices can read it. The check runs on your device and never sends the passwords.",
+    "action": "Review in AccioPass"
+  },
+  "breachReminder": {
+    "subject": {
+      "one": "You still have one leaked password to change",
+      "other": "You still have {count} leaked passwords to change"
+    },
+    "heading": "Leaked passwords still pending",
+    "body": {
+      "one": "The latest check of your vault still shows 1 password that appears in known data breaches. Open AccioPass to see which one and replace it.",
+      "other": "The latest check of your vault still shows {count} passwords that appear in known data breaches. Open AccioPass to see which ones and replace them."
+    },
+    "byDesign": "By design we cannot tell you here which services are affected: your vault is encrypted and only your devices can read it. The check runs on your device and never sends the passwords.",
+    "action": "Review in AccioPass",
+    "footnote": "You get this reminder because you chose to be notified on every check. You can change that in the AccioPass settings."
+  },
+  "shareInvitation": {
+    "subject": "{ownerEmail} wants to share a password with you",
+    "heading": "You have an invitation",
+    "body": "{ownerEmail} invited you to a shared item in AccioPass. You will not receive its content until you accept.",
+    "advice": "Only accept invitations from people you know. Changes made by the person sharing will sync to you automatically.",
+    "action": "View invitation"
+  },
+  "identityLinked": {
+    "subject": "{provider} was linked to your account",
+    "heading": "New sign-in method",
+    "body": "You can now sign in to AccioPass with {provider}. Your master password is still required to decrypt the vault."
+  },
+  "identityUnlinked": {
+    "subject": "{provider} was unlinked from your account",
+    "heading": "Sign-in method removed",
+    "body": "Your account can no longer be signed in to with {provider}."
+  },
+  "apiKeyCreated": {
+    "subject": "An API key was created on your AccioPass account",
+    "heading": "New API key",
+    "body": "An API key was created on your account. Whoever holds it can use the API on your behalf, without signing in, with the permissions listed below and until it expires or you revoke it.",
+    "encryptedOnly": "The key only gives access to encrypted data: nobody can read your vault without your master password.",
+    "labels": {
+      "name": "Name",
+      "permissions": "Permissions",
+      "expires": "Expires"
+    },
+    "never": "Never",
+    "footnote": "If this was not you, revoke the key in Settings → API keys, change your master password right away and review your open sessions in Settings → Security."
+  },
+  "recoveryKeyRotated": {
+    "subject": "Your recovery words were changed",
+    "heading": "Recovery words replaced",
+    "body": "New recovery words were generated for your account. The previous ones no longer work: they cannot recover the account any more, not even in a recovery that was already under way.",
+    "keepNew": "Keep the new ones somewhere safe and destroy the old ones."
+  },
+  "emailChangeCode": {
+    "subject": "{code} is your code to change your AccioPass e-mail",
+    "heading": "Confirm your new e-mail",
+    "body": "Someone asked to use this address as the e-mail of their AccioPass account. If it was you, enter this code in AccioPass to confirm the change.",
+    "footnote": "The code expires in {minutes} minutes. If it was not you, ignore this message and do not give the code to anyone: nothing changes without it."
+  },
+  "emailChangeAddressInUse": {
+    "subject": "Someone tried to use your e-mail on another AccioPass account",
+    "heading": "Your e-mail already has an account",
+    "body": "We received a request to use this address as the e-mail of another AccioPass account, but it already is the address of yours. Nothing has been changed and no code was sent.",
+    "ifYou": "If it was you and you want to bring both accounts under this address, first delete the account that already uses it or change its e-mail."
+  },
+  "emailChanged": {
+    "subject": "The e-mail of your AccioPass account was changed",
+    "heading": "Account e-mail updated",
+    "body": "Your AccioPass account no longer uses this address. From now on you sign in with the new one, and that is where codes and security alerts will be sent.",
+    "newAddress": "New address",
+    "footnote": "If this was not you, someone with your master password got into your account. Sign in from one of your devices with the new address shown above and your master password, set your e-mail back and change the master password right away. If you can no longer get in, write to us at {supportEmail}."
+  },
+  "accountDeleted": {
+    "subject": "Your AccioPass account was deleted",
+    "heading": "Account deleted",
+    "body": "We deleted your account and all associated data: encrypted vault, codes, shared items you owned, sessions and activity logs. This cannot be undone.",
+    "retained": "We only keep — blocked, and without your address or any identifier of the account — the record of what you accepted and consented to and, if you sent us any, your questions and complaints, for the period stated in the Privacy Policy and only so that it can be shown to a court or an authority.",
+    "notYou": "If this was not you, write to us at {supportEmail}."
+  },
+  "contractConfirmation": {
+    "subject": "Confirmation of your contract with AccioPass",
+    "heading": "Your contract with AccioPass",
+    "body": "Your AccioPass account now exists and, with it, you have entered into the service contract with ACCIOSOFT S.L. This e-mail is its confirmation: keep it.",
+    "attached": "The complete text of the Terms and Conditions you accepted is attached (file “{filename}”). The contract was concluded in Spanish, which is the language of the attached text.",
+    "attachedNewer": "You accepted version {termsVersion} of the Terms and Conditions. The attached file (“{filename}”) is the complete text of version {attachedVersion}, the one in force when this e-mail was sent; if you want the text of the version you accepted, ask {supportEmail}. The contract was concluded in Spanish, which is the language of the attached text.",
+    "facts": {
+      "account": "Account",
+      "acceptedAt": "Date of acceptance",
+      "termsAccepted": "Version {version}: accepted",
+      "privacyRead": "Version {version}: you confirmed having read it",
+      "age": "Age",
+      "ageDeclared": "You declared that you are 16 or older",
+      "masterPassword": "Master password",
+      "noRecoveryAccepted": "You accepted separately that nobody, ACCIOSOFT included, can recover it"
+    },
+    "essentials": {
+      "title": "The essentials of what you accepted",
+      "noRecovery": "ACCIOSOFT cannot recover your vault. If you forget the master password and do not keep, all at once, your 24 recovery words, access to the e-mail of your account and, if you turned it on, your two-step verification, your data is lost for good (clause 6).",
+      "cancel": "You can leave whenever you want, at no cost and without giving a reason, by deleting your account from the app. The vault is deleted at once and for good (clause 17).",
+      "sharing": "Sharing a password reveals it: taking access away later does not make the other person forget it (clause 8).",
+      "aid": "Breach alerts and the artificial-intelligence features are an aid, not a guarantee or professional advice (clauses 9 and 10).",
+      "consumer": "If you are a consumer, you keep every right the law gives you: nothing in the Terms limits them (clauses 18, 19 and 23)."
+    },
+    "withdrawal": "Withdrawal and cancellation. You can withdraw from the contract or cancel at any time, at no cost and without giving a reason, by deleting your account from the app settings (it will ask for the master password and, if you have it on, a two-step verification code) or by writing to {supportEmail}. The details are in clauses 17.2 and 23.1 of the attached Terms. Deleting the account erases your data for good: export first whatever you want to keep.",
+    "yourData": "Your data. The Privacy Policy explains which data we process, what for and what your rights are; among them, the right to object at any time to processing based on legitimate interest (section 13).",
+    "whereToRead": "Where to read the documents. Terms and Conditions: {termsUrl} · Privacy Policy: {privacyUrl} · Legal Notice: {noticeUrl}",
+    "footnote": "If you did not create this account, write to us at {supportEmail}."
+  },
+  "termsAnnouncement": {
+    "subject": "Changes to the AccioPass Terms from {effectiveOn}",
+    "heading": "New Terms and Conditions",
+    "body": "We are changing the AccioPass Terms and Conditions. The new version ({termsVersion}) takes effect on {effectiveOn}. Its complete text is attached (file “{filename}”, in Spanish).",
+    "whatChanges": "What changes and why",
+    "options": {
+      "title": "What you can do",
+      "accept": "Accept them: the app will ask you to accept the new version. Changes that reduce your rights or add to your obligations do not apply to you merely because you keep using the service.",
+      "decline": "Not accept them: you can end the contract at no cost by deleting your account, at any time before that date and, in any case, during the 30 calendar days after you receive this notice or after the changes take effect, whichever is later. You can export your data first.",
+      "readOnly": "If by that date you have not accepted the new version, your account becomes read-only: you will still be able to consult your vault, export your data and delete the account, and accepting is all it takes to use it normally again."
+    },
+    "effectiveFrom": "Effective from",
+    "footnote": "If you have questions about these changes, write to us at {supportEmail}."
+  },
+  "accountRestricted": {
+    "suspended": {
+      "subject": "We have restricted your AccioPass account",
+      "heading": "Your account is now read-only",
+      "body": "ACCIOSOFT has decided to restrict your AccioPass account. From now on it is read-only: you can sign in, consult your vault, export your data, close sessions, deauthorise devices, send us a complaint and delete the account, but you cannot save changes, share or use the other features.",
+      "contest": "How to contest it. Write to {supportEmail} or send a complaint from the app (Help and complaints), which remains available while the account is restricted. A person at ACCIOSOFT will review it and give you a reasoned answer. You may also go to court or to the out-of-court dispute resolution procedures available."
+    },
+    "disabled": {
+      "subject": "We have suspended your AccioPass account",
+      "heading": "Your account is suspended",
+      "body": "ACCIOSOFT has decided to suspend your AccioPass account. From now on nobody can sign in to it or use its API keys, and its sessions were closed. The encrypted copy kept on your devices can still be consulted offline for as long as the app keeps it. If you want your data, ask {supportEmail} and we will give you the access needed to export it.",
+      "contest": "How to contest it. Write to {supportEmail} or send a complaint from the app (Help and complaints, available without signing in). A person at ACCIOSOFT will review it and give you a reasoned answer. You may also go to court or to the out-of-court dispute resolution procedures available."
+    },
+    "statement": "Facts and reasons for the decision",
+    "details": {
+      "duration": "Duration",
+      "untilLifted": "Until ACCIOSOFT lifts it; we will tell you by e-mail",
+      "grounds": "Grounds",
+      "origin": "Origin",
+      "originNotice": "A notice received from a third party",
+      "originOwn": "ACCIOSOFT's own investigation",
+      "automatedMeans": "Automated means",
+      "automatedUsed": "They were used to detect the facts; the decision was taken by a person",
+      "automatedNotUsed": "None were used; the decision was taken by a person"
+    }
+  },
+  "accountRestored": {
+    "subject": "Your AccioPass account is active again",
+    "heading": "Restriction lifted",
+    "body": "ACCIOSOFT has lifted the measure that applied to your AccioPass account. It works normally again: sign in as usual.",
+    "sessions": "If the account was suspended, its sessions were closed at the time and you will have to sign in again on your devices.",
+    "footnote": "If you have any question, write to us at {supportEmail}."
+  },
+  "twoFactorReset": {
+    "subject": "Two-step verification was removed from your account",
+    "heading": "Two-step verification removed",
+    "body": "At the request of the person who identified themselves as the owner of the account, the ACCIOSOFT team removed two-step verification from your AccioPass account and deleted its recovery codes. Every session was closed as well.",
+    "passwordOnly": "Your account is again protected by the master password only, which nobody but you knows and which ACCIOSOFT cannot see or change. Turn two-step verification back on as soon as you sign in.",
+    "footnote": "If you did not ask for this, write to us at {supportEmail} immediately and change your master password right away."
+  },
+  "supportRequestReceipt": {
+    "subject": "We have received your request {reference}",
+    "heading": "Request received",
+    "body": "We have received your message. This e-mail is your receipt: keep the reference, which you will need for any later question about this request.",
+    "labels": {
+      "reference": "Reference",
+      "type": "Type",
+      "subject": "Subject",
+      "message": "Your message"
+    },
+    "answer": {
+      "complaint": "A person will deal with it, and we will answer as soon as possible and, in any case, within the maximum period the Terms and Conditions set for complaints (clause 23.2).",
+      "privacy": "A person will deal with it, and we will answer within the periods set by data-protection law (Privacy Policy, section 13).",
+      "other": "A person will deal with it, and we will answer as soon as possible."
+    },
+    "footnote": "If you did not send this request, someone typed your address into the AccioPass help form: you can ignore this message or tell us at {supportEmail}."
+  },
+  "supportRequestNotice": {
+    "subject": "[AccioPass] {category} {reference}",
+    "heading": "New request: {category}",
+    "fromSession": "Sent from a signed-in session: the address is the one of the account. The sender was sent a receipt with the reference.",
+    "withoutSession": "Sent WITHOUT signing in: the address is the one the sender typed and it is not verified. Do not act on any account because of this message without checking the identity first (docs/OPERATIONS.md). The sender was sent a receipt with the reference.",
+    "labels": {
+      "reference": "Reference",
+      "type": "Type",
+      "sender": "Sender",
+      "language": "Language",
+      "account": "Account",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "accountRestricted": "{id} (restricted: {restriction})",
+    "noSession": "No session",
+    "footer": "Internal message of the AccioPass help and complaints channel. Replying to this e-mail writes to the sender."
+  }
+}

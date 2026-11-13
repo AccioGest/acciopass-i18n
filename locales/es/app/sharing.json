@@ -1,0 +1,168 @@
+{
+  "title": "Compartir",
+  "titleNamed": "Compartir «{name}»",
+  "accessTitle": "Acceso a «{name}»",
+  "explain": {
+    "title": "Qué significa compartir",
+    "body": "Quien reciba este elemento verá todo su contenido —la contraseña, las anteriores que tenga guardadas y las notas— y podrá usarlo. Mientras lo compartas, cada cambio que hagas le llega solo en unos segundos. Si más adelante le quitas el acceso, deja de recibir cambios, pero lo que ya ha visto lo conoce: cambia entonces la contraseña en el servicio.",
+    "note": "Quien reciba esta nota podrá leerla entera. Mientras la compartas, cada cambio que hagas le llega solo en unos segundos. Si más adelante le quitas el acceso, deja de recibir cambios, pero lo que ya ha leído lo conoce.",
+    "code": "Quien reciba este código lo tendrá en su lista de códigos y generará los mismos códigos de verificación que tú, porque recibe también la clave con la que se calculan. Mientras lo compartas, cada cambio que hagas le llega solo en unos segundos. Si más adelante le quitas el acceso, desaparece de su lista, pero la clave que ya ha recibido la conoce: vuelve entonces a configurar la verificación en dos pasos en el servicio.",
+    "encrypted": "El envío va cifrado de extremo a extremo: solo las personas que elijas pueden abrirlo. Nosotros no."
+  },
+  "offline": "Compartir necesita conexión: hay que hablar con el servidor para saber quién tiene acceso. Vuelve a intentarlo cuando la recuperes.",
+  "add": {
+    "title": "Añadir personas",
+    "description": "Tienen que tener cuenta en AccioPass. Les llegará una invitación que pueden aceptar o rechazar.",
+    "email": "Correo de la persona",
+    "emailPlaceholder": "nombre@ejemplo.com",
+    "find": "Buscar",
+    "role": "Permiso",
+    "roleFor": "Permiso de {email}",
+    "staged": "Por invitar",
+    "unstage": "Quitar a {email} de la lista",
+    "submit": {
+      "one": "Compartir con {count} persona",
+      "other": "Compartir con {count} personas"
+    },
+    "submitMore": {
+      "one": "Invitar a {count} persona",
+      "other": "Invitar a {count} personas"
+    },
+    "done": {
+      "one": "Invitación enviada",
+      "other": "Invitaciones enviadas"
+    },
+    "placesLeft": {
+      "one": "Queda sitio para {count} persona más.",
+      "other": "Queda sitio para {count} personas más."
+    },
+    "full": "Este elemento ya está compartido con el máximo de 25 personas, contándote a ti. Quita a alguien para añadir a otra persona.",
+    "problems": {
+      "empty": "Escribe el correo de la persona.",
+      "invalid": "Escribe un correo electrónico válido, como nombre@ejemplo.com.",
+      "self": "Ese es tu correo. Este elemento ya es tuyo.",
+      "member": "Esa persona ya tiene acceso o una invitación pendiente.",
+      "staged": "Ya está en la lista de personas por invitar.",
+      "full": "No cabe nadie más: el máximo son 25 personas, contándote a ti."
+    }
+  },
+  "fingerprint": {
+    "label": "Huella de su clave",
+    "explain": "Compárala con esa persona por otro canal (en persona o por teléfono) si quieres estar seguro de que es ella. Ella la ve en este mismo elemento una vez aceptado, en «Ver quién tiene acceso».",
+    "explainMember": "Sirve para comprobar por otro canal (en persona o por teléfono) que cada persona es quien dice ser: la huella que ves aquí tiene que ser la que ella ve como suya.",
+    "copy": "Copiar huella",
+    "show": "Ver huella de la clave",
+    "yours": "Huella de tu clave"
+  },
+  "roles": {
+    "owner": "Propietario",
+    "editor": "Edición",
+    "viewer": "Lectura",
+    "editorHint": "Puede ver, copiar y cambiar el elemento.",
+    "viewerHint": "Puede ver y copiar, pero no cambiar nada.",
+    "you": "Tú",
+    "youWithRole": "Tú · {role}"
+  },
+  "status": {
+    "pending": "Invitación pendiente",
+    "accepted": "Aceptada",
+    "declined": "Rechazada",
+    "removed": "Acceso retirado",
+    "left": "Se ha salido"
+  },
+  "members": {
+    "title": "Personas con acceso",
+    "count": {
+      "one": "{count} persona, contándote a ti",
+      "other": "{count} personas, contándote a ti"
+    },
+    "onlyYou": "Por ahora solo tú tienes acceso.",
+    "memberLine": "{role} · {status}",
+    "actions": "Acciones para {email}",
+    "makeEditor": "Dejar que edite",
+    "makeViewer": "Dejar solo lectura",
+    "remove": "Quitar acceso",
+    "roleChanged": "Permiso cambiado",
+    "sharedBy": "Lo comparte {email}",
+    "yourRoleViewer": "Tu permiso es de lectura: puedes verlo y copiarlo, no cambiarlo.",
+    "yourRoleEditor": "Tu permiso es de edición: lo que cambies se actualiza para todas las personas con acceso.",
+    "managedByOwner": "Solo {email} puede invitar a más personas o cambiar permisos."
+  },
+  "remove": {
+    "title": "¿Quitar el acceso a {email}?",
+    "message": "Volveremos a cifrar el elemento con una clave nueva para quienes se quedan, así que {email} no podrá leer nada de lo que cambie a partir de ahora. Lo que ya ha visto lo conoce: te recomendamos cambiar también la contraseña en el servicio.",
+    "messagePending": "Todavía no ha aceptado la invitación, así que no ha visto el contenido. Se retirará la invitación.",
+    "messageCode": "Volveremos a cifrar el código con una clave nueva para quienes se quedan, y desaparecerá de la lista de códigos de {email}. La clave con la que se calculan los códigos ya la ha recibido: te recomendamos volver a configurar la verificación en dos pasos en el servicio.",
+    "confirm": "Quitar acceso",
+    "done": "Acceso retirado",
+    "afterTitle": "Acceso retirado a {email}",
+    "after": "El elemento ya está cifrado con una clave nueva. Si {email} llegó a ver la contraseña, cámbiala ahora en el servicio y guarda aquí la nueva.",
+    "afterCode": "El código ya no está en la lista de {email}. Si llegó a ver la clave con la que se calculan los códigos, vuelve a configurar la verificación en dos pasos en el servicio y guarda aquí el código nuevo.",
+    "afterAction": "Cambiar contraseña"
+  },
+  "stop": {
+    "title": "Dejar de compartir",
+    "description": "El elemento vuelve a ser solo tuyo y desaparece de la bóveda de las demás personas.",
+    "descriptionCode": "El código vuelve a ser solo tuyo y desaparece de la lista de códigos de las demás personas.",
+    "action": "Dejar de compartir",
+    "confirmTitle": "¿Dejar de compartir «{name}»?",
+    "confirmMessage": {
+      "one": "Volverá a ser privado y desaparecerá de la bóveda de la otra persona. Lo que ya ha visto lo conoce: si es una contraseña, cámbiala en el servicio.",
+      "other": "Volverá a ser privado y desaparecerá de la bóveda de las otras {count} personas. Lo que ya han visto lo conocen: si es una contraseña, cámbiala en el servicio."
+    },
+    "confirmMessageNobody": "Volverá a ser un elemento privado. Se retirarán las invitaciones que queden pendientes.",
+    "confirmMessageCode": {
+      "one": "Volverá a ser privado y desaparecerá de la lista de códigos de la otra persona. La clave con la que se calculan ya la ha recibido: vuelve a configurar la verificación en dos pasos en el servicio si no debe seguir entrando.",
+      "other": "Volverá a ser privado y desaparecerá de la lista de códigos de las otras {count} personas. La clave con la que se calculan ya la han recibido: vuelve a configurar la verificación en dos pasos en el servicio si no deben seguir entrando."
+    },
+    "done": "Ya no se comparte. Vuelve a ser solo tuyo."
+  },
+  "leave": {
+    "title": "Dejar de usar este elemento",
+    "description": "Desaparece de tu bóveda. Las demás personas lo conservan.",
+    "titleCode": "Dejar de recibir este código",
+    "descriptionCode": "Desaparece de tu lista de códigos. Las demás personas lo conservan.",
+    "action": "Dejar de usar"
+  },
+  "invitations": {
+    "title": "Invitaciones",
+    "subtitle": {
+      "one": "{count} pendiente",
+      "other": "{count} pendientes"
+    },
+    "explain": "Al aceptar, el elemento aparece en tu bóveda —o en Códigos, si es un código de verificación— y ves su contenido. Si quien lo comparte lo cambia, a ti se te actualiza solo.",
+    "from": "{email} quiere compartir un elemento contigo",
+    "roleViewer": "Podrás verlo y copiarlo, pero no cambiarlo.",
+    "roleEditor": "Podrás verlo, copiarlo y cambiarlo.",
+    "hidden": "No sabrás qué es hasta aceptar: su contenido va cifrado y solo se abre para quien acepta.",
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "acceptLabel": "Aceptar la invitación de {email}",
+    "declineLabel": "Rechazar la invitación de {email}",
+    "accepted": "Aceptada. Ya está en tu bóveda.",
+    "acceptedCode": "Aceptada. Ya está en tu lista de códigos.",
+    "open": "Abrir",
+    "declined": "Invitación rechazada",
+    "declineTitle": "¿Rechazar la invitación de {email}?",
+    "declineMessage": "No se añadirá nada a tu bóveda. {email} puede volver a invitarte más adelante.",
+    "emptyTitle": "No tienes invitaciones pendientes",
+    "emptyDescription": "Cuando alguien comparta un elemento contigo, aparecerá aquí para que lo aceptes o lo rechaces.",
+    "back": "Volver a la bóveda",
+    "offline": "Aceptar o rechazar invitaciones necesita conexión.",
+    "knownOnly": "Acepta solo invitaciones de personas que conozcas."
+  },
+  "errors": {
+    "recipientNotFound": "No hemos encontrado a nadie con ese correo, o esa persona no permite que la encuentren. Comprueba la dirección con ella.",
+    "lookupLimit": "Has buscado a muchas personas en poco tiempo. Espera un rato antes de buscar a alguien más.",
+    "membersLimit": "Un elemento se puede compartir con 25 personas como máximo, contándote a ti. Quita a alguien para añadir a otra persona.",
+    "inviteeFull": "Esa persona tiene demasiadas invitaciones sin responder. Pídele que las revise y vuelve a intentarlo.",
+    "ownedLimit": "Has llegado al máximo de elementos compartidos de tu cuenta. Deja de compartir alguno que ya no haga falta.",
+    "alreadyMember": "Esa persona ya tiene acceso o una invitación pendiente.",
+    "changed": "El elemento o sus permisos han cambiado mientras tanto. Ya ves la versión actual: revísala y vuelve a intentarlo.",
+    "notOwner": "Solo quien comparte el elemento puede gestionar el acceso.",
+    "gone": "Este elemento ya no se comparte. Puede que se haya eliminado o que te hayan quitado el acceso.",
+    "invitationGone": "Esta invitación ya no está disponible: quien la envió la ha retirado.",
+    "offline": "No hay conexión con AccioPass. Compartir necesita internet: inténtalo cuando la recuperes.",
+    "keyMismatch": "La clave de esa persona no coincide con la huella mostrada, así que no hemos enviado nada. Búscala de nuevo."
+  }
+}

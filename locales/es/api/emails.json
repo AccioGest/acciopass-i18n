@@ -1,0 +1,317 @@
+{
+  "common": {
+    "notYou": "Si no has sido tú, cambia tu contraseña maestra cuanto antes y revisa las sesiones abiertas en Ajustes → Seguridad.",
+    "openApp": "Abrir AccioPass",
+    "securityFooter": "Mensaje automático sobre la seguridad de tu cuenta. No respondas a este correo.",
+    "serviceFooter": "Mensaje automático del servicio AccioPass. No respondas a este correo.",
+    "legalLine": "AccioPass es un servicio de ACCIOSOFT S.L. · NIF B70711395 · Avda. Bulevar de El Ejido, 436 4 E, 04700 El Ejido (Almería), España",
+    "labels": {
+      "device": "Dispositivo",
+      "method": "Método",
+      "ipAddress": "Dirección IP",
+      "date": "Fecha",
+      "termsAndConditions": "Términos y Condiciones",
+      "privacyPolicy": "Política de Privacidad"
+    },
+    "supportCategories": {
+      "help": "Consulta",
+      "complaint": "Queja o reclamación",
+      "privacy": "Solicitud sobre datos personales",
+      "illegalContent": "Notificación de contenido ilícito"
+    }
+  },
+  "verifyEmail": {
+    "subject": "{code} es tu código de verificación de AccioPass",
+    "heading": "Confirma tu correo",
+    "body": "Introduce este código en AccioPass para verificar tu dirección de correo y activar tu cuenta.",
+    "footnote": "El código caduca en {minutes} minutos. Si no has creado una cuenta en AccioPass, ignora este mensaje: sin el código no se activará nada."
+  },
+  "accountExists": {
+    "subject": "Ya tienes una cuenta en AccioPass",
+    "heading": "Alguien ha intentado registrarse con tu correo",
+    "received": "Hemos recibido una solicitud de registro con esta dirección, pero ya existe una cuenta asociada. No hemos cambiado nada.",
+    "ifYou": "Si has sido tú, inicia sesión con tu contraseña maestra. Si la has olvidado, puedes recuperar la cuenta con tus 24 palabras de recuperación."
+  },
+  "newLogin": {
+    "subject": "Nuevo inicio de sesión en tu cuenta de AccioPass",
+    "heading": "Nuevo inicio de sesión",
+    "body": "Se ha iniciado sesión en tu cuenta desde un dispositivo que no habíamos visto antes."
+  },
+  "loginCode": {
+    "subject": "{code} es tu código para iniciar sesión en AccioPass",
+    "heading": "Confirma el inicio de sesión",
+    "body": "Alguien está iniciando sesión en tu cuenta desde un dispositivo que no reconocemos. Si eres tú, introduce este código en ese dispositivo para terminar.",
+    "footnote": {
+      "one": "El código caduca en {count} minuto. Si no eres tú, no se lo des a nadie y cambia tu contraseña maestra cuanto antes: quien lo intenta ya ha superado el primer paso.",
+      "other": "El código caduca en {count} minutos. Si no eres tú, no se lo des a nadie y cambia tu contraseña maestra cuanto antes: quien lo intenta ya ha superado el primer paso."
+    }
+  },
+  "loginDenied": {
+    "subject": "Se ha rechazado un inicio de sesión en tu cuenta de AccioPass",
+    "heading": "Inicio de sesión rechazado",
+    "body": "Desde uno de tus dispositivos se ha rechazado un intento de inicio de sesión en tu cuenta. No se ha abierto ninguna sesión y ese dispositivo no ha recibido ningún dato.",
+    "withPassword": "Para llegar hasta ahí, quien lo intentó tuvo que introducir correctamente tu contraseña maestra: alguien más la conoce. Cámbiala cuanto antes en Ajustes → Seguridad y, si aún no la usas, activa la verificación en dos pasos.",
+    "withProvider": "Para llegar hasta ahí, quien lo intentó entró con tu cuenta de {provider}: alguien más tiene acceso a ella. Protégela cuanto antes y, mientras tanto, desvincúlala en Ajustes → Seguridad.",
+    "footnote": "Si el intento era tuyo y lo rechazaste por error, vuelve a iniciar sesión: no hace falta cambiar nada."
+  },
+  "loginLocked": {
+    "subject": "Hemos bloqueado temporalmente el acceso a tu cuenta",
+    "heading": "Demasiados intentos fallidos",
+    "body": "Alguien ha intentado iniciar sesión en tu cuenta con una contraseña incorrecta muchas veces seguidas. Por precaución, hemos pausado los inicios de sesión durante 15 minutos.",
+    "vaultSafe": "Tu bóveda sigue cifrada con tu contraseña maestra: nadie ha accedido a tus datos."
+  },
+  "loginChallengeLocked": {
+    "subject": "Hemos bloqueado temporalmente el acceso a tu cuenta",
+    "heading": "Demasiados códigos incorrectos",
+    "body": "Alguien ha superado el primer paso del inicio de sesión en tu cuenta y después ha fallado el código de verificación muchas veces seguidas. Por precaución, hemos pausado los inicios de sesión durante 15 minutos. No se ha abierto ninguna sesión.",
+    "withPassword": "Si no has sido tú, alguien más conoce tu contraseña maestra: cámbiala cuanto antes en Ajustes → Seguridad.",
+    "withProvider": "Si no has sido tú, alguien más tiene acceso a tu cuenta de {provider}: protégela cuanto antes y, mientras tanto, desvincúlala en Ajustes → Seguridad."
+  },
+  "twoFactorEnabled": {
+    "subject": "Verificación en dos pasos activada",
+    "heading": "Verificación en dos pasos activada",
+    "body": "A partir de ahora, iniciar sesión en tu cuenta requiere tu contraseña maestra y un código de tu aplicación de autenticación.",
+    "keepCodes": "Guarda los códigos de recuperación en un lugar seguro: los necesitarás si pierdes el dispositivo."
+  },
+  "twoFactorDisabled": {
+    "subject": "Verificación en dos pasos desactivada",
+    "heading": "Verificación en dos pasos desactivada",
+    "body": "Tu cuenta vuelve a estar protegida únicamente por la contraseña maestra. Te recomendamos volver a activarla."
+  },
+  "recoveryCodesRegenerated": {
+    "subject": "Nuevos códigos de recuperación generados",
+    "heading": "Códigos de recuperación renovados",
+    "body": "Se han generado nuevos códigos de recuperación para la verificación en dos pasos. Los anteriores han dejado de funcionar."
+  },
+  "passwordChanged": {
+    "subject": "Tu contraseña maestra ha cambiado",
+    "heading": "Contraseña maestra actualizada",
+    "body": "La contraseña maestra de tu cuenta se ha cambiado y se han cerrado las sesiones en el resto de dispositivos.",
+    "apiKeysRevoked": "También se han revocado todas las claves de API de la cuenta: se crearon con la contraseña anterior. Si usabas alguna, crea una nueva en Ajustes → Claves de API.",
+    "footnote": "Si no has sido tú, recupera la cuenta de inmediato con tus 24 palabras de recuperación."
+  },
+  "recoveryCode": {
+    "subject": "{code} es tu código para recuperar la cuenta",
+    "heading": "Recuperación de cuenta",
+    "body": "Introduce este código junto con tus 24 palabras de recuperación para establecer una nueva contraseña maestra.",
+    "footnote": "El código caduca en {minutes} minutos. Si no has pedido recuperar tu cuenta, ignora este mensaje: sin las palabras de recuperación nadie puede completarlo."
+  },
+  "accountRecovered": {
+    "subject": "Tu cuenta de AccioPass ha sido recuperada",
+    "heading": "Cuenta recuperada",
+    "body": "Se ha establecido una nueva contraseña maestra con tus palabras de recuperación y se han cerrado todas las sesiones.",
+    "apiKeysRevoked": "También se han revocado todas las claves de API de la cuenta. Si usabas alguna, crea una nueva en Ajustes → Claves de API.",
+    "footnote": "Si no has sido tú, alguien tiene tus palabras de recuperación. Escríbenos de inmediato."
+  },
+  "breachAlert": {
+    "subject": {
+      "one": "Una de tus contraseñas aparece en una filtración",
+      "other": "{count} de tus contraseñas aparecen en filtraciones"
+    },
+    "heading": "Contraseñas filtradas detectadas",
+    "found": {
+      "one": "Al revisar tu bóveda hemos detectado 1 contraseña nueva que figura en filtraciones de datos conocidas.",
+      "other": "Al revisar tu bóveda hemos detectado {count} contraseñas nuevas que figuran en filtraciones de datos conocidas."
+    },
+    "total": {
+      "one": "En total tienes {count} contraseña comprometida pendientes de cambiar. Abre AccioPass para ver cuáles son y sustituirlas.",
+      "other": "En total tienes {count} contraseñas comprometidas pendientes de cambiar. Abre AccioPass para ver cuáles son y sustituirlas."
+    },
+    "byDesign": "Por diseño no podemos decirte aquí de qué servicios se trata: tu bóveda está cifrada y solo tus dispositivos pueden leerla. La comprobación se hace en tu dispositivo, sin enviar nunca las contraseñas.",
+    "action": "Revisar en AccioPass"
+  },
+  "breachReminder": {
+    "subject": {
+      "one": "Sigues teniendo una contraseña filtrada sin cambiar",
+      "other": "Sigues teniendo {count} contraseñas filtradas sin cambiar"
+    },
+    "heading": "Contraseñas filtradas pendientes",
+    "body": {
+      "one": "En el último análisis de tu bóveda sigue apareciendo 1 contraseña que figura en filtraciones de datos conocidas. Abre AccioPass para ver cuál es y sustituirla.",
+      "other": "En el último análisis de tu bóveda siguen apareciendo {count} contraseñas que figuran en filtraciones de datos conocidas. Abre AccioPass para ver cuáles son y sustituirlas."
+    },
+    "byDesign": "Por diseño no podemos decirte aquí de qué servicios se trata: tu bóveda está cifrada y solo tus dispositivos pueden leerla. La comprobación se hace en tu dispositivo, sin enviar nunca las contraseñas.",
+    "action": "Revisar en AccioPass",
+    "footnote": "Recibes este recordatorio porque elegiste que te avisemos en cada análisis. Puedes cambiarlo en los ajustes de AccioPass."
+  },
+  "shareInvitation": {
+    "subject": "{ownerEmail} quiere compartir una contraseña contigo",
+    "heading": "Tienes una invitación",
+    "body": "{ownerEmail} te ha invitado a acceder a un elemento compartido en AccioPass. Hasta que no la aceptes no recibirás su contenido.",
+    "advice": "Acepta solo invitaciones de personas que conozcas. Los cambios que haga quien comparte se sincronizarán contigo automáticamente.",
+    "action": "Ver invitación"
+  },
+  "identityLinked": {
+    "subject": "Has vinculado {provider} a tu cuenta",
+    "heading": "Nuevo método de acceso",
+    "body": "Ahora puedes iniciar sesión en AccioPass con {provider}. Tu contraseña maestra sigue siendo necesaria para descifrar la bóveda."
+  },
+  "identityUnlinked": {
+    "subject": "Has desvinculado {provider} de tu cuenta",
+    "heading": "Método de acceso eliminado",
+    "body": "Ya no se puede iniciar sesión en tu cuenta con {provider}."
+  },
+  "apiKeyCreated": {
+    "subject": "Se ha creado una clave de API en tu cuenta de AccioPass",
+    "heading": "Nueva clave de API",
+    "body": "Se ha creado una clave de API en tu cuenta. Quien la tenga puede usar la API en tu nombre, sin iniciar sesión, con los permisos que se indican abajo y hasta que caduque o la revoques.",
+    "encryptedOnly": "La clave solo da acceso a datos cifrados: sin tu contraseña maestra nadie puede leer tu bóveda.",
+    "labels": {
+      "name": "Nombre",
+      "permissions": "Permisos",
+      "expires": "Caduca"
+    },
+    "never": "Nunca",
+    "footnote": "Si no has sido tú, revoca la clave en Ajustes → Claves de API, cambia tu contraseña maestra cuanto antes y revisa las sesiones abiertas en Ajustes → Seguridad."
+  },
+  "recoveryKeyRotated": {
+    "subject": "Tus palabras de recuperación han cambiado",
+    "heading": "Palabras de recuperación renovadas",
+    "body": "Se han generado unas palabras de recuperación nuevas para tu cuenta. Las anteriores han dejado de funcionar: ya no sirven para recuperar la cuenta, tampoco en una recuperación que estuviera a medias.",
+    "keepNew": "Guarda las nuevas en un lugar seguro y destruye las antiguas."
+  },
+  "emailChangeCode": {
+    "subject": "{code} es tu código para cambiar el correo de AccioPass",
+    "heading": "Confirma tu nuevo correo",
+    "body": "Alguien ha pedido usar esta dirección como correo de su cuenta de AccioPass. Si has sido tú, introduce este código en AccioPass para confirmar el cambio.",
+    "footnote": "El código caduca en {minutes} minutos. Si no has sido tú, ignora este mensaje y no le des el código a nadie: sin él no cambia nada."
+  },
+  "emailChangeAddressInUse": {
+    "subject": "Alguien ha intentado usar tu correo en otra cuenta de AccioPass",
+    "heading": "Tu correo ya tiene una cuenta",
+    "body": "Hemos recibido una solicitud para usar esta dirección como correo de otra cuenta de AccioPass, pero ya es la de la tuya. No hemos cambiado nada y no se ha enviado ningún código.",
+    "ifYou": "Si has sido tú y quieres reunir las dos cuentas en esta dirección, elimina antes la cuenta que ya la usa o cámbiale el correo."
+  },
+  "emailChanged": {
+    "subject": "El correo de tu cuenta de AccioPass ha cambiado",
+    "heading": "Correo de la cuenta actualizado",
+    "body": "Tu cuenta de AccioPass ya no usa esta dirección. A partir de ahora se inicia sesión con la nueva y es ahí donde enviaremos los códigos y los avisos de seguridad.",
+    "newAddress": "Nueva dirección",
+    "footnote": "Si no has sido tú, alguien con tu contraseña maestra ha entrado en tu cuenta. Inicia sesión desde uno de tus dispositivos con la dirección nueva que ves arriba y tu contraseña maestra, vuelve a poner tu correo y cambia la contraseña maestra cuanto antes. Si ya no puedes entrar, escríbenos a {supportEmail}."
+  },
+  "accountDeleted": {
+    "subject": "Tu cuenta de AccioPass ha sido eliminada",
+    "heading": "Cuenta eliminada",
+    "body": "Hemos eliminado tu cuenta y todos los datos asociados: bóveda cifrada, códigos, elementos compartidos de los que eras propietario, sesiones y registros de actividad. Esta acción no se puede deshacer.",
+    "retained": "Solo conservamos, bloqueada y sin tu dirección ni ningún identificador de la cuenta, la constancia de lo que aceptaste y consentiste y, si nos enviaste alguna, tus consultas y reclamaciones, durante el plazo que indica la Política de Privacidad y únicamente para poder acreditarlo ante un juzgado o una autoridad.",
+    "notYou": "Si no has sido tú, escríbenos a {supportEmail}."
+  },
+  "contractConfirmation": {
+    "subject": "Confirmación de tu contrato con AccioPass",
+    "heading": "Tu contrato con AccioPass",
+    "body": "Tu cuenta de AccioPass ya está creada y, con ello, has celebrado con ACCIOSOFT S.L. el contrato del servicio. Este correo es su confirmación: guárdalo.",
+    "attached": "Adjuntamos el texto íntegro de los Términos y Condiciones que has aceptado (archivo «{filename}»). El contrato se ha celebrado en español.",
+    "attachedNewer": "Aceptaste la versión {termsVersion} de los Términos y Condiciones. El archivo adjunto («{filename}») es el texto íntegro de la versión {attachedVersion}, la vigente al enviar este correo; si quieres el de la versión que aceptaste, pídelo a {supportEmail}. El contrato se ha celebrado en español.",
+    "facts": {
+      "account": "Cuenta",
+      "acceptedAt": "Fecha de la aceptación",
+      "termsAccepted": "Versión {version}: aceptados",
+      "privacyRead": "Versión {version}: confirmaste haberla leído",
+      "age": "Edad",
+      "ageDeclared": "Declaraste tener 16 años o más",
+      "masterPassword": "Contraseña maestra",
+      "noRecoveryAccepted": "Aceptaste por separado que nadie, tampoco ACCIOSOFT, puede recuperarla"
+    },
+    "essentials": {
+      "title": "Lo esencial de lo que has aceptado",
+      "noRecovery": "ACCIOSOFT no puede recuperar tu bóveda. Si olvidas la contraseña maestra y no conservas a la vez tus 24 palabras de recuperación, el acceso al correo de tu cuenta y, si la activaste, tu verificación en dos pasos, tus datos se pierden para siempre (cláusula 6).",
+      "cancel": "Puedes darte de baja cuando quieras, sin coste y sin dar explicaciones, eliminando tu cuenta desde la aplicación. La eliminación de la bóveda es inmediata e irreversible (cláusula 17).",
+      "sharing": "Compartir una contraseña es revelarla: retirar después el acceso no hace que la otra persona la olvide (cláusula 8).",
+      "aid": "Los avisos de filtraciones y las funciones de inteligencia artificial son una ayuda, no una garantía ni un asesoramiento profesional (cláusulas 9 y 10).",
+      "consumer": "Si eres consumidor, conservas todos los derechos que la ley te reconoce: nada en los Términos los limita (cláusulas 18, 19 y 23)."
+    },
+    "withdrawal": "Desistimiento y baja. Puedes desistir del contrato o darte de baja en cualquier momento, sin coste y sin indicar el motivo, eliminando tu cuenta desde los ajustes de la aplicación (te pedirá la contraseña maestra y, si la tienes activada, un código de verificación en dos pasos) o escribiendo a {supportEmail}. Los detalles están en las cláusulas 17.2 y 23.1 de los Términos adjuntos. Eliminar la cuenta borra tus datos de forma irreversible: exporta antes lo que quieras conservar.",
+    "yourData": "Tus datos. La Política de Privacidad explica qué datos tratamos, para qué y cuáles son tus derechos; entre ellos, el de oponerte en cualquier momento a los tratamientos que se basan en el interés legítimo (apartado 13).",
+    "whereToRead": "Dónde leer los documentos. Términos y Condiciones: {termsUrl} · Política de Privacidad: {privacyUrl} · Aviso Legal: {noticeUrl}",
+    "footnote": "Si no has creado esta cuenta, escríbenos a {supportEmail}."
+  },
+  "termsAnnouncement": {
+    "subject": "Cambios en los Términos de AccioPass a partir del {effectiveOn}",
+    "heading": "Nuevos Términos y Condiciones",
+    "body": "Vamos a cambiar los Términos y Condiciones de AccioPass. La nueva versión ({termsVersion}) entra en vigor el {effectiveOn}. Adjuntamos su texto íntegro (archivo «{filename}»).",
+    "whatChanges": "Qué cambia y por qué",
+    "options": {
+      "title": "Qué puedes hacer",
+      "accept": "Aceptarlos: la aplicación te pedirá que aceptes la nueva versión. Los cambios que reduzcan tus derechos o aumenten tus obligaciones no se te aplican por el mero hecho de seguir usando el servicio.",
+      "decline": "No aceptarlos: puedes resolver el contrato sin coste eliminando tu cuenta, en cualquier momento antes de esa fecha y, en todo caso, durante los 30 días naturales siguientes a la recepción de este aviso o a la entrada en vigor, si es posterior. Antes puedes exportar tus datos.",
+      "readOnly": "Si llegada esa fecha no has aceptado la nueva versión, tu cuenta pasará a ser de solo lectura: podrás seguir consultando tu bóveda, exportar tus datos y eliminar la cuenta, y bastará con aceptar para volver a usarla con normalidad."
+    },
+    "effectiveFrom": "Entrada en vigor",
+    "footnote": "Si tienes dudas sobre estos cambios, escríbenos a {supportEmail}."
+  },
+  "accountRestricted": {
+    "suspended": {
+      "subject": "Hemos restringido tu cuenta de AccioPass",
+      "heading": "Tu cuenta es ahora de solo lectura",
+      "body": "ACCIOSOFT ha decidido restringir tu cuenta de AccioPass. Desde este momento es de solo lectura: puedes iniciar sesión, consultar tu bóveda, exportar tus datos, cerrar sesiones, desautorizar dispositivos, enviarnos una reclamación y eliminar la cuenta, pero no puedes guardar cambios, compartir ni usar el resto de funciones.",
+      "contest": "Cómo impugnarla. Escribe a {supportEmail} o envía una reclamación desde la aplicación (Ayuda y reclamaciones), que sigue disponible con la cuenta restringida. Una persona de ACCIOSOFT la revisará y te responderá de forma motivada. También puedes acudir a los tribunales o a los procedimientos de resolución extrajudicial disponibles."
+    },
+    "disabled": {
+      "subject": "Hemos suspendido tu cuenta de AccioPass",
+      "heading": "Tu cuenta está suspendida",
+      "body": "ACCIOSOFT ha decidido suspender tu cuenta de AccioPass. Desde este momento no se puede iniciar sesión en ella ni usar sus claves de API, y se han cerrado sus sesiones. La copia cifrada guardada en tus dispositivos puede seguir consultándose sin conexión mientras la aplicación la conserve. Si quieres obtener tus datos, pídelo a {supportEmail} y te facilitaremos el acceso necesario para exportarlos.",
+      "contest": "Cómo impugnarla. Escribe a {supportEmail} o envía una reclamación desde la aplicación (Ayuda y reclamaciones, disponible sin iniciar sesión). Una persona de ACCIOSOFT la revisará y te responderá de forma motivada. También puedes acudir a los tribunales o a los procedimientos de resolución extrajudicial disponibles."
+    },
+    "statement": "Hechos y motivos de la decisión",
+    "details": {
+      "duration": "Duración",
+      "untilLifted": "Hasta que ACCIOSOFT la levante; te avisaremos por correo",
+      "grounds": "Fundamento",
+      "origin": "Origen",
+      "originNotice": "Notificación recibida de un tercero",
+      "originOwn": "Comprobación propia de ACCIOSOFT",
+      "automatedMeans": "Medios automatizados",
+      "automatedUsed": "Se han utilizado para detectar los hechos; la decisión la ha tomado una persona",
+      "automatedNotUsed": "No se han utilizado; la decisión la ha tomado una persona"
+    }
+  },
+  "accountRestored": {
+    "subject": "Tu cuenta de AccioPass vuelve a estar activa",
+    "heading": "Restricción levantada",
+    "body": "ACCIOSOFT ha levantado la medida que pesaba sobre tu cuenta de AccioPass. Vuelve a funcionar con normalidad: inicia sesión como siempre.",
+    "sessions": "Si la cuenta estuvo suspendida, sus sesiones se cerraron entonces y tendrás que iniciar sesión de nuevo en tus dispositivos.",
+    "footnote": "Si tienes cualquier duda, escríbenos a {supportEmail}."
+  },
+  "twoFactorReset": {
+    "subject": "Se ha retirado la verificación en dos pasos de tu cuenta",
+    "heading": "Verificación en dos pasos retirada",
+    "body": "A petición de quien se ha identificado como titular de la cuenta, el equipo de ACCIOSOFT ha retirado la verificación en dos pasos de tu cuenta de AccioPass y ha eliminado sus códigos de respaldo. También se han cerrado todas las sesiones.",
+    "passwordOnly": "Tu cuenta vuelve a estar protegida únicamente por la contraseña maestra, que nadie más que tú conoce y que ACCIOSOFT no puede ver ni cambiar. Vuelve a activar la verificación en dos pasos en cuanto inicies sesión.",
+    "footnote": "Si no lo has pedido tú, escríbenos de inmediato a {supportEmail} y cambia tu contraseña maestra cuanto antes."
+  },
+  "supportRequestReceipt": {
+    "subject": "Hemos recibido tu solicitud {reference}",
+    "heading": "Solicitud recibida",
+    "body": "Hemos recibido tu mensaje. Este correo es tu justificante: guarda la clave identificativa, que te servirá para cualquier consulta posterior sobre esta solicitud.",
+    "labels": {
+      "reference": "Clave identificativa",
+      "type": "Tipo",
+      "subject": "Asunto",
+      "message": "Tu mensaje"
+    },
+    "answer": {
+      "complaint": "Te atenderá una persona y te responderemos en el plazo más breve posible y, en todo caso, dentro del plazo máximo que fijan los Términos y Condiciones para las quejas y reclamaciones (cláusula 23.2).",
+      "privacy": "Te atenderá una persona y te responderemos dentro de los plazos que establece la normativa de protección de datos (Política de Privacidad, apartado 13).",
+      "other": "Te atenderá una persona y te responderemos lo antes posible."
+    },
+    "footnote": "Si no has enviado tú esta solicitud, alguien ha escrito tu dirección en el formulario de ayuda de AccioPass: puedes ignorar este mensaje o avisarnos en {supportEmail}."
+  },
+  "supportRequestNotice": {
+    "subject": "[AccioPass] {category} {reference}",
+    "heading": "Nueva solicitud: {category}",
+    "fromSession": "Enviada desde una sesión iniciada: la dirección es la de la cuenta. Al remitente se le ha enviado un justificante con la clave identificativa.",
+    "withoutSession": "Enviada SIN iniciar sesión: la dirección es la que escribió el remitente y no está verificada. No actúes sobre ninguna cuenta a partir de este mensaje sin comprobar antes la identidad (docs/OPERATIONS.md). Al remitente se le ha enviado un justificante con la clave identificativa.",
+    "labels": {
+      "reference": "Clave identificativa",
+      "type": "Tipo",
+      "sender": "Remitente",
+      "language": "Idioma",
+      "account": "Cuenta",
+      "subject": "Asunto",
+      "message": "Mensaje"
+    },
+    "accountRestricted": "{id} (restringida: {restriction})",
+    "noSession": "Sin sesión",
+    "footer": "Mensaje interno del canal de ayuda y reclamaciones de AccioPass. Responder a este correo escribe al remitente."
+  }
+}

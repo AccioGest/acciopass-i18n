@@ -1,0 +1,113 @@
+{
+  "title": "Generador",
+  "result": {
+    "label": "Contraseña generada",
+    "regenerate": "Generar otra",
+    "copy": "Copiar",
+    "copyLabel": "Copiar contraseña",
+    "copied": "Contraseña copiada",
+    "copiedClears": "Contraseña copiada. Se borrará del portapapeles en {seconds} s.",
+    "save": "Guardar en la bóveda",
+    "onDevice": "Se crea en este dispositivo con azar criptográfico. No se envía a ningún sitio."
+  },
+  "strength": {
+    "instant": "Un ataque de 10 000 millones de intentos por segundo la adivinaría al instante.",
+    "minutes": "Un ataque de 10 000 millones de intentos por segundo la adivinaría en minutos u horas.",
+    "days": "Un ataque de 10 000 millones de intentos por segundo tardaría días o meses en adivinarla.",
+    "years": "Un ataque de 10 000 millones de intentos por segundo tardaría años en adivinarla.",
+    "centuries": "Un ataque de 10 000 millones de intentos por segundo tardaría siglos en adivinarla.",
+    "pin": "Un PIN solo protege donde los intentos están limitados, como una tarjeta o un teléfono."
+  },
+  "options": {
+    "title": "Ajustes",
+    "description": "Se guardan en este dispositivo."
+  },
+  "modes": {
+    "label": "Tipo de contraseña",
+    "random": "Aleatoria",
+    "passphrase": "Frase",
+    "pin": "PIN"
+  },
+  "random": {
+    "length": "Longitud",
+    "lengthValue": {
+      "one": "{count} carácter",
+      "other": "{count} caracteres"
+    },
+    "classes": "Tipos de carácter",
+    "uppercase": "Mayúsculas",
+    "uppercaseHint": "A–Z",
+    "lowercase": "Minúsculas",
+    "lowercaseHint": "a–z",
+    "digits": "Números",
+    "digitsHint": "0–9",
+    "symbols": "Símbolos",
+    "symbolsHint": "! # $ % …",
+    "lastClass": "Tiene que quedar al menos un tipo de carácter.",
+    "excludeAmbiguous": "Excluir caracteres ambiguos",
+    "excludeAmbiguousHint": "Sin 0, O, o, 1, l, I, la barra | ni comillas: se confunden al leer o al dictar.",
+    "customSymbols": "Símbolos permitidos",
+    "customSymbolsHint": "Déjalo vacío para usar los habituales. Solo signos: las letras, los números y los espacios se descartan.",
+    "customSymbolsUnusable": "Con estos signos no se puede generar. Mientras tanto se usan los habituales.",
+    "minDigits": "Números como mínimo",
+    "minSymbols": "Símbolos como mínimo"
+  },
+  "passphrase": {
+    "words": "Número de palabras",
+    "wordsValue": {
+      "one": "{count} palabra",
+      "other": "{count} palabras"
+    },
+    "separator": "Separador",
+    "separatorHint": "Hasta 8 caracteres. Vacío une las palabras sin nada entre ellas.",
+    "capitalize": "Mayúscula inicial",
+    "capitalizeHint": "Cada palabra empieza por mayúscula.",
+    "includeNumber": "Incluir un número",
+    "includeNumberHint": "Añade una cifra al final de una de las palabras.",
+    "wordlist": "Lista de palabras",
+    "wordlistEs": "Español",
+    "wordlistEn": "Inglés"
+  },
+  "pin": {
+    "length": "Longitud",
+    "lengthValue": {
+      "one": "{count} dígito",
+      "other": "{count} dígitos"
+    }
+  },
+  "ai": {
+    "title": "Descríbeme qué necesitas",
+    "description": "El asistente elige los ajustes por ti. Solo recibe tu descripción: la contraseña se genera siempre en este dispositivo.",
+    "label": "Qué necesitas",
+    "placeholder": "Una contraseña para el banco, máximo 16 caracteres y sin símbolos",
+    "hint": "No escribas aquí ninguna contraseña.",
+    "submit": "Aplicar",
+    "required": "Escribe qué necesitas, con tus palabras.",
+    "offline": "Para interpretar tu descripción hace falta conexión. El resto del generador funciona sin ella.",
+    "applied": "Ajustes aplicados",
+    "sourceAi": "IA",
+    "sourceRules": "Reglas integradas",
+    "sourceAiHint": "Ajustes propuestos por la IA a partir de tu descripción.",
+    "sourceRulesHint": "Ajustes elegidos con las reglas integradas de AccioPass, sin IA."
+  },
+  "history": {
+    "title": "Historial de esta sesión",
+    "description": "Las contraseñas que copias, guardas o sustituyes se quedan aquí hasta que se bloquea la bóveda. No se escriben en disco.",
+    "empty": "Todavía no hay nada. Copia una contraseña o genera otra y aparecerá aquí.",
+    "clear": "Borrar historial",
+    "clearTitle": "¿Borrar el historial?",
+    "clearMessage": "Las contraseñas que no hayas guardado en la bóveda no se podrán recuperar.",
+    "clearConfirm": "Borrar",
+    "cleared": "Historial borrado",
+    "showMore": {
+      "one": "Mostrar {count} más",
+      "other": "Mostrar {count} más"
+    },
+    "showLess": "Mostrar menos",
+    "hidden": "Contraseña oculta",
+    "show": "Mostrar la contraseña generada {time}",
+    "hide": "Ocultar la contraseña generada {time}",
+    "copy": "Copiar la contraseña generada {time}",
+    "list": "Contraseñas generadas en esta sesión"
+  }
+}

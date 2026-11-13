@@ -1,0 +1,57 @@
+{
+  "title": "Asistente de seguridad",
+  "back": "Volver a Seguridad",
+  "intro": {
+    "title": "Pregunta lo que necesites sobre seguridad",
+    "description": "Contraseñas, verificación en dos pasos, filtraciones, correos sospechosos… Da consejos generales: no ve tu bóveda ni tus contraseñas."
+  },
+  "suggestions": {
+    "title": "Para empezar",
+    "leak": "¿Qué hago si una contraseña mía aparece en una filtración?",
+    "memorable": "¿Cómo creo una contraseña fuerte que pueda recordar?",
+    "twoFactor": "¿Qué es la verificación en dos pasos y cuándo conviene activarla?",
+    "phishing": "¿Cómo reconozco un correo que intenta robarme la contraseña?"
+  },
+  "reminder": "No pegues aquí contraseñas ni códigos: el asistente no los necesita.",
+  "input": {
+    "label": "Tu pregunta",
+    "placeholder": "Escribe tu pregunta",
+    "send": "Enviar"
+  },
+  "roles": {
+    "user": "Tú",
+    "assistant": "Asistente"
+  },
+  "log": "Conversación",
+  "typing": "El asistente está escribiendo…",
+  "notSent": "No se ha enviado.",
+  "retry": "Reintentar",
+  "memory": "La conversación solo existe en la memoria de este dispositivo y se borra al bloquear la bóveda.",
+  "clear": {
+    "action": "Borrar conversación",
+    "title": "¿Borrar la conversación?",
+    "message": "No está guardada en ningún sitio: no se podrá recuperar.",
+    "confirm": "Borrar"
+  },
+  "quota": {
+    "remaining": {
+      "zero": "Hoy ya no te quedan preguntas. El límite diario se renueva a medianoche (UTC).",
+      "one": "Hoy te queda {count} pregunta. El límite diario se renueva a medianoche (UTC).",
+      "other": "Hoy te quedan {count} preguntas. El límite diario se renueva a medianoche (UTC)."
+    },
+    "exceededTitle": "Has llegado al límite de preguntas de hoy",
+    "exceeded": "Cada cuenta tiene un número de preguntas al día. Podrás volver a preguntar mañana.",
+    "exceededIn": "Cada cuenta tiene un número de preguntas al día. Podrás volver a preguntar dentro de {time}."
+  },
+  "disabled": {
+    "title": "El asistente está desactivado",
+    "description": "Lo tienes apagado en Preferencias. Mientras siga así, AccioPass no envía nada a la IA.",
+    "action": "Abrir Preferencias"
+  },
+  "unavailable": {
+    "title": "El asistente no está disponible ahora",
+    "description": "Este servidor no tiene la IA en marcha en este momento. El generador, el plan de acción y la comprobación de filtraciones funcionan sin ella.",
+    "retry": "Volver a comprobar"
+  },
+  "offline": "El asistente necesita conexión. Tu conversación sigue aquí para cuando vuelva."
+}

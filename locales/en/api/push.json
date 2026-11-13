@@ -1,0 +1,10 @@
+{
+  "loginApproval": {
+    "title": "Are you trying to sign in?",
+    "body": "Someone is signing in to your AccioPass account. Open the app to confirm it is you."
+  },
+  "breach": {
+    "title": "Leaked passwords detected",
+    "body": "Open AccioPass to see which ones and change them."
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "title": "¿Estás intentando iniciar sesión?",
+  "pageTitle": "Confirmar inicio de sesión",
+  "lead": "Un dispositivo ha escrito tu contraseña maestra y está esperando tu confirmación.",
+  "queue": {
+    "one": "Hay {count} solicitud más esperando.",
+    "other": "Hay {count} solicitudes más esperando."
+  },
+  "place": "Ubicación",
+  "placeNote": "Ubicación aproximada, según la dirección IP",
+  "unknownPlace": "Ubicación desconocida",
+  "unknownPlaceNote": "No se ha podido deducir de la dirección IP",
+  "ip": "Dirección IP",
+  "unknownIp": "Desconocida",
+  "when": "Cuándo",
+  "justNow": "Hace unos segundos",
+  "expiresIn": "Caduca en {time}",
+  "expiresLabel": "Tiempo para responder",
+  "expired": "La solicitud de inicio de sesión ha caducado.",
+  "gone": "La solicitud de inicio de sesión ya no está pendiente.",
+  "choose": "Elige el número que aparece en el otro dispositivo",
+  "chooseHint": "Si eres tú, lo estás viendo ahora mismo en su pantalla.",
+  "number": "Número {number}",
+  "numbersLabel": "Números para confirmar",
+  "approving": "Confirmando…",
+  "wrongNumber": {
+    "one": "Ese no es el número. Míralo en la pantalla del otro dispositivo: te queda {count} intento.",
+    "other": "Ese no es el número. Míralo en la pantalla del otro dispositivo: te quedan {count} intentos."
+  },
+  "wrongNumberPlain": "Ese no es el número. Míralo en la pantalla del otro dispositivo antes de elegir.",
+  "deny": "No soy yo",
+  "denyHint": "Rechaza el inicio de sesión",
+  "notMe": "Si no estás iniciando sesión en ningún sitio, alguien conoce tu contraseña maestra.",
+  "approved": {
+    "title": "Listo, has aprobado el inicio de sesión",
+    "body": "«{device}» ya puede entrar en tu cuenta. A partir de ahora es un dispositivo de confianza.",
+    "bodyNoName": "El otro dispositivo ya puede entrar en tu cuenta. A partir de ahora es un dispositivo de confianza.",
+    "undo": "Si te has equivocado, desautorízalo en Ajustes, en Dispositivos.",
+    "devices": "Ver dispositivos"
+  },
+  "denied": {
+    "title": "Has rechazado el inicio de sesión",
+    "body": "Ese dispositivo no ha entrado. Pero para llegar hasta aquí alguien ha escrito bien tu contraseña maestra: ya no es secreta.",
+    "next": "Cámbiala ahora. Tu bóveda sigue cifrada y nadie ha podido leerla, pero una contraseña que otra persona conoce ya no te protege.",
+    "change": "Cambiar contraseña maestra",
+    "later": "Ahora no"
+  },
+  "deniedByAttempts": {
+    "title": "Hemos rechazado el inicio de sesión",
+    "body": "El número elegido no coincidía por segunda vez, así que la solicitud se ha rechazado por seguridad.",
+    "retry": "Si eras tú, vuelve a iniciar sesión en el otro dispositivo y fíjate en el número que muestra.",
+    "notYou": "Si no eras tú, alguien conoce tu contraseña maestra: cámbiala.",
+    "change": "Cambiar contraseña maestra",
+    "close": "Cerrar"
+  },
+  "resolved": {
+    "title": "Esta solicitud ya no está pendiente",
+    "body": "Se ha respondido desde otro dispositivo, se ha completado de otra forma o ha caducado. No tienes que hacer nada.",
+    "close": "Cerrar"
+  },
+  "next": "Ver la siguiente solicitud",
+  "done": "Hecho",
+  "page": {
+    "none": {
+      "title": "No hay nada que confirmar",
+      "body": "Esta solicitud de inicio de sesión ya se ha respondido o ha caducado."
+    },
+    "loading": "Buscando la solicitud…",
+    "back": "Volver a AccioPass"
+  },
+  "alerts": {
+    "title": "Avisos de inicio de sesión",
+    "label": "Avisar con una notificación del navegador",
+    "description": "Cuando otro dispositivo intente entrar y esta pestaña esté en segundo plano, verás una notificación. No incluye el número ni el nombre del dispositivo.",
+    "denied": "El navegador tiene bloqueadas las notificaciones de AccioPass. Permítelas en los ajustes del sitio y vuelve a activar esto.",
+    "unsupported": "Este navegador no admite notificaciones.",
+    "notificationTitle": "¿Estás intentando iniciar sesión?",
+    "notificationBody": "Abre AccioPass para confirmar o rechazar el inicio de sesión."
+  }
+}

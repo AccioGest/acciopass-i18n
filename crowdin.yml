@@ -1,0 +1,61 @@
+# Configuración de Crowdin para la integración con GitHub (modo «Source and
+# translation files»). Formato documentado en
+# https://support.crowdin.com/developer/configuration-file/
+#
+# Aquí NO van credenciales (project_id, api_token): la integración no las
+# necesita y este repositorio es público.
+#
+# Lo que este fichero NO puede declarar y hay que marcar a mano en Crowdin
+# (Settings > Export): «Skip untranslated strings» y «Export only approved
+# translations». Ver README.md, sección «Puesta en marcha de Crowdin».
+
+# Conserva en Crowdin la misma estructura de carpetas que en el repositorio.
+preserve_hierarchy: true
+
+pull_request_title: "Traducciones nuevas desde Crowdin"
+pull_request_labels:
+  - traducciones
+
+# El mensaje por defecto de Crowdin termina en "[ci skip]", y con esa marca
+# GitHub Actions no ejecuta la validación obligatoria: la petición de cambios
+# no se podría fusionar nunca. Por eso se sustituye entero.
+commit_message: "Traducciones: %original_file_name% (%language%)"
+append_commit_message: false
+
+files:
+  # Un bloque por proyecto de i18n.config.json. locales/es/locale.json queda
+  # fuera a propósito: el nombre de cada idioma lo escribe una persona.
+  #
+  # %two_letters_code% da solo el código de idioma («pt», «zh», «es»), así que
+  # una variante regional escribiría en la carpeta de otro idioma; una de
+  # español («Spanish, Mexico») escribiría ENCIMA DE LA FUENTE. languages_mapping
+  # da su propia carpeta a las variantes más probables; cualquier otra hay que
+  # declararla aquí, en los dos bloques, ANTES de añadirla en Crowdin
+  # (README.md, «Idiomas con región»). La clave es el código del idioma en
+  # Crowdin y el valor, el nombre de la carpeta.
+  - source: /locales/es/app/*.json
+    translation: /locales/%two_letters_code%/app/%original_file_name%
+    update_option: update_as_unapproved
+    languages_mapping:
+      two_letters_code:
+        es-MX: es-MX
+        es-AR: es-AR
+        es-US: es-US
+        en-GB: en-GB
+        fr-CA: fr-CA
+        pt-BR: pt-BR
+        zh-CN: zh-CN
+        zh-TW: zh-TW
+  - source: /locales/es/api/*.json
+    translation: /locales/%two_letters_code%/api/%original_file_name%
+    update_option: update_as_unapproved
+    languages_mapping:
+      two_letters_code:
+        es-MX: es-MX
+        es-AR: es-AR
+        es-US: es-US
+        en-GB: en-GB
+        fr-CA: fr-CA
+        pt-BR: pt-BR
+        zh-CN: zh-CN
+        zh-TW: zh-TW

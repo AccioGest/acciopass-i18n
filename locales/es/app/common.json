@@ -1,0 +1,200 @@
+{
+  "appName": "AccioPass",
+  "tagline": "Tus contraseñas y códigos, cifrados en tu dispositivo.",
+  "nav": {
+    "codes": "Códigos",
+    "vault": "Bóveda",
+    "generator": "Generador",
+    "security": "Seguridad",
+    "settings": "Ajustes"
+  },
+  "terms": {
+    "vault": "bóveda",
+    "masterPassword": "contraseña maestra",
+    "recoveryWords": "palabras de recuperación",
+    "code": "código",
+    "trustedDevice": "dispositivo de confianza",
+    "share": "compartir"
+  },
+  "actions": {
+    "accept": "Aceptar",
+    "add": "Añadir",
+    "apply": "Aplicar",
+    "back": "Volver",
+    "cancel": "Cancelar",
+    "change": "Cambiar",
+    "clear": "Borrar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "continue": "Continuar",
+    "copy": "Copiar",
+    "create": "Crear",
+    "delete": "Eliminar",
+    "discard": "Descartar",
+    "done": "Hecho",
+    "download": "Descargar",
+    "edit": "Editar",
+    "export": "Exportar",
+    "generate": "Generar",
+    "hide": "Ocultar",
+    "import": "Importar",
+    "lock": "Bloquear",
+    "next": "Siguiente",
+    "open": "Abrir",
+    "paste": "Pegar",
+    "refresh": "Actualizar",
+    "remove": "Quitar",
+    "rename": "Renombrar",
+    "retry": "Reintentar",
+    "revoke": "Desautorizar",
+    "save": "Guardar",
+    "scan": "Escanear",
+    "search": "Buscar",
+    "select": "Seleccionar",
+    "send": "Enviar",
+    "share": "Compartir",
+    "show": "Mostrar",
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión",
+    "skip": "Omitir",
+    "sync": "Sincronizar",
+    "undo": "Deshacer",
+    "unlock": "Desbloquear",
+    "viewDetails": "Ver detalles"
+  },
+  "states": {
+    "loading": "Cargando…",
+    "saving": "Guardando…",
+    "saved": "Guardado",
+    "copied": "Copiado",
+    "deleted": "Eliminado",
+    "done": "Hecho",
+    "sent": "Enviado",
+    "syncing": "Sincronizando…",
+    "synced": "Sincronizado",
+    "pendingChanges": {
+      "one": "{count} cambio pendiente de sincronizar",
+      "other": "{count} cambios pendientes de sincronizar"
+    },
+    "online": "Con conexión",
+    "offline": "Sin conexión",
+    "locked": "Bloqueada",
+    "unlocked": "Desbloqueada",
+    "enabled": "Activado",
+    "disabled": "Desactivado",
+    "on": "Sí",
+    "off": "No",
+    "empty": "No hay nada todavía",
+    "noResults": "Sin resultados",
+    "optional": "Opcional",
+    "required": "Obligatorio",
+    "new": "Nuevo",
+    "current": "Actual",
+    "expired": "Caducado",
+    "unknown": "Desconocido",
+    "none": "Ninguno",
+    "all": "Todos"
+  },
+  "strength": {
+    "veryWeak": "Muy débil",
+    "weak": "Débil",
+    "fair": "Aceptable",
+    "strong": "Fuerte",
+    "veryStrong": "Muy fuerte",
+    "bits": {
+      "one": "{count} bit",
+      "other": "{count} bits"
+    }
+  },
+  "time": {
+    "now": "Ahora mismo",
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "never": "Nunca",
+    "ago": "Hace {time}",
+    "in": "En {time}",
+    "seconds": {
+      "one": "{count} segundo",
+      "other": "{count} segundos"
+    },
+    "minutes": {
+      "one": "{count} minuto",
+      "other": "{count} minutos"
+    },
+    "hours": {
+      "one": "{count} hora",
+      "other": "{count} horas"
+    },
+    "days": {
+      "one": "{count} día",
+      "other": "{count} días"
+    },
+    "weeks": {
+      "one": "{count} semana",
+      "other": "{count} semanas"
+    },
+    "months": {
+      "one": "{count} mes",
+      "other": "{count} meses"
+    },
+    "years": {
+      "one": "{count} año",
+      "other": "{count} años"
+    },
+    "short": {
+      "seconds": "{count} s",
+      "minutes": "{count} min",
+      "hours": "{count} h",
+      "days": "{count} d"
+    }
+  },
+  "errors": {
+    "generic": "Algo no ha ido bien. Vuelve a intentarlo.",
+    "offline": "No hay conexión. Esto necesita internet; inténtalo cuando la recuperes.",
+    "timeout": "El servidor tarda en responder. Vuelve a intentarlo en un momento.",
+    "server": "El servidor no ha podido atender la petición. No es cosa tuya: inténtalo más tarde.",
+    "syncFailed": "No hemos podido sincronizar. Tus cambios están guardados en este dispositivo y se enviarán al recuperar la conexión.",
+    "sessionExpired": "Tu sesión ha caducado. Inicia sesión de nuevo para seguir sincronizando.",
+    "tooManyAttempts": "Demasiados intentos. Espera {time} y vuelve a probar.",
+    "notFound": "No lo encontramos. Puede que se haya eliminado en otro dispositivo.",
+    "forbidden": "No tienes permiso para hacer esto.",
+    "unsupported": "Esto no está disponible en este dispositivo.",
+    "requiredField": "Rellena este campo.",
+    "invalidEmail": "Escribe un correo electrónico válido, como nombre@ejemplo.com.",
+    "invalidCode": "El código no es correcto. Compruébalo y vuelve a escribirlo.",
+    "copyFailed": "No se ha podido copiar. Selecciona el texto y cópialo a mano."
+  },
+  "a11y": {
+    "back": "Volver",
+    "close": "Cerrar",
+    "dismiss": "Descartar aviso",
+    "showValue": "Mostrar",
+    "hideValue": "Ocultar",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
+    "copyValue": "Copiar {label}",
+    "hiddenValue": "Valor oculto",
+    "loading": "Cargando",
+    "logo": "AccioPass",
+    "mainNavigation": "Navegación principal",
+    "codeInput": "Código de {count} dígitos",
+    "qrCode": "Código QR",
+    "strength": "Fortaleza: {label}",
+    "timeLeft": "Tiempo restante",
+    "selected": "Seleccionado",
+    "notifications": {
+      "one": "{count} aviso",
+      "other": "{count} avisos"
+    },
+    "moreActions": "Más acciones",
+    "clearSearch": "Borrar búsqueda",
+    "removeTag": "Quitar {tag}",
+    "tagSuggestions": "Sugerencias",
+    "generatePassword": "Generar contraseña",
+    "copyPassword": "Copiar contraseña",
+    "secondsLeft": {
+      "one": "Queda {count} segundo",
+      "other": "Quedan {count} segundos"
+    }
+  }
+}

@@ -1,0 +1,472 @@
+{
+  "title": "Settings",
+  "languages": {
+    "es": "Español",
+    "en": "English",
+    "partial": "partial",
+    "partialHint": "Partial: what is not translated yet is shown in Spanish."
+  },
+  "summary": {
+    "verified": "E-mail verified",
+    "unverified": "E-mail not verified",
+    "readOnly": "Read-only"
+  },
+  "groups": {
+    "account": "Account",
+    "security": "Security",
+    "app": "App",
+    "help": "Help",
+    "session": "Session"
+  },
+  "nav": {
+    "account": "Account",
+    "password": "Master password",
+    "recoveryWords": "Recovery words",
+    "twoFactor": "Two-step verification",
+    "twoFactorOn": "On",
+    "twoFactorOff": "Off",
+    "devices": "Devices",
+    "loginHistory": "Sign-in activity",
+    "linkedAccounts": "Linked accounts",
+    "apiKeys": "API keys",
+    "preferences": "Preferences",
+    "data": "Data",
+    "help": "Help and complaints",
+    "about": "About"
+  },
+  "session": {
+    "lock": "Lock",
+    "lockHint": "Closes the vault on this device. Your master password opens it again.",
+    "logout": "Sign out",
+    "logoutTitle": "Sign out?",
+    "logoutMessage": "This device will stop syncing until you sign in again.",
+    "logoutAndWipe": "Sign out and erase",
+    "wipeOption": "Also erase the copy on this device",
+    "keepHint": "If you leave it unticked, the encrypted copy of your vault stays on this device and will not need downloading when you come back.",
+    "wipeHint": "The encrypted copy on this device will be erased. Your vault stays in your account and is downloaded when you sign in again.",
+    "pendingKeep": {
+      "one": "You have {count} unsent change. We will try to send it now; if that is not possible it stays on this device and is sent when you sign in again.",
+      "other": "You have {count} unsent changes. We will try to send them now; if that is not possible they stay on this device and are sent when you sign in again."
+    },
+    "pendingWipe": {
+      "one": "You have {count} unsent change. We will try to send it before erasing; if it does not reach the server, it will be lost.",
+      "other": "You have {count} unsent changes. We will try to send them before erasing; any that do not reach the server will be lost."
+    },
+    "pendingOffline": {
+      "one": "There is no connection right now, so it cannot be sent.",
+      "other": "There is no connection right now, so they cannot be sent."
+    },
+    "wipeTitle": "Erase the data on this device?",
+    "wipeMessage": "You will be signed out and the encrypted copy of your vault will be erased from this device. Your account and your data are not touched: they are downloaded again when you sign in.",
+    "wipeConfirm": "Erase and sign out"
+  },
+  "reauth": {
+    "password": "Master password",
+    "passwordRequired": "Enter your master password.",
+    "code": "Two-step verification code",
+    "codeHint": "The 6 digits from your authenticator app, or one of your recovery codes.",
+    "codeRequired": "Enter the code.",
+    "codeInvalid": "It is 6 digits, or a recovery code such as ABCDE-12345.",
+    "retryIn": "You can try again in {time}."
+  },
+  "account": {
+    "title": "Account",
+    "offline": "Nothing about the account can be changed while offline. Everything else keeps working.",
+    "restricted": "Your account is read-only: you cannot change the e-mail or the language. You can still delete it.",
+    "email": {
+      "section": "E-mail",
+      "description": "The address you sign in with and where notices are sent.",
+      "current": "Account e-mail",
+      "change": "Change e-mail",
+      "title": "Change e-mail",
+      "how": "We will send a code to the new address to check that it is yours. Nothing changes until you enter it here. Once confirmed we will tell your current address, and from then on you sign in with the new one.",
+      "newLabel": "New e-mail",
+      "required": "Enter the new e-mail.",
+      "invalid": "That does not look like an e-mail address. Check it.",
+      "same": "That is already your account e-mail.",
+      "rejected": "We cannot use that address. Check it.",
+      "send": "Send code",
+      "confirmTitle": "Enter the code",
+      "sent": "We have sent a 6-digit code to {email}. Enter it to finish the change.",
+      "notArriving": "It expires in 15 minutes. If it does not arrive, look in your spam folder and check the address: if it already has an AccioPass account it cannot be used and will receive no code.",
+      "otherAddress": "Use another address",
+      "confirm": "Confirm",
+      "changed": "E-mail changed. From now on, sign in with {email}."
+    },
+    "locale": {
+      "section": "Language of e-mails",
+      "description": "The e-mails we send you (notices, codes, receipts) are written in this language. The language of the app is chosen in Preferences."
+    },
+    "about": {
+      "section": "Your account",
+      "memberSince": "Account created on"
+    },
+    "delete": {
+      "section": "Delete the account",
+      "summary": "Erases your account and everything it holds, for good. It is immediate and cannot be undone.",
+      "open": "Delete account",
+      "title": "Delete the account",
+      "warningTitle": "This cannot be undone",
+      "warning": "Deletion is immediate. There is no waiting period and no way to get anything back afterwards, not even with your recovery words.",
+      "erasedTitle": "What is erased",
+      "erased": {
+        "vault": "Your whole vault: passwords, codes and notes, from our servers.",
+        "shared": "The items you share with other people: they will no longer have them. What other people share with you remains theirs.",
+        "access": "Your devices and sessions, the sign-in history, API keys, linked accounts and your preferences.",
+        "device": "The encrypted copy on this device. On your other devices the session will stop working; erase the local copy there when you sign out."
+      },
+      "kept": "We keep, without your e-mail or anything that identifies you, the record of the legal texts you accepted and your help requests, for the period stated in the Privacy policy. You will receive an e-mail confirming the deletion.",
+      "exportFirst": "Export my data first",
+      "word": "DELETE",
+      "typeLabel": "Type {word} to confirm",
+      "typeError": "Type {word}, exactly, to confirm.",
+      "offline": "Deleting the account needs a connection.",
+      "confirm": "Delete for good",
+      "done": "Your account has been deleted."
+    }
+  },
+  "preferences": {
+    "title": "Preferences",
+    "deviceNote": "These settings belong to this device and are saved at once.",
+    "accountNote": "These belong to your account: they apply on all your devices and need a connection to change.",
+    "offline": "Account settings cannot be changed while offline. The ones of this device can.",
+    "restricted": "Your account is read-only: here you can only withdraw a permission (AI, service names, or being found by your e-mail).",
+    "never": "Never",
+    "appearance": {
+      "section": "Appearance",
+      "theme": "Theme",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark",
+      "language": "App language",
+      "languageHint": "The language of e-mails is chosen in Account."
+    },
+    "lock": {
+      "section": "Locking",
+      "autoLock": "Auto-lock",
+      "autoLockHint": "The vault locks by itself when you have not used AccioPass for this long.",
+      "minutes": {
+        "one": "{count} min",
+        "other": "{count} min"
+      },
+      "hour": "1 h",
+      "background": "Lock when the app goes to the background",
+      "backgroundHint": "The vault locks as soon as you leave the app.",
+      "backgroundHintWeb": "The vault locks as soon as you switch tabs or minimise the window."
+    },
+    "biometrics": {
+      "label": "Unlock with fingerprint or face",
+      "description": "Open the vault with this device’s biometrics instead of typing the master password.",
+      "enableTitle": "Turn on biometric unlock",
+      "enableMessage": "Confirm your master password. The key that opens your vault will be kept in this device’s secure store and can only be read with your fingerprint or face.",
+      "enable": "Turn on",
+      "enabled": "Biometric unlock is on.",
+      "disableTitle": "Turn off biometric unlock",
+      "disableMessage": "Confirm your master password. The key stored on this device will be erased and you will unlock with the password again.",
+      "disable": "Turn off",
+      "disabled": "Biometric unlock is off."
+    },
+    "codes": {
+      "section": "Clipboard and codes",
+      "clipboard": "Clear the clipboard",
+      "clipboardHint": "What you copy from AccioPass (passwords, codes) is cleared from the clipboard after this time, if it is still what you copied.",
+      "seconds": {
+        "one": "{count} s",
+        "other": "{count} s"
+      },
+      "showNext": "Show the next code",
+      "showNextHint": "Next to each code, in grey, the one that will be valid when the current one expires.",
+      "conceal": "Hide codes",
+      "concealHint": "Codes are shown only when you tap them."
+    },
+    "notices": {
+      "section": "E-mail notices",
+      "breaches": "Leaked passwords",
+      "breachesHint": "When the check finds passwords of yours in known breaches. “New” tells you once per leaked password; “Always”, every time the check runs and some are still leaked (at most once an hour).",
+      "breachesNew": "New",
+      "breachesAlways": "Always",
+      "loginAlerts": "Sign-in on a new device",
+      "loginAlertsHint": "An e-mail whenever someone enters your account from a device we did not know.",
+      "shares": "Shared items",
+      "sharesHint": "An e-mail when someone wants to share an item with you."
+    },
+    "signIn": {
+      "section": "Signing in",
+      "approvals": "Confirm new sign-ins from a trusted device",
+      "approvalsHint": "When someone signs in from a new device, you can approve or deny it on another device where your session is open, by choosing the number the new one shows. If you turn this off, your other devices are not notified and the new device is checked only with a code by e-mail or with your two-step verification."
+    },
+    "sharing": {
+      "section": "Sharing",
+      "discoverable": "Let people find me by my e-mail",
+      "discoverableHint": "Other people with an AccioPass account can share an item with you by typing your e-mail. If you turn this off, nobody can start sharing with you: looking you up will show that no account has that e-mail. What you already share does not change."
+    },
+    "ai": {
+      "section": "Artificial intelligence",
+      "intro": "Optional. The AI is never sent passwords, codes, secrets or notes: passwords are always generated on your device.",
+      "enabled": "Turn on AI features",
+      "enabledHint": "The assistant, the generator suggestions and the security report use an AI model (Anthropic) through our server. It is sent what you write to the assistant or the generator and the counts of your vault: how many passwords are weak, reused, old or leaked. If you turn this off, the assistant is no longer available and the rest is computed by fixed rules, without AI.",
+      "names": "Allow sending the names of my services to improve suggestions",
+      "namesHint": "What is sent: the name you gave a login (for example, “Bank”) and the address of its website without the path, when you ask to categorise it; and, in the security report, the names of up to 50 logins with problems and which problem each has. What is never sent: user names, passwords, code secrets or notes. Without this permission there is no automatic categorisation and the report uses counts only.",
+      "namesNeedsAi": "Needs the AI features turned on.",
+      "serverOff": "This server has no AI provider configured right now: even if you turn it on, the server’s own fixed rules answer and nothing goes to a third party."
+    },
+    "notifications": {
+      "section": "Notifications",
+      "pushIntro": "Notices on this device even when AccioPass is closed. They never carry data from your vault: they only say there is something to look at.",
+      "pushLabel": "Notifications on this device",
+      "pushDescription": "They tell you when another device wants to sign in to your account and when leaked passwords are found.",
+      "pushBlocked": "Notifications for AccioPass are turned off in the system settings. Turn them on there and try again.",
+      "channel": "Security notices",
+      "offline": "Turning notifications on or off needs a connection.",
+      "serverOff": "This server does not send push notifications. Notices will reach you by e-mail and inside the app.",
+      "browserIntro": "This browser’s permission for AccioPass to show notices. Today AccioPass does not send notifications to the browser while it is closed: with the app open you learn of everything at once, and the rest arrives by e-mail.",
+      "browserLabel": "Allow notifications in this browser",
+      "browserDescription": "The browser will ask for permission. We will show you a test one so you can see what they look like.",
+      "browserOn": "Permission granted. To withdraw it, use this site’s settings in your browser.",
+      "browserBlocked": "Your browser is blocking notifications from this site. Change it in the site settings (the icon next to the address).",
+      "browserTest": "Notifications are on in this browser.",
+      "blockedToast": "The permission is denied. Change it in the system or browser settings.",
+      "unavailable": "Notifications are not available on this device or in this version of the app."
+    }
+  },
+  "data": {
+    "title": "Data",
+    "saveUnavailable": "We could not save the file on this device.",
+    "kinds": {
+      "logins": {
+        "one": "{count} login",
+        "other": "{count} logins"
+      },
+      "codes": {
+        "one": "{count} code",
+        "other": "{count} codes"
+      },
+      "notes": {
+        "one": "{count} note",
+        "other": "{count} notes"
+      },
+      "none": "No items",
+      "join": "{list} and {last}"
+    },
+    "export": {
+      "section": "Export"
+    },
+    "accountExport": {
+      "title": "My account data",
+      "description": "Everything our server holds about your account, as a JSON file: profile and preferences, devices, sessions, activity, consents, help requests and your vault. The vault is encrypted, exactly as we store it: the file does not contain your passwords in clear and cannot be read without your master password.",
+      "offline": "This export is requested from the server: it needs a connection.",
+      "done": "Account data downloaded."
+    },
+    "localExport": {
+      "title": "My vault, unencrypted",
+      "description": "A JSON file with your passwords, codes and notes in readable text, to keep yourself or take to another manager. It is prepared on this device, also offline.",
+      "open": "Export unencrypted",
+      "warningTitle": "This file is NOT encrypted",
+      "warning": "It will contain all your passwords, the secrets of your codes and your notes in readable text: whoever opens it sees everything. Keep it somewhere safe, do not e-mail it or upload it to the cloud, and delete it when you no longer need it.",
+      "counts": "{items} will be exported.",
+      "includesShared": {
+        "one": "Includes {count} item another person shares with you.",
+        "other": "Includes {count} shared items."
+      },
+      "empty": "Your vault is empty: there is nothing to export.",
+      "understood": "I understand the file is not encrypted",
+      "understoodRequired": "Tick the box to continue.",
+      "confirmDownload": "Download unencrypted",
+      "confirmShare": "Export unencrypted",
+      "done": "Vault exported. Remember to delete the file when you no longer need it.",
+      "fileWarning": "This file contains UNENCRYPTED passwords and secrets. Keep it somewhere safe and delete it when you no longer need it."
+    },
+    "import": {
+      "section": "Import",
+      "description": "What you import is saved on this device at once and syncs with your account when there is a connection.",
+      "restricted": "Your account is read-only: you cannot import items.",
+      "choose": "Choose file",
+      "vaultTitle": "From an AccioPass file",
+      "vaultDescription": "The JSON file of “My vault, unencrypted”.",
+      "codes": "Import codes from another app",
+      "codesDescription": "From Google Authenticator, Ente Auth or another code app. It is done in Codes.",
+      "tooLarge": "The file is too large (over 20 MB). Check that it is the right one.",
+      "unreadableFile": "We could not read the file. Choose it again.",
+      "emptyFile": "The file has no items we can import.",
+      "notCsv": "We do not recognise that file as CSV: we found no columns separated by commas, semicolons or tabs.",
+      "problems": {
+        "notJson": "That file is not valid JSON. Choose the one you exported from “My vault, unencrypted”.",
+        "wrongFormat": "That file is not an AccioPass vault export. If it comes from another manager, export it as CSV and import it from there.",
+        "accountExport": "That file is the “My account data” export, whose vault is encrypted: it cannot be imported. Use the file from “My vault, unencrypted”."
+      },
+      "willImport": "{items} will be imported.",
+      "nothingNew": "There is nothing new to import: your vault already has everything in the file.",
+      "duplicates": {
+        "one": "{count} item is already in your vault and is skipped.",
+        "other": "{count} items are already in your vault and are skipped."
+      },
+      "unreadable": {
+        "one": "{count} entry in the file could not be read and will not be imported.",
+        "other": "{count} entries in the file could not be read and will not be imported."
+      },
+      "localFirst": "Password history and the dates in the file are not imported: items come in as new.",
+      "confirm": {
+        "one": "Import {count} item",
+        "other": "Import {count} items"
+      },
+      "done": {
+        "one": "{count} item imported.",
+        "other": "{count} items imported.",
+        "zero": "No item was imported."
+      }
+    },
+    "csv": {
+      "title": "From another manager’s CSV",
+      "description": "The CSV exported by Bitwarden, 1Password, LastPass, KeePass, Chrome, Firefox and others. Before importing you can say which column is which and see a sample.",
+      "hasHeader": "The first row holds the column names",
+      "columns": "Which column is which",
+      "fields": {
+        "name": "Name",
+        "url": "Web address",
+        "username": "User name",
+        "password": "Password",
+        "notes": "Notes"
+      },
+      "none": "Do not import",
+      "column": "Column {number}",
+      "choose": "Choose the column for {field}",
+      "preview": "Sample",
+      "previewEmpty": "These columns give no login. Point at least to the password or the user name column.",
+      "withPassword": "With password",
+      "noPassword": "No password",
+      "summary": {
+        "one": "{count} login will be imported.",
+        "other": "{count} logins will be imported.",
+        "zero": "There is no login to import."
+      },
+      "skipped": {
+        "one": "{count} row with neither user name nor password, or with nothing to name it by, is dropped.",
+        "other": "{count} rows with neither user name nor password, or with nothing to name them by, are dropped."
+      },
+      "confirm": {
+        "one": "Import {count} login",
+        "other": "Import {count} logins"
+      }
+    },
+    "device": {
+      "section": "On this device",
+      "notPersistent": "This browser does not let us store data (a private window?): what you do here is lost when the tab closes unless it has reached the server.",
+      "items": "Items in the vault",
+      "space": "Space used (approximate)",
+      "pending": "Changes waiting to be sent",
+      "pendingNone": "None",
+      "pendingSome": {
+        "one": "{count} change. It is saved here and will be sent when the connection is back.",
+        "other": "{count} changes. They are saved here and will be sent when the connection is back."
+      },
+      "lastSync": "Last synced",
+      "never": "Not yet",
+      "wipeTitle": "Erase the data on this device",
+      "wipeDescription": "Signs you out and erases the encrypted copy of your vault from here. Your account and your data are not touched.",
+      "wipe": "Erase data"
+    }
+  },
+  "help": {
+    "title": "Help and complaints",
+    "formSection": "Write to us",
+    "intro": "Questions, complaints, claims and requests about your personal data. A person will answer you.",
+    "publicIntro": "You do not need to sign in to write to us. If you have an account and can get in, do it from Settings: that way we know the request is yours.",
+    "category": "What is it about?",
+    "categories": {
+      "help": {
+        "label": "Help",
+        "hint": "Questions about how to use AccioPass or something that does not work."
+      },
+      "complaint": {
+        "label": "Complaint",
+        "hint": "A complaint or claim about the service, also against the suspension of your account. We will answer within 15 calendar days at most."
+      },
+      "privacy": {
+        "label": "Privacy",
+        "hint": "To exercise your rights over your personal data: access, rectification, erasure, objection, restriction or portability."
+      },
+      "illegal_content": {
+        "label": "Illegal content",
+        "hint": "To tell us about illegal content or an illegal use of the service. Tell us where it is, why you consider it illegal and how we can contact you."
+      }
+    },
+    "email": "Your e-mail",
+    "emailHint": "To answer you and send you the receipt.",
+    "emailDemanded": "Your session is not active on the server, so we need an e-mail to answer you.",
+    "answerTo": "We will answer at {email}, your account e-mail.",
+    "subject": "Subject",
+    "message": "Message",
+    "messageHint": "{count} of {max} characters.",
+    "noSecrets": "Do not paste passwords, codes or recovery words. We will never ask for them and do not need them to help you.",
+    "offline": "Sending the request needs a connection. What you have written is not lost while you stay on this screen.",
+    "send": "Send request",
+    "problems": {
+      "rejected": "The server does not accept this field as it is. Check it.",
+      "email": {
+        "required": "Enter an e-mail so we can answer you.",
+        "invalid": "That does not look like an e-mail address. Check it."
+      },
+      "subject": {
+        "required": "Enter a subject.",
+        "tooShort": "The subject needs at least 3 characters.",
+        "tooLong": "The subject cannot be longer than 150 characters.",
+        "characters": "The subject contains characters that cannot be sent. Type it again instead of pasting it."
+      },
+      "message": {
+        "required": "Tell us what you need.",
+        "tooShort": "The message needs at least 10 characters.",
+        "tooLong": "The message cannot be longer than 5000 characters.",
+        "characters": "The message contains characters that cannot be sent. Remove what you pasted from elsewhere and try again."
+      }
+    },
+    "sent": {
+      "title": "Request received",
+      "reference": "Reference of your request",
+      "copyReference": "Copy the reference",
+      "date": "Received on",
+      "receipt": "We have sent a receipt by e-mail to {email}, with the reference, the date and a copy of what you wrote.",
+      "next": "Keep the reference: it identifies your request. We will answer as soon as possible and, if it is a complaint, within 15 calendar days at most.",
+      "another": "Send another request"
+    },
+    "other": {
+      "section": "Other ways to reach us",
+      "intro": "You can also write to us by e-mail:",
+      "phoneAndPost": "By phone, on +34 950 674 456. By post: ACCIOSOFT S.L., Avda. Bulevar de El Ejido 463, Planta 21, Puerta 2, 04700 El Ejido (Almería), Spain."
+    },
+    "consumer": {
+      "section": "Your rights as a consumer",
+      "answer": "When you file a complaint or claim you receive a reference and a receipt by e-mail. We answer as soon as possible and within 15 calendar days at most.",
+      "escalate": "If the answer does not satisfy you, or does not arrive in time, you can turn to the consumer office of your town or region, or to the courts. The Terms and conditions explain it (clause 23).",
+      "privacy": "About your personal data you can also complain to the Spanish Data Protection Agency (www.aepd.es)."
+    }
+  },
+  "about": {
+    "title": "About",
+    "appVersion": "App version",
+    "apiVersion": "API version in use",
+    "loading": "Checking…",
+    "offline": "Offline",
+    "unknown": "Not available",
+    "model": {
+      "section": "What we can and cannot see",
+      "intro": "The security model of AccioPass, in five sentences.",
+      "encrypted": "Your vault is encrypted on your device, with a key derived from your master password; our server only ever receives it encrypted.",
+      "password": "Your master password never leaves your device: we do not know it and cannot reset it.",
+      "cannotSee": "We cannot read your passwords, the secrets of your codes, your notes or the names of your services, except the names you choose to send to the AI.",
+      "canSee": "We do see what is needed to provide the service: your e-mail, your devices and sessions, IP addresses and an approximate location, who you share with (not what) and which items, by an internal identifier, have a leaked password.",
+      "recovery": "If you forget the master password, only your 24 recovery words open your vault; without them, neither you nor we can recover your data."
+    },
+    "legal": {
+      "section": "Legal documents",
+      "accepted": "You accepted version {terms} of the Terms and version {privacy} of the Privacy policy on {date}."
+    },
+    "openSource": {
+      "section": "Open source",
+      "intro": "AccioPass stands on these open-source projects. Thanks to the people who maintain them."
+    },
+    "contact": {
+      "section": "Contact"
+    },
+    "productOf": "A product of AccioSoft."
+  }
+}

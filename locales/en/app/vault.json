@@ -1,0 +1,335 @@
+{
+  "title": "Vault",
+  "untitled": "Untitled",
+  "count": {
+    "one": "{count} item",
+    "other": "{count} items"
+  },
+  "countFiltered": "{shown} of {total}",
+  "list": {
+    "add": "Add",
+    "addLabel": "Add to the vault",
+    "search": "Search the vault",
+    "searchPlaceholder": "Name, username, website or tag",
+    "filters": "Filter the vault",
+    "filter": {
+      "all": "All",
+      "favorites": "Favourites",
+      "sharedWithMe": "Shared with me",
+      "sharedByMe": "Shared by me",
+      "problems": "With problems",
+      "notes": "Notes"
+    },
+    "sort": "Sort",
+    "sortBy": {
+      "name": "By name",
+      "recent": "Recently changed first"
+    },
+    "sortCurrent": "Order: {order}",
+    "region": "Vault items",
+    "note": "Secure note",
+    "noUsername": "No username",
+    "loading": "Opening your vault…",
+    "emptyTitle": "Your vault is empty",
+    "emptyDescription": "This is where you keep your passwords and notes. They are encrypted on this device before they leave it: not even we can read them. You can share them with whoever you choose.",
+    "emptyAction": "Add my first password",
+    "noResultsTitle": "No results",
+    "noResultsSearch": "Nothing matches “{query}”. Try another name, username, website or tag.",
+    "noResultsFilter": "There are no items in this filter.",
+    "clearFilters": "Show everything",
+    "selectTitle": "Choose an item",
+    "selectDescription": "Select an item from the list to see its details, copy them or share it.",
+    "invitations": {
+      "one": "You have {count} pending invitation",
+      "other": "You have {count} pending invitations"
+    },
+    "invitationsHint": "Someone wants to share with you. Open them to accept or decline.",
+    "invitationsAction": "View invitations"
+  },
+  "marks": {
+    "leaked": "Leaked",
+    "weak": "Weak",
+    "reused": "Reused",
+    "insecureUrl": "Unencrypted site",
+    "favorite": "Favourite",
+    "pending": "Waiting to sync",
+    "syncError": "Not synced",
+    "shared": "Shared",
+    "sharedWith": {
+      "one": "Shared with {count} person",
+      "other": "Shared with {count} people"
+    },
+    "sharedWithOne": "Shared with {email}",
+    "sharedBy": "From {email}",
+    "roleViewer": "Read only",
+    "roleEditor": "You can edit",
+    "roleOwner": "Shared by you"
+  },
+  "detail": {
+    "notFoundTitle": "This item is no longer in your vault",
+    "notFoundDescription": "You may have deleted it on another device, or it is no longer shared with you.",
+    "backToVault": "Back to the vault",
+    "edit": "Edit",
+    "share": "Share",
+    "manageSharing": "Manage access",
+    "delete": "Delete",
+    "leave": "Stop using",
+    "favoriteAdd": "Mark as favourite",
+    "favoriteRemove": "Remove from favourites",
+    "login": "Password",
+    "note": "Secure note",
+    "username": "Username",
+    "password": "Password",
+    "passwordEmpty": "No password saved",
+    "passwordChanged": "Changed {when} · {date}",
+    "totpTitle": "Verification code",
+    "totpCopy": "Copy code",
+    "totpLabel": "Current code",
+    "totpInvalid": "The code cannot be calculated from the saved key. Edit the item and paste it again.",
+    "sites": "Websites",
+    "openSiteLabel": "Open {host} in the browser",
+    "copyUrl": "Copy address",
+    "siteNotOpenable": "This address is not a website (http or https), so we do not open it from here. You can copy it.",
+    "openFailed": "The browser could not be opened. Copy the address and open it yourself.",
+    "notes": "Notes",
+    "content": "Content",
+    "contentEmpty": "This note is empty.",
+    "copyNote": "Copy note",
+    "tags": "Tags",
+    "info": "Information",
+    "created": "Created",
+    "updated": "Last changed",
+    "history": "Previous passwords",
+    "historyDescription": "The last {count} this item has had, in case you need to go back to one.",
+    "historyDescriptionOne": "The password this item had before, in case you need to go back to it.",
+    "historyShow": {
+      "one": "Show {count} previous password",
+      "other": "Show {count} previous passwords"
+    },
+    "historyHide": "Hide previous passwords",
+    "historyItem": "In use until {date}",
+    "pendingTitle": "Waiting to sync",
+    "pendingOffline": "The last change is saved on this device. It will be sent by itself when the connection is back.",
+    "syncErrorTitle": "This item has not been synced",
+    "sharing": "Sharing",
+    "sharingPrivate": "Only you can see this item. You can share it with other AccioPass users: if you change it, theirs updates by itself.",
+    "sharingByMe": {
+      "one": "You share it with {count} person. If you change it, theirs updates by itself.",
+      "other": "You share it with {count} people. If you change it, theirs updates by itself."
+    },
+    "sharingByMeNobody": "It is ready to share, but right now nobody else has access.",
+    "sharingWithMeViewer": "{email} shares it with you. You can view and copy it, but not change it. If {email} changes it, it updates here by itself.",
+    "sharingWithMeEditor": "{email} shares it with you and lets you edit it. What you change updates for everyone with access.",
+    "sharingDetails": "See who has access",
+    "readOnlyTitle": "Read only",
+    "deleteTitle": "Delete “{name}”?",
+    "deleteMessage": "It will be deleted from your vault on all your devices. This cannot be undone.",
+    "deleteSharedMessage": {
+      "one": "It will be deleted from your vault and from that of the person you share it with. This cannot be undone. What they have already seen, they know: if it is a password, change it on the service.",
+      "other": "It will be deleted from your vault and from those of the {count} people you share it with. This cannot be undone. What they have already seen, they know: if it is a password, change it on the service."
+    },
+    "deleteSharedOffline": "Deleting a shared item needs a connection: it has to be withdrawn from the others too.",
+    "deleted": "Deleted",
+    "leaveTitle": "Stop using “{name}”?",
+    "leaveMessage": "It will disappear from your vault. The others keep it, and {email} can invite you again.",
+    "leaveOffline": "Leaving a shared item needs a connection.",
+    "left": "You no longer have this item"
+  },
+  "problems": {
+    "title": "Problems found",
+    "leaked": {
+      "title": "Leaked password",
+      "body": {
+        "one": "This password appears {times} time in known breaches. Anyone holding those lists can try it.",
+        "other": "This password appears {times} times in known breaches. Anyone holding those lists can try it."
+      },
+      "bodyUnknownCount": "This password appears in known breaches. Anyone holding those lists can try it.",
+      "todo": "Change it on the service for a generated one and save the new one here.",
+      "todoViewer": "Tell {email} so they change it on the service."
+    },
+    "weak": {
+      "title": "Weak password",
+      "body": "It is short or easy to guess: an attacker would find it quickly.",
+      "todo": "Change it on the service for a generated one: long, random and different from the rest.",
+      "todoViewer": "Tell {email} so they change it for a longer one."
+    },
+    "reused": {
+      "title": "Reused password",
+      "body": "You use this same password in another item. If it leaks on one site, it opens the other.",
+      "todo": "Use a different password for each service.",
+      "todoViewer": "Tell {email}: each service should have its own."
+    },
+    "insecureUrl": {
+      "title": "Unencrypted site",
+      "body": "One of the addresses starts with http://. The password would travel unencrypted when used there.",
+      "todo": "Check whether the site works with https:// and correct the address.",
+      "todoViewer": "Tell {email} so they check the address."
+    },
+    "old": {
+      "title": "Old password",
+      "body": "It has not changed for more than a year.",
+      "todo": "If the service matters, renew it when you can.",
+      "todoViewer": "You can mention it to {email}."
+    },
+    "no2fa": {
+      "title": "No two-step verification",
+      "body": "This service lets you add a second step when signing in and there is no code saved for it here.",
+      "todo": "Turn it on at the service and add the code to this item from “Edit”.",
+      "todoViewer": "You can mention it to {email}."
+    },
+    "action": "Change password",
+    "actionEdit": "Edit item"
+  },
+  "form": {
+    "newTitle": "Add to the vault",
+    "editTitle": "Edit",
+    "editTitleNamed": "Edit “{name}”",
+    "type": "Type of item",
+    "typeLogin": "Password",
+    "typeNote": "Secure note",
+    "name": "Name",
+    "namePlaceholder": "For example, Bank or Netflix",
+    "nameRequired": "Give it a name so you can find it later.",
+    "tooLong": "It is too long. Shorten it a little.",
+    "username": "Username",
+    "usernamePlaceholder": "E-mail or username",
+    "password": "Password",
+    "passwordHint": "Type it or generate a new one with the dice.",
+    "crackTime": {
+      "instant": "Would be guessed instantly",
+      "minutes": "Would last minutes or hours",
+      "days": "Would last days or months",
+      "years": "Would last years",
+      "centuries": "Would last centuries"
+    },
+    "breachChecking": "Checking whether it appears in breaches…",
+    "breachClean": "It does not appear in known breaches.",
+    "breachFoundTitle": "This password has been leaked",
+    "breachFound": {
+      "one": "It appears {times} time in known breaches. We recommend using another one; you can generate one with the dice.",
+      "other": "It appears {times} times in known breaches. We recommend using another one; you can generate one with the dice."
+    },
+    "breachOffline": "Without a connection we cannot check whether it has been leaked. We will when it is back.",
+    "breachConfirmTitle": "Save a leaked password?",
+    "breachConfirmMessage": {
+      "one": "It appears {times} time in known breaches, so it is among the first an attacker would try. You can save it anyway and change it later.",
+      "other": "It appears {times} times in known breaches, so it is among the first an attacker would try. You can save it anyway and change it later."
+    },
+    "breachConfirmSave": "Save anyway",
+    "breachConfirmBack": "Change it",
+    "url": "Web address",
+    "urlNumbered": "Web address {number}",
+    "urlPlaceholder": "example.com",
+    "urlInvalid": "This does not look like a web address. Write it as example.com, with https in front if you like.",
+    "urlAdd": "Add another address",
+    "urlRemove": "Remove address {number}",
+    "totp": "Verification code",
+    "totpOptional": "Verification code (optional)",
+    "totpPlaceholder": "Secret key or otpauth:// link",
+    "totpHint": "If the service uses two-step verification, paste here the key it shows next to the QR code. You will see the code on this item.",
+    "totpInvalid": "This is not a valid key. Paste the key as the service shows it, or the whole otpauth:// link.",
+    "totpUnsupported": "Only codes that change over time (TOTP) can be attached here. Save this one in the Codes section.",
+    "totpReady": "Valid key. The code will appear on the item once saved.",
+    "totpAttached": "This item already has a verification code.",
+    "totpReplaceHint": "Paste a new key only if you want to replace the current one.",
+    "totpReplace": "Replace key",
+    "totpRemove": "Remove code",
+    "totpRemoved": "The code will be removed when you save.",
+    "totpKeep": "Keep code",
+    "notes": "Notes",
+    "notesPlaceholder": "Security questions, card PIN…",
+    "tags": "Tags",
+    "tagsHint": "Press Enter or type a comma to add.",
+    "category": "Category",
+    "categoryNone": "No category",
+    "categoryPick": "Choose a category",
+    "favorite": "Favourite",
+    "favoriteDescription": "Favourites come first in the list.",
+    "noteTitle": "Title",
+    "noteTitlePlaceholder": "For example, Home wifi",
+    "noteTitleRequired": "Give it a title so you can find it later.",
+    "noteContent": "Content",
+    "noteContentPlaceholder": "What you write here is stored encrypted.",
+    "save": "Save",
+    "saved": "Saved",
+    "savedOffline": "Saved on this device. It will sync when the connection is back.",
+    "fixProblems": "Check the marked fields before saving.",
+    "discardTitle": "Discard the changes?",
+    "discardMessage": "What you have written has not been saved.",
+    "discard": "Discard",
+    "keepEditing": "Keep editing",
+    "sharedNotice": {
+      "one": "This item is shared. When you save, the change also reaches the other person.",
+      "other": "This item is shared. When you save, the change also reaches the other {count} people."
+    },
+    "sharedNoticeMember": "This item belongs to {email}. When you save, the change reaches everyone with access.",
+    "readOnly": "This item is read only for you: {email} shares it with you without permission to edit.",
+    "ai": {
+      "suggest": "Suggest category and tags",
+      "hint": "The assistant only receives the name and the website (without the path) of this item. Never the username or the password.",
+      "offline": "Suggestions need a connection.",
+      "needName": "Write the name first.",
+      "result": "Suggestion",
+      "apply": "Apply",
+      "applyCategory": "Category: {category}",
+      "nothing": "There is nothing new to suggest for this item.",
+      "unavailable": "No suggestion is available right now."
+    }
+  },
+  "categories": {
+    "social": "Social networks",
+    "email": "E-mail",
+    "finance": "Banking and finance",
+    "shopping": "Shopping",
+    "work": "Work",
+    "development": "Development",
+    "entertainment": "Entertainment",
+    "gaming": "Games",
+    "travel": "Travel",
+    "health": "Health",
+    "education": "Education",
+    "government": "Government",
+    "utilities": "Utilities",
+    "other": "Other"
+  },
+  "generator": {
+    "title": "Generate password",
+    "description": "It is made on this device with cryptographic randomness. It is not sent anywhere.",
+    "result": "Generated password",
+    "regenerate": "Generate another",
+    "mode": "Type of password",
+    "modes": {
+      "random": "Random",
+      "passphrase": "Phrase",
+      "pin": "PIN"
+    },
+    "length": "Length",
+    "lengthValue": {
+      "one": "{count} character",
+      "other": "{count} characters"
+    },
+    "words": "Words",
+    "wordsValue": {
+      "one": "{count} word",
+      "other": "{count} words"
+    },
+    "digitsValue": {
+      "one": "{count} digit",
+      "other": "{count} digits"
+    },
+    "uppercase": "Uppercase (A-Z)",
+    "lowercase": "Lowercase (a-z)",
+    "digits": "Numbers (0-9)",
+    "symbols": "Symbols (!#$…)",
+    "excludeAmbiguous": "Avoid look-alike characters",
+    "excludeAmbiguousHint": "No 0 and O, nor 1, l and I.",
+    "capitalize": "Start each word with a capital",
+    "includeNumber": "Add a number",
+    "use": "Use this password",
+    "replaceHint": "It will replace the password typed in the form.",
+    "invalid": {
+      "classes": "Turn on at least one type of character.",
+      "other": "Nothing can be generated with these settings. Change one of them."
+    }
+  }
+}

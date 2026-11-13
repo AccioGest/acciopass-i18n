@@ -1,0 +1,80 @@
+{
+  "title": "Are you trying to sign in?",
+  "pageTitle": "Confirm sign-in",
+  "lead": "A device has typed your master password and is waiting for your confirmation.",
+  "queue": {
+    "one": "{count} more request is waiting.",
+    "other": "{count} more requests are waiting."
+  },
+  "place": "Location",
+  "placeNote": "Approximate location, based on the IP address",
+  "unknownPlace": "Unknown location",
+  "unknownPlaceNote": "It could not be worked out from the IP address",
+  "ip": "IP address",
+  "unknownIp": "Unknown",
+  "when": "When",
+  "justNow": "A few seconds ago",
+  "expiresIn": "Expires in {time}",
+  "expiresLabel": "Time left to answer",
+  "expired": "The sign-in request has expired.",
+  "gone": "The sign-in request is no longer pending.",
+  "choose": "Choose the number shown on the other device",
+  "chooseHint": "If it is you, you are looking at it on its screen right now.",
+  "number": "Number {number}",
+  "numbersLabel": "Numbers to confirm with",
+  "approving": "Confirming…",
+  "wrongNumber": {
+    "one": "That is not the number. Look at the other device’s screen: you have {count} attempt left.",
+    "other": "That is not the number. Look at the other device’s screen: you have {count} attempts left."
+  },
+  "wrongNumberPlain": "That is not the number. Look at the other device’s screen before choosing.",
+  "deny": "It’s not me",
+  "denyHint": "Denies the sign-in",
+  "notMe": "If you are not signing in anywhere, someone knows your master password.",
+  "approved": {
+    "title": "Done, you have approved the sign-in",
+    "body": "“{device}” can now get into your account. From now on it is a trusted device.",
+    "bodyNoName": "The other device can now get into your account. From now on it is a trusted device.",
+    "undo": "If that was a mistake, deauthorise it in Settings, under Devices.",
+    "devices": "See devices"
+  },
+  "denied": {
+    "title": "You have denied the sign-in",
+    "body": "That device did not get in. But to come this far someone typed your master password correctly: it is no longer a secret.",
+    "next": "Change it now. Your vault is still encrypted and nobody could read it, but a password someone else knows no longer protects you.",
+    "change": "Change master password",
+    "later": "Not now"
+  },
+  "deniedByAttempts": {
+    "title": "We have denied the sign-in",
+    "body": "The number chosen did not match for the second time, so the request was denied for your security.",
+    "retry": "If it was you, sign in again on the other device and look closely at the number it shows.",
+    "notYou": "If it was not you, someone knows your master password: change it.",
+    "change": "Change master password",
+    "close": "Close"
+  },
+  "resolved": {
+    "title": "This request is no longer pending",
+    "body": "It was answered from another device, completed another way, or it expired. There is nothing you need to do.",
+    "close": "Close"
+  },
+  "next": "See the next request",
+  "done": "Done",
+  "page": {
+    "none": {
+      "title": "There is nothing to confirm",
+      "body": "This sign-in request has already been answered or has expired."
+    },
+    "loading": "Looking for the request…",
+    "back": "Back to AccioPass"
+  },
+  "alerts": {
+    "title": "Sign-in alerts",
+    "label": "Alert me with a browser notification",
+    "description": "When another device tries to sign in and this tab is in the background, you will see a notification. It does not include the number or the device name.",
+    "denied": "The browser is blocking notifications from AccioPass. Allow them in the site settings and turn this on again.",
+    "unsupported": "This browser does not support notifications.",
+    "notificationTitle": "Are you trying to sign in?",
+    "notificationBody": "Open AccioPass to confirm or deny the sign-in."
+  }
+}

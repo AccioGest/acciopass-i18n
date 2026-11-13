@@ -1,0 +1,200 @@
+{
+  "appName": "AccioPass",
+  "tagline": "Your passwords and codes, encrypted on your device.",
+  "nav": {
+    "codes": "Codes",
+    "vault": "Vault",
+    "generator": "Generator",
+    "security": "Security",
+    "settings": "Settings"
+  },
+  "terms": {
+    "vault": "vault",
+    "masterPassword": "master password",
+    "recoveryWords": "recovery words",
+    "code": "code",
+    "trustedDevice": "trusted device",
+    "share": "share"
+  },
+  "actions": {
+    "accept": "Accept",
+    "add": "Add",
+    "apply": "Apply",
+    "back": "Back",
+    "cancel": "Cancel",
+    "change": "Change",
+    "clear": "Clear",
+    "close": "Close",
+    "confirm": "Confirm",
+    "continue": "Continue",
+    "copy": "Copy",
+    "create": "Create",
+    "delete": "Delete",
+    "discard": "Discard",
+    "done": "Done",
+    "download": "Download",
+    "edit": "Edit",
+    "export": "Export",
+    "generate": "Generate",
+    "hide": "Hide",
+    "import": "Import",
+    "lock": "Lock",
+    "next": "Next",
+    "open": "Open",
+    "paste": "Paste",
+    "refresh": "Refresh",
+    "remove": "Remove",
+    "rename": "Rename",
+    "retry": "Try again",
+    "revoke": "Revoke",
+    "save": "Save",
+    "scan": "Scan",
+    "search": "Search",
+    "select": "Select",
+    "send": "Send",
+    "share": "Share",
+    "show": "Show",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "skip": "Skip",
+    "sync": "Sync",
+    "undo": "Undo",
+    "unlock": "Unlock",
+    "viewDetails": "View details"
+  },
+  "states": {
+    "loading": "Loading…",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "copied": "Copied",
+    "deleted": "Deleted",
+    "done": "Done",
+    "sent": "Sent",
+    "syncing": "Syncing…",
+    "synced": "Synced",
+    "pendingChanges": {
+      "one": "{count} change waiting to sync",
+      "other": "{count} changes waiting to sync"
+    },
+    "online": "Online",
+    "offline": "Offline",
+    "locked": "Locked",
+    "unlocked": "Unlocked",
+    "enabled": "On",
+    "disabled": "Off",
+    "on": "Yes",
+    "off": "No",
+    "empty": "Nothing here yet",
+    "noResults": "No results",
+    "optional": "Optional",
+    "required": "Required",
+    "new": "New",
+    "current": "Current",
+    "expired": "Expired",
+    "unknown": "Unknown",
+    "none": "None",
+    "all": "All"
+  },
+  "strength": {
+    "veryWeak": "Very weak",
+    "weak": "Weak",
+    "fair": "Fair",
+    "strong": "Strong",
+    "veryStrong": "Very strong",
+    "bits": {
+      "one": "{count} bit",
+      "other": "{count} bits"
+    }
+  },
+  "time": {
+    "now": "Just now",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "never": "Never",
+    "ago": "{time} ago",
+    "in": "In {time}",
+    "seconds": {
+      "one": "{count} second",
+      "other": "{count} seconds"
+    },
+    "minutes": {
+      "one": "{count} minute",
+      "other": "{count} minutes"
+    },
+    "hours": {
+      "one": "{count} hour",
+      "other": "{count} hours"
+    },
+    "days": {
+      "one": "{count} day",
+      "other": "{count} days"
+    },
+    "weeks": {
+      "one": "{count} week",
+      "other": "{count} weeks"
+    },
+    "months": {
+      "one": "{count} month",
+      "other": "{count} months"
+    },
+    "years": {
+      "one": "{count} year",
+      "other": "{count} years"
+    },
+    "short": {
+      "seconds": "{count} s",
+      "minutes": "{count} min",
+      "hours": "{count} h",
+      "days": "{count} d"
+    }
+  },
+  "errors": {
+    "generic": "Something went wrong. Try again.",
+    "offline": "You are offline. This needs the internet; try again once you are back online.",
+    "timeout": "The server is taking too long to respond. Try again in a moment.",
+    "server": "The server could not handle the request. It is not you: try again later.",
+    "syncFailed": "We could not sync. Your changes are saved on this device and will be sent when the connection is back.",
+    "sessionExpired": "Your session has expired. Sign in again to keep syncing.",
+    "tooManyAttempts": "Too many attempts. Wait {time} and try again.",
+    "notFound": "We could not find it. It may have been deleted on another device.",
+    "forbidden": "You do not have permission to do this.",
+    "unsupported": "This is not available on this device.",
+    "requiredField": "Fill in this field.",
+    "invalidEmail": "Enter a valid email address, like name@example.com.",
+    "invalidCode": "That code is not right. Check it and enter it again.",
+    "copyFailed": "Copying failed. Select the text and copy it by hand."
+  },
+  "a11y": {
+    "back": "Back",
+    "close": "Close",
+    "dismiss": "Dismiss notice",
+    "showValue": "Show",
+    "hideValue": "Hide",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "copyValue": "Copy {label}",
+    "hiddenValue": "Hidden value",
+    "loading": "Loading",
+    "logo": "AccioPass",
+    "mainNavigation": "Main navigation",
+    "codeInput": "{count}-digit code",
+    "qrCode": "QR code",
+    "strength": "Strength: {label}",
+    "timeLeft": "Time left",
+    "selected": "Selected",
+    "notifications": {
+      "one": "{count} notice",
+      "other": "{count} notices"
+    },
+    "moreActions": "More actions",
+    "clearSearch": "Clear search",
+    "removeTag": "Remove {tag}",
+    "tagSuggestions": "Suggestions",
+    "generatePassword": "Generate password",
+    "copyPassword": "Copy password",
+    "secondsLeft": {
+      "one": "{count} second left",
+      "other": "{count} seconds left"
+    }
+  }
+}

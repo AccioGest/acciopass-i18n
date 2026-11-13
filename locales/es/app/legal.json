@@ -1,0 +1,35 @@
+{
+  "title": "Documentos legales",
+  "names": {
+    "terminos": "Términos y condiciones",
+    "privacidad": "Política de privacidad",
+    "aviso-legal": "Aviso legal"
+  },
+  "shortNames": {
+    "terminos": "Términos",
+    "privacidad": "Privacidad",
+    "aviso-legal": "Aviso legal"
+  },
+  "contents": "Contenido",
+  "contentsOpen": "Ver el contenido",
+  "updated": "Última actualización",
+  "version": "Versión",
+  "save": "Guardar",
+  "print": "Imprimir",
+  "saved": "Documento guardado. Lo tienes en tus descargas.",
+  "saveUnavailable": "No hemos podido guardar el documento en este dispositivo.",
+  "savedSource": "Documento de AccioPass, un producto de ACCIOSOFT S.L. Copia guardada desde la aplicación.",
+  "spanishOnly": "Este documento solo está disponible en español, que es el idioma en que se celebra el contrato.",
+  "pendingMark": "PENDIENTE",
+  "pendingNotice": {
+    "one": "A este documento le falta {count} dato por completar. Está marcado en el texto como «PENDIENTE».",
+    "other": "A este documento le faltan {count} datos por completar. Están marcados en el texto como «PENDIENTE»."
+  },
+  "others": "Otros documentos",
+  "help": "Ayuda y reclamaciones",
+  "productOf": "AccioPass es un producto de AccioSoft.",
+  "notFound": {
+    "title": "Este documento no existe",
+    "description": "Los documentos legales de AccioPass son estos tres."
+  }
+}

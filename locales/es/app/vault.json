@@ -1,0 +1,335 @@
+{
+  "title": "Bóveda",
+  "untitled": "Sin nombre",
+  "count": {
+    "one": "{count} elemento",
+    "other": "{count} elementos"
+  },
+  "countFiltered": "{shown} de {total}",
+  "list": {
+    "add": "Añadir",
+    "addLabel": "Añadir a la bóveda",
+    "search": "Buscar en la bóveda",
+    "searchPlaceholder": "Nombre, usuario, web o etiqueta",
+    "filters": "Filtrar la bóveda",
+    "filter": {
+      "all": "Todo",
+      "favorites": "Favoritos",
+      "sharedWithMe": "Compartidos conmigo",
+      "sharedByMe": "Compartidos por mí",
+      "problems": "Con problemas",
+      "notes": "Notas"
+    },
+    "sort": "Ordenar",
+    "sortBy": {
+      "name": "Por nombre",
+      "recent": "Cambios recientes primero"
+    },
+    "sortCurrent": "Orden: {order}",
+    "region": "Elementos de la bóveda",
+    "note": "Nota segura",
+    "noUsername": "Sin usuario",
+    "loading": "Abriendo tu bóveda…",
+    "emptyTitle": "Tu bóveda está vacía",
+    "emptyDescription": "Aquí guardas tus contraseñas y notas. Se cifran en este dispositivo antes de salir de él: ni nosotros podemos leerlas. Podrás compartirlas con quien tú elijas.",
+    "emptyAction": "Añadir mi primera contraseña",
+    "noResultsTitle": "Sin resultados",
+    "noResultsSearch": "Nada coincide con «{query}». Prueba con otro nombre, usuario, web o etiqueta.",
+    "noResultsFilter": "No hay elementos en este filtro.",
+    "clearFilters": "Ver todo",
+    "selectTitle": "Elige un elemento",
+    "selectDescription": "Selecciona un elemento de la lista para ver sus datos, copiarlos o compartirlo.",
+    "invitations": {
+      "one": "Tienes {count} invitación pendiente",
+      "other": "Tienes {count} invitaciones pendientes"
+    },
+    "invitationsHint": "Alguien quiere compartir contigo. Ábrelas para aceptar o rechazar.",
+    "invitationsAction": "Ver invitaciones"
+  },
+  "marks": {
+    "leaked": "Filtrada",
+    "weak": "Débil",
+    "reused": "Repetida",
+    "insecureUrl": "Web sin cifrar",
+    "favorite": "Favorito",
+    "pending": "Pendiente de sincronizar",
+    "syncError": "Sin sincronizar",
+    "shared": "Compartido",
+    "sharedWith": {
+      "one": "Compartido con {count} persona",
+      "other": "Compartido con {count} personas"
+    },
+    "sharedWithOne": "Compartido con {email}",
+    "sharedBy": "De {email}",
+    "roleViewer": "Solo lectura",
+    "roleEditor": "Puedes editar",
+    "roleOwner": "Lo compartes tú"
+  },
+  "detail": {
+    "notFoundTitle": "Este elemento ya no está en tu bóveda",
+    "notFoundDescription": "Puede que lo hayas eliminado en otro dispositivo o que hayan dejado de compartirlo contigo.",
+    "backToVault": "Volver a la bóveda",
+    "edit": "Editar",
+    "share": "Compartir",
+    "manageSharing": "Gestionar acceso",
+    "delete": "Eliminar",
+    "leave": "Dejar de usar",
+    "favoriteAdd": "Marcar como favorito",
+    "favoriteRemove": "Quitar de favoritos",
+    "login": "Contraseña",
+    "note": "Nota segura",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "passwordEmpty": "Sin contraseña guardada",
+    "passwordChanged": "Cambiada {when} · {date}",
+    "totpTitle": "Código de verificación",
+    "totpCopy": "Copiar código",
+    "totpLabel": "Código actual",
+    "totpInvalid": "No se puede calcular el código con la clave guardada. Edita el elemento y vuelve a pegarla.",
+    "sites": "Sitios web",
+    "openSiteLabel": "Abrir {host} en el navegador",
+    "copyUrl": "Copiar dirección",
+    "siteNotOpenable": "Esta dirección no es una web (http o https), así que no la abrimos desde aquí. Puedes copiarla.",
+    "openFailed": "No se ha podido abrir el navegador. Copia la dirección y ábrela a mano.",
+    "notes": "Notas",
+    "content": "Contenido",
+    "contentEmpty": "Esta nota está vacía.",
+    "copyNote": "Copiar nota",
+    "tags": "Etiquetas",
+    "info": "Información",
+    "created": "Creado",
+    "updated": "Última modificación",
+    "history": "Contraseñas anteriores",
+    "historyDescription": "Las {count} últimas que ha tenido este elemento, por si necesitas volver a una.",
+    "historyDescriptionOne": "La contraseña que tenía antes este elemento, por si necesitas volver a ella.",
+    "historyShow": {
+      "one": "Ver {count} contraseña anterior",
+      "other": "Ver {count} contraseñas anteriores"
+    },
+    "historyHide": "Ocultar contraseñas anteriores",
+    "historyItem": "En uso hasta el {date}",
+    "pendingTitle": "Pendiente de sincronizar",
+    "pendingOffline": "El último cambio está guardado en este dispositivo. Se enviará solo cuando vuelva la conexión.",
+    "syncErrorTitle": "Este elemento no se ha sincronizado",
+    "sharing": "Compartir",
+    "sharingPrivate": "Solo tú puedes ver este elemento. Puedes compartirlo con otras personas de AccioPass: si lo cambias, a ellas se les actualiza solo.",
+    "sharingByMe": {
+      "one": "Lo compartes con {count} persona. Si lo cambias, se le actualiza solo.",
+      "other": "Lo compartes con {count} personas. Si lo cambias, se les actualiza solo."
+    },
+    "sharingByMeNobody": "Está preparado para compartir, pero ahora mismo nadie más tiene acceso.",
+    "sharingWithMeViewer": "{email} lo comparte contigo. Puedes verlo y copiarlo, pero no cambiarlo. Si {email} lo cambia, aquí se actualiza solo.",
+    "sharingWithMeEditor": "{email} lo comparte contigo y te deja editarlo. Lo que cambies se actualiza para todas las personas con acceso.",
+    "sharingDetails": "Ver quién tiene acceso",
+    "readOnlyTitle": "Solo lectura",
+    "deleteTitle": "¿Eliminar «{name}»?",
+    "deleteMessage": "Se eliminará de tu bóveda en todos tus dispositivos. No se puede deshacer.",
+    "deleteSharedMessage": {
+      "one": "Se eliminará de tu bóveda y de la de la persona con la que lo compartes. No se puede deshacer. Lo que ya haya visto, lo conoce: si es una contraseña, cámbiala en el servicio.",
+      "other": "Se eliminará de tu bóveda y de la de las {count} personas con las que lo compartes. No se puede deshacer. Lo que ya hayan visto, lo conocen: si es una contraseña, cámbiala en el servicio."
+    },
+    "deleteSharedOffline": "Eliminar un elemento compartido necesita conexión: hay que retirarlo también a los demás.",
+    "deleted": "Eliminado",
+    "leaveTitle": "¿Dejar de usar «{name}»?",
+    "leaveMessage": "Desaparecerá de tu bóveda. Las demás personas lo conservan, y {email} puede volver a invitarte.",
+    "leaveOffline": "Dejar de usar un elemento compartido necesita conexión.",
+    "left": "Ya no tienes este elemento"
+  },
+  "problems": {
+    "title": "Problemas encontrados",
+    "leaked": {
+      "title": "Contraseña filtrada",
+      "body": {
+        "one": "Esta contraseña aparece {times} vez en filtraciones conocidas. Quien tenga esas listas puede probarla.",
+        "other": "Esta contraseña aparece {times} veces en filtraciones conocidas. Quien tenga esas listas puede probarla."
+      },
+      "bodyUnknownCount": "Esta contraseña aparece en filtraciones conocidas. Quien tenga esas listas puede probarla.",
+      "todo": "Cámbiala en el servicio por una generada y guarda aquí la nueva.",
+      "todoViewer": "Avisa a {email} para que la cambie en el servicio."
+    },
+    "weak": {
+      "title": "Contraseña débil",
+      "body": "Es corta o fácil de adivinar: un atacante la encontraría en poco tiempo.",
+      "todo": "Cámbiala en el servicio por una generada: larga, aleatoria y distinta de las demás.",
+      "todoViewer": "Avisa a {email} para que la cambie por una más larga."
+    },
+    "reused": {
+      "title": "Contraseña repetida",
+      "body": "Usas esta misma contraseña en otro elemento. Si se filtra en un sitio, sirve para entrar en el otro.",
+      "todo": "Pon una contraseña distinta en cada servicio.",
+      "todoViewer": "Avisa a {email}: conviene que cada servicio tenga la suya."
+    },
+    "insecureUrl": {
+      "title": "Web sin cifrar",
+      "body": "Una de las direcciones empieza por http://. La contraseña viajaría sin cifrar al usarla ahí.",
+      "todo": "Comprueba si el sitio funciona con https:// y corrige la dirección.",
+      "todoViewer": "Avisa a {email} para que revise la dirección."
+    },
+    "old": {
+      "title": "Contraseña antigua",
+      "body": "No cambia desde hace más de un año.",
+      "todo": "Si el servicio es importante, renuévala cuando puedas.",
+      "todoViewer": "Puedes comentárselo a {email}."
+    },
+    "no2fa": {
+      "title": "Sin verificación en dos pasos",
+      "body": "Este servicio permite añadir un segundo paso al iniciar sesión y aquí no hay ningún código guardado para él.",
+      "todo": "Actívala en el servicio y añade el código a este elemento desde «Editar».",
+      "todoViewer": "Puedes comentárselo a {email}."
+    },
+    "action": "Cambiar contraseña",
+    "actionEdit": "Editar elemento"
+  },
+  "form": {
+    "newTitle": "Añadir a la bóveda",
+    "editTitle": "Editar",
+    "editTitleNamed": "Editar «{name}»",
+    "type": "Tipo de elemento",
+    "typeLogin": "Contraseña",
+    "typeNote": "Nota segura",
+    "name": "Nombre",
+    "namePlaceholder": "Por ejemplo, Banco o Netflix",
+    "nameRequired": "Ponle un nombre para encontrarlo después.",
+    "tooLong": "Es demasiado largo. Acórtalo un poco.",
+    "username": "Usuario",
+    "usernamePlaceholder": "Correo o nombre de usuario",
+    "password": "Contraseña",
+    "passwordHint": "Escríbela o genera una nueva con el dado.",
+    "crackTime": {
+      "instant": "Se adivinaría al instante",
+      "minutes": "Aguantaría minutos u horas",
+      "days": "Aguantaría días o meses",
+      "years": "Aguantaría años",
+      "centuries": "Aguantaría siglos"
+    },
+    "breachChecking": "Comprobando si aparece en filtraciones…",
+    "breachClean": "No aparece en filtraciones conocidas.",
+    "breachFoundTitle": "Esta contraseña está filtrada",
+    "breachFound": {
+      "one": "Aparece {times} vez en filtraciones conocidas. Te recomendamos usar otra; puedes generar una con el dado.",
+      "other": "Aparece {times} veces en filtraciones conocidas. Te recomendamos usar otra; puedes generar una con el dado."
+    },
+    "breachOffline": "Sin conexión no podemos comprobar si está filtrada. Lo haremos cuando vuelva.",
+    "breachConfirmTitle": "¿Guardar una contraseña filtrada?",
+    "breachConfirmMessage": {
+      "one": "Aparece {times} vez en filtraciones conocidas, así que es de las primeras que probaría un atacante. Puedes guardarla igualmente y cambiarla más adelante.",
+      "other": "Aparece {times} veces en filtraciones conocidas, así que es de las primeras que probaría un atacante. Puedes guardarla igualmente y cambiarla más adelante."
+    },
+    "breachConfirmSave": "Guardar de todos modos",
+    "breachConfirmBack": "Cambiarla",
+    "url": "Dirección web",
+    "urlNumbered": "Dirección web {number}",
+    "urlPlaceholder": "ejemplo.com",
+    "urlInvalid": "No parece una dirección web. Escríbela como ejemplo.com o https://ejemplo.com.",
+    "urlAdd": "Añadir otra dirección",
+    "urlRemove": "Quitar dirección {number}",
+    "totp": "Código de verificación",
+    "totpOptional": "Código de verificación (opcional)",
+    "totpPlaceholder": "Clave secreta o enlace otpauth://",
+    "totpHint": "Si el servicio usa verificación en dos pasos, pega aquí la clave que te muestra junto al QR. Verás el código en este elemento.",
+    "totpInvalid": "No es una clave válida. Pega la clave tal como la muestra el servicio o el enlace otpauth:// completo.",
+    "totpUnsupported": "Aquí solo se pueden adjuntar códigos que cambian con el tiempo (TOTP). Guarda este en la sección Códigos.",
+    "totpReady": "Clave válida. El código aparecerá en el elemento al guardar.",
+    "totpAttached": "Este elemento ya tiene un código de verificación.",
+    "totpReplaceHint": "Pega una clave nueva solo si quieres sustituir la actual.",
+    "totpReplace": "Sustituir clave",
+    "totpRemove": "Quitar código",
+    "totpRemoved": "El código se quitará al guardar.",
+    "totpKeep": "Conservar código",
+    "notes": "Notas",
+    "notesPlaceholder": "Preguntas de seguridad, PIN de la tarjeta…",
+    "tags": "Etiquetas",
+    "tagsHint": "Pulsa Intro o escribe una coma para añadir.",
+    "category": "Categoría",
+    "categoryNone": "Sin categoría",
+    "categoryPick": "Elegir categoría",
+    "favorite": "Favorito",
+    "favoriteDescription": "Los favoritos salen los primeros de la lista.",
+    "noteTitle": "Título",
+    "noteTitlePlaceholder": "Por ejemplo, Wifi de casa",
+    "noteTitleRequired": "Ponle un título para encontrarla después.",
+    "noteContent": "Contenido",
+    "noteContentPlaceholder": "Lo que escribas aquí se guarda cifrado.",
+    "save": "Guardar",
+    "saved": "Guardado",
+    "savedOffline": "Guardado en este dispositivo. Se sincronizará al recuperar la conexión.",
+    "fixProblems": "Revisa los campos marcados antes de guardar.",
+    "discardTitle": "¿Descartar los cambios?",
+    "discardMessage": "Lo que has escrito no se ha guardado.",
+    "discard": "Descartar",
+    "keepEditing": "Seguir editando",
+    "sharedNotice": {
+      "one": "Este elemento está compartido. Al guardar, el cambio le llega también a la otra persona.",
+      "other": "Este elemento está compartido. Al guardar, el cambio les llega también a las otras {count} personas."
+    },
+    "sharedNoticeMember": "Este elemento es de {email}. Al guardar, el cambio les llega a todas las personas con acceso.",
+    "readOnly": "Este elemento es de solo lectura para ti: {email} lo comparte contigo sin permiso de edición.",
+    "ai": {
+      "suggest": "Sugerir categoría y etiquetas",
+      "hint": "El asistente solo recibe el nombre y el sitio web (sin la ruta) de este elemento. Nunca el usuario ni la contraseña.",
+      "offline": "Las sugerencias necesitan conexión.",
+      "needName": "Escribe antes el nombre.",
+      "result": "Sugerencia",
+      "apply": "Aplicar",
+      "applyCategory": "Categoría: {category}",
+      "nothing": "No hay nada nuevo que sugerir para este elemento.",
+      "unavailable": "Ahora mismo no hay sugerencia disponible."
+    }
+  },
+  "categories": {
+    "social": "Redes sociales",
+    "email": "Correo",
+    "finance": "Banca y finanzas",
+    "shopping": "Compras",
+    "work": "Trabajo",
+    "development": "Desarrollo",
+    "entertainment": "Ocio",
+    "gaming": "Juegos",
+    "travel": "Viajes",
+    "health": "Salud",
+    "education": "Educación",
+    "government": "Administración",
+    "utilities": "Suministros",
+    "other": "Otros"
+  },
+  "generator": {
+    "title": "Generar contraseña",
+    "description": "Se crea en este dispositivo con azar criptográfico. No se envía a ningún sitio.",
+    "result": "Contraseña generada",
+    "regenerate": "Generar otra",
+    "mode": "Tipo de contraseña",
+    "modes": {
+      "random": "Aleatoria",
+      "passphrase": "Frase",
+      "pin": "PIN"
+    },
+    "length": "Longitud",
+    "lengthValue": {
+      "one": "{count} carácter",
+      "other": "{count} caracteres"
+    },
+    "words": "Palabras",
+    "wordsValue": {
+      "one": "{count} palabra",
+      "other": "{count} palabras"
+    },
+    "digitsValue": {
+      "one": "{count} dígito",
+      "other": "{count} dígitos"
+    },
+    "uppercase": "Mayúsculas (A-Z)",
+    "lowercase": "Minúsculas (a-z)",
+    "digits": "Números (0-9)",
+    "symbols": "Símbolos (!#$…)",
+    "excludeAmbiguous": "Evitar caracteres que se confunden",
+    "excludeAmbiguousHint": "Sin 0 y O, ni 1, l e I.",
+    "capitalize": "Empezar cada palabra con mayúscula",
+    "includeNumber": "Añadir un número",
+    "use": "Usar esta contraseña",
+    "replaceHint": "Sustituirá a la contraseña que hay escrita en el formulario.",
+    "invalid": {
+      "classes": "Activa al menos un tipo de carácter.",
+      "other": "Con estos ajustes no se puede generar. Cambia alguno."
+    }
+  }
+}

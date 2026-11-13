@@ -1,0 +1,114 @@
+{
+  "list": {
+    "two": "{first} y {second}",
+    "start": "{first}, {rest}",
+    "middle": "{first}, {rest}",
+    "end": "{first} y {last}"
+  },
+  "generator": {
+    "pin": "PIN numérico de {length} dígitos.",
+    "passphrase": "Frase de {words} palabras {language}, {details}: fácil de recordar y difícil de adivinar.",
+    "wordlist": {
+      "es": "en español",
+      "en": "en inglés"
+    },
+    "separator": {
+      "none": "sin separador",
+      "spaces": "separadas por espacios",
+      "custom": "separadas por «{separator}»"
+    },
+    "capitalised": "con mayúscula inicial",
+    "withNumber": "con un número",
+    "random": "Contraseña aleatoria de {length} caracteres con {classes}.",
+    "classes": {
+      "uppercase": "mayúsculas",
+      "lowercase": "minúsculas",
+      "digits": "números",
+      "symbols": "símbolos",
+      "symbolsOnly": "símbolos (solo {symbols})"
+    },
+    "noAmbiguous": "Sin caracteres que se confunden (0/O, 1/l/I).",
+    "forWifi": "Pensada para teclearla en televisores y consolas.",
+    "forBank": "Más larga de lo habitual por tratarse de una cuenta financiera.",
+    "onDevice": "Se genera en tu dispositivo: nunca sale de él."
+  },
+  "report": {
+    "startWith": "Empieza por {items}.",
+    "more": "{count} más",
+    "breached": {
+      "title": {
+        "one": "Cambia {count} contraseña filtrada",
+        "other": "Cambia {count} contraseñas filtradas"
+      },
+      "detail": "Aparecen en filtraciones de datos conocidas y los atacantes las prueban de forma automática. Cámbialas hoy en cada servicio usando el generador, y cierra allí las sesiones abiertas."
+    },
+    "reused": {
+      "title": {
+        "one": "Deja de reutilizar {count} contraseña",
+        "other": "Deja de reutilizar {count} contraseñas"
+      },
+      "detail": "Si uno de esos servicios sufre una filtración, quedan expuestos todos los que comparten la contraseña. Genera una distinta para cada uno, empezando por el correo y el banco."
+    },
+    "weak": {
+      "title": {
+        "one": "Refuerza {count} contraseña débil",
+        "other": "Refuerza {count} contraseñas débiles"
+      },
+      "detail": "Son cortas o previsibles y se adivinan en poco tiempo. Sustitúyelas por contraseñas aleatorias de al menos 16 caracteres o por una frase de cinco palabras."
+    },
+    "accountTwoFactor": {
+      "title": "Activa la verificación en dos pasos en AccioPass",
+      "detail": "Tu bóveda guarda todas las demás claves. En Ajustes → Seguridad puedes exigir un código además de la contraseña maestra; guarda los códigos de recuperación en un lugar seguro."
+    },
+    "noTwoFactor": {
+      "title": {
+        "one": "Añade un segundo factor a {count} cuenta",
+        "other": "Añade un segundo factor a {count} cuentas"
+      },
+      "detail": "Con un código temporal, una contraseña robada no basta para entrar. Actívalo en la configuración de seguridad de cada servicio y guarda el código en AccioPass."
+    },
+    "old": {
+      "title": {
+        "one": "Revisa {count} contraseña antigua",
+        "other": "Revisa {count} contraseñas antiguas"
+      },
+      "detail": "Llevan mucho tiempo sin cambiarse. No hace falta rotarlas por rutina, pero renueva las de cuentas importantes y las que crearas antes de usar un gestor."
+    },
+    "insecureUrl": {
+      "title": {
+        "one": "Corrige {count} dirección sin cifrar",
+        "other": "Corrige {count} direcciones sin cifrar"
+      },
+      "detail": "Usan http://, de modo que la contraseña viaja sin cifrar. Cambia la dirección guardada a https:// y, si el sitio no lo admite, no reutilices allí ninguna contraseña."
+    },
+    "allGood": {
+      "title": "Todo en orden",
+      "detail": "Sigue generando una contraseña distinta para cada cuenta nueva y deja activada la comprobación de filtraciones: te avisaremos si algo cambia."
+    },
+    "problems": {
+      "breached": {
+        "one": "{count} filtrada",
+        "other": "{count} filtradas"
+      },
+      "reused": {
+        "one": "{count} reutilizada",
+        "other": "{count} reutilizadas"
+      },
+      "weak": {
+        "one": "{count} débil",
+        "other": "{count} débiles"
+      }
+    },
+    "summary": {
+      "emptyVault": "Tu bóveda está vacía todavía. Añade tus cuentas para poder revisar su seguridad.",
+      "nothingToFix": "Tu puntuación de seguridad es {score}/100 y no hemos encontrado nada que corregir.",
+      "withProblems": "Tu puntuación de seguridad es {score}/100. Contraseñas con problemas: {problems}. {advice}",
+      "startWithBreached": "Empieza por las filtradas: son las que corren más riesgo.",
+      "inPriorityOrder": "Corrígelas por orden de prioridad.",
+      "goodShape": "Tu puntuación de seguridad es {score}/100. Tus contraseñas están en buen estado; quedan algunas mejoras que harían tus cuentas más difíciles de atacar."
+    }
+  },
+  "assistant": {
+    "unavailable": "El asistente no está disponible en este momento. Todo lo demás sigue funcionando sin él: el generador crea contraseñas en tu dispositivo, el informe de seguridad señala las contraseñas filtradas, reutilizadas o débiles, y la comprobación de filtraciones se ejecuta al desbloquear la bóveda. Vuelve a intentarlo más tarde y, mientras tanto, no compartas contraseñas ni códigos con nadie que te los pida."
+  }
+}

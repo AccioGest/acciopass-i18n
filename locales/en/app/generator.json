@@ -1,0 +1,113 @@
+{
+  "title": "Generator",
+  "result": {
+    "label": "Generated password",
+    "regenerate": "Generate another",
+    "copy": "Copy",
+    "copyLabel": "Copy password",
+    "copied": "Password copied",
+    "copiedClears": "Password copied. It will be cleared from the clipboard in {seconds} s.",
+    "save": "Save to vault",
+    "onDevice": "Created on this device with cryptographic randomness. It is not sent anywhere."
+  },
+  "strength": {
+    "instant": "An attack making 10 billion guesses per second would find it instantly.",
+    "minutes": "An attack making 10 billion guesses per second would find it in minutes or hours.",
+    "days": "An attack making 10 billion guesses per second would need days or months to find it.",
+    "years": "An attack making 10 billion guesses per second would need years to find it.",
+    "centuries": "An attack making 10 billion guesses per second would need centuries to find it.",
+    "pin": "A PIN only protects where attempts are limited, such as a card or a phone."
+  },
+  "options": {
+    "title": "Settings",
+    "description": "Saved on this device."
+  },
+  "modes": {
+    "label": "Password type",
+    "random": "Random",
+    "passphrase": "Phrase",
+    "pin": "PIN"
+  },
+  "random": {
+    "length": "Length",
+    "lengthValue": {
+      "one": "{count} character",
+      "other": "{count} characters"
+    },
+    "classes": "Character types",
+    "uppercase": "Uppercase",
+    "uppercaseHint": "A–Z",
+    "lowercase": "Lowercase",
+    "lowercaseHint": "a–z",
+    "digits": "Numbers",
+    "digitsHint": "0–9",
+    "symbols": "Symbols",
+    "symbolsHint": "! # $ % …",
+    "lastClass": "At least one character type has to stay on.",
+    "excludeAmbiguous": "Exclude ambiguous characters",
+    "excludeAmbiguousHint": "No 0, O, o, 1, l, I, the bar | or quotes: they are easy to mix up when read or dictated.",
+    "customSymbols": "Allowed symbols",
+    "customSymbolsHint": "Leave it empty to use the usual ones. Symbols only: letters, numbers and spaces are dropped.",
+    "customSymbolsUnusable": "A password cannot be generated with these symbols. The usual ones are used meanwhile.",
+    "minDigits": "Minimum numbers",
+    "minSymbols": "Minimum symbols"
+  },
+  "passphrase": {
+    "words": "Number of words",
+    "wordsValue": {
+      "one": "{count} word",
+      "other": "{count} words"
+    },
+    "separator": "Separator",
+    "separatorHint": "Up to 8 characters. Empty joins the words with nothing between them.",
+    "capitalize": "Capitalise",
+    "capitalizeHint": "Every word starts with a capital letter.",
+    "includeNumber": "Include a number",
+    "includeNumberHint": "Adds a digit to the end of one of the words.",
+    "wordlist": "Word list",
+    "wordlistEs": "Spanish",
+    "wordlistEn": "English"
+  },
+  "pin": {
+    "length": "Length",
+    "lengthValue": {
+      "one": "{count} digit",
+      "other": "{count} digits"
+    }
+  },
+  "ai": {
+    "title": "Tell me what you need",
+    "description": "The assistant chooses the settings for you. It only receives your description: the password is always generated on this device.",
+    "label": "What you need",
+    "placeholder": "A password for the bank, 16 characters at most and no symbols",
+    "hint": "Do not type any password here.",
+    "submit": "Apply",
+    "required": "Describe what you need, in your own words.",
+    "offline": "Understanding your description needs a connection. The rest of the generator works without one.",
+    "applied": "Settings applied",
+    "sourceAi": "AI",
+    "sourceRules": "Built-in rules",
+    "sourceAiHint": "Settings suggested by the AI from your description.",
+    "sourceRulesHint": "Settings chosen by the built-in rules of AccioPass, without AI."
+  },
+  "history": {
+    "title": "History of this session",
+    "description": "Passwords you copy, save or replace stay here until the vault locks. They are not written to disk.",
+    "empty": "Nothing yet. Copy a password or generate another one and it will show up here.",
+    "clear": "Clear history",
+    "clearTitle": "Clear the history?",
+    "clearMessage": "Passwords you have not saved to the vault cannot be brought back.",
+    "clearConfirm": "Clear",
+    "cleared": "History cleared",
+    "showMore": {
+      "one": "Show {count} more",
+      "other": "Show {count} more"
+    },
+    "showLess": "Show less",
+    "hidden": "Hidden password",
+    "show": "Show the password generated {time}",
+    "hide": "Hide the password generated {time}",
+    "copy": "Copy the password generated {time}",
+    "list": "Passwords generated in this session"
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "title": "Seguridad",
+  "score": {
+    "title": "Estado de tu bóveda",
+    "outOf": "de 100",
+    "a11y": "Puntuación: {score} de 100. {band}.",
+    "band": {
+      "excellent": "Muy buena",
+      "good": "Buena",
+      "fair": "Mejorable",
+      "poor": "En riesgo"
+    },
+    "analysed": {
+      "one": "{count} contraseña analizada",
+      "other": "{count} contraseñas analizadas"
+    },
+    "affected": {
+      "zero": "ninguna con problemas",
+      "one": "{count} con algún problema",
+      "other": "{count} con algún problema"
+    },
+    "summary": "{analysed}, {affected}.",
+    "madeOf": "De qué está hecha",
+    "explanation": "Cada contraseña parte de 100 puntos y los pierde según sus problemas: todos si está filtrada, más de la mitad si es débil o está repetida y unos pocos por lo demás. La puntuación es la media. Con alguna contraseña filtrada nunca pasa de 60.",
+    "countLabel": "{label}: {count}"
+  },
+  "issues": {
+    "breached": {
+      "title": "Contraseñas filtradas",
+      "short": "Filtradas",
+      "description": "Aparecen en filtraciones de datos conocidas. Cámbialas cuanto antes en cada servicio."
+    },
+    "weak": {
+      "title": "Contraseñas débiles",
+      "short": "Débiles",
+      "description": "Son cortas o previsibles: se adivinan en poco tiempo."
+    },
+    "reused": {
+      "title": "Contraseñas reutilizadas",
+      "short": "Reutilizadas",
+      "description": "Si uno de estos servicios sufre una filtración, quedan expuestos todos los que comparten la contraseña."
+    },
+    "insecure_url": {
+      "title": "Sitios sin HTTPS",
+      "short": "Sin HTTPS",
+      "description": "En estas direcciones la contraseña viaja sin cifrar. Comprueba si el sitio tiene versión https."
+    },
+    "old": {
+      "title": "Contraseñas antiguas",
+      "short": "Antiguas",
+      "description": "Llevan más de un año sin cambiar."
+    },
+    "no_2fa": {
+      "title": "Cuentas sin verificación en dos pasos",
+      "short": "Sin dos pasos",
+      "description": "Estos servicios admiten un segundo paso y aquí no tienes guardado su código."
+    }
+  },
+  "severity": {
+    "critical": "Urgente",
+    "high": "Importante",
+    "advice": "Recomendable"
+  },
+  "problems": {
+    "title": "Problemas encontrados",
+    "description": "Ordenados por gravedad. Abre un grupo para ver los elementos y entra en cada uno para corregirlo.",
+    "noneTitle": "No hemos encontrado problemas",
+    "noneDescription": "Ninguna contraseña filtrada, débil, repetida ni antigua. Se vuelve a comprobar cada vez que desbloqueas la bóveda.",
+    "group": {
+      "one": "{title}: {count} elemento",
+      "other": "{title}: {count} elementos"
+    },
+    "expanded": "desplegado",
+    "collapsed": "plegado",
+    "toggleHint": "Muestra u oculta los elementos del grupo.",
+    "unnamed": "Sin nombre",
+    "openHint": "Abre el elemento en la bóveda.",
+    "item": {
+      "breachedCount": {
+        "one": "{formatted} vez en filtraciones",
+        "other": "{formatted} veces en filtraciones"
+      },
+      "breached": "Aparece en filtraciones conocidas",
+      "weak": "Fácil de adivinar",
+      "reused": "Repetida en otro elemento",
+      "sharedWithOne": "La misma que en {name}",
+      "sharedWithMore": {
+        "one": "La misma que en {name} y {count} más",
+        "other": "La misma que en {name} y {count} más"
+      },
+      "old": "Sin cambiar desde {date}",
+      "insecure": "Dirección sin cifrar",
+      "no2fa": "Admite verificación en dos pasos"
+    }
+  },
+  "check": {
+    "title": "Comprobación de filtraciones",
+    "last": "Última comprobación: {time}",
+    "scanning": "Comprobando…",
+    "offline": "Sin conexión: se comprobará al volver",
+    "signedOut": "Sesión caducada: se comprobará cuando vuelvas a iniciar sesión",
+    "never": "Todavía no se ha comprobado en este dispositivo",
+    "automatic": "Se hace sola cada vez que inicias sesión o desbloqueas la bóveda con conexión.",
+    "now": "Comprobar ahora",
+    "offlineHint": "Para comprobar filtraciones hace falta conexión. Lo que ves es el resultado de la última comprobación.",
+    "doneClean": "Comprobación terminada. Ninguna contraseña aparece en filtraciones conocidas.",
+    "doneFound": {
+      "one": "Comprobación terminada. {count} contraseña aparece en filtraciones conocidas.",
+      "other": "Comprobación terminada. {count} contraseñas aparecen en filtraciones conocidas."
+    }
+  },
+  "how": {
+    "title": "Cómo se comprueba sin enviar tus contraseñas",
+    "step1": "De cada contraseña se calcula aquí, en tu dispositivo, una huella de 40 caracteres. Al servidor solo viajan los 5 primeros.",
+    "step2": "El servidor devuelve todas las huellas filtradas que empiezan igual, que son cientos, y es tu dispositivo el que busca la tuya entre ellas. Nadie más sabe cuál era ni si estaba en la lista.",
+    "step3": "Al terminar, AccioPass anota en tu cuenta qué elementos están afectados, por su identificador interno, para poder avisarte por correo. No sabe a qué servicio pertenecen ni qué contraseña tienen.",
+    "source": "Las listas son las de Pwned Passwords (Have I Been Pwned) y se consultan a través del servidor de AccioPass."
+  },
+  "plan": {
+    "title": "Plan de acción",
+    "description": "Qué hacer primero, por orden de importancia.",
+    "create": "Preparar plan de acción",
+    "refresh": "Actualizar plan",
+    "loading": "Preparando el plan…",
+    "sourceAi": "IA",
+    "sourceRules": "Reglas integradas",
+    "sourceAiHint": "Redactado por la IA a partir de los recuentos de tu bóveda.",
+    "sourceRulesHint": "Elaborado con las reglas integradas de AccioPass, sin IA.",
+    "stale": "Tu bóveda ha cambiado desde que se preparó este plan. Actualízalo para ver qué queda.",
+    "priority": {
+      "critical": "Urgente",
+      "high": "Importante",
+      "medium": "Conviene",
+      "low": "Sin prisa"
+    },
+    "progress": {
+      "one": "{done} de {count} paso hecho",
+      "other": "{done} de {count} pasos hechos"
+    },
+    "nothing": "No hay nada pendiente ahora mismo.",
+    "offline": "Para preparar el plan hace falta conexión. El resto de esta página funciona sin ella.",
+    "sends": "Se envían solo los recuentos de esta página. Nunca contraseñas.",
+    "namesOn": "Nombres de servicios: se incluyen",
+    "namesOnHint": "El plan puede citar por su nombre los servicios afectados. Lo permitiste en Preferencias.",
+    "namesOff": "Nombres de servicios: no se incluyen",
+    "namesOffHint": "El plan habla solo de cantidades. Puedes permitir los nombres en Preferencias.",
+    "namesNeedAiHint": "Permitiste los nombres, pero la IA está desactivada: sin las dos preferencias no sale ningún nombre de este dispositivo.",
+    "namesChange": "Abrir Preferencias",
+    "aiOff": "La IA está desactivada en tus preferencias: el plan se prepara con las reglas integradas.",
+    "assistant": "Preguntar al asistente",
+    "assistantHint": "Resuelve dudas de seguridad en una conversación."
+  },
+  "account": {
+    "title": "Tu cuenta de AccioPass",
+    "twoFactorOff": "Activa la verificación en dos pasos",
+    "twoFactorOffHint": "Ahora tu cuenta se abre solo con la contraseña maestra. Con un segundo paso, conocerla no basta para entrar.",
+    "twoFactorOn": "Verificación en dos pasos",
+    "twoFactorOnValue": "Activada",
+    "twoFactorOnHint": "Además de la contraseña maestra, se pide un código al iniciar sesión.",
+    "recoveryWords": "Palabras de recuperación",
+    "recoveryWordsHint": "Son la única forma de volver a entrar si olvidas la contraseña maestra. Comprueba que siguen donde las guardaste, en papel y fuera de este dispositivo."
+  },
+  "empty": {
+    "title": "Todavía no hay contraseñas que analizar",
+    "description": "Cuando guardes contraseñas en la bóveda, aquí verás su estado y si alguna aparece en una filtración.",
+    "action": "Añadir una contraseña"
+  },
+  "loading": "Analizando la bóveda…",
+  "notice": {
+    "title": {
+      "one": "Una contraseña tuya aparece en filtraciones",
+      "other": "{count} contraseñas tuyas aparecen en filtraciones"
+    },
+    "body": {
+      "one": "La hemos encontrado en las listas de contraseñas filtradas que circulan por internet. No significa que alguien haya entrado en tu cuenta, pero conviene cambiarla cuanto antes.",
+      "other": "Las hemos encontrado en las listas de contraseñas filtradas que circulan por internet. No significa que alguien haya entrado en tus cuentas, pero conviene cambiarlas cuanto antes."
+    },
+    "list": "Elementos afectados",
+    "more": {
+      "one": "y {count} más",
+      "other": "y {count} más"
+    },
+    "namesMore": {
+      "one": "{names} y {count} más",
+      "other": "{names} y {count} más"
+    },
+    "stale": "Es el resultado de la última comprobación: ahora no hay conexión para repetirla.",
+    "review": "Revisar ahora",
+    "later": "Más tarde"
+  }
+}

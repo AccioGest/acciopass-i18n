@@ -1,0 +1,191 @@
+{
+  "title": "Security",
+  "score": {
+    "title": "State of your vault",
+    "outOf": "out of 100",
+    "a11y": "Score: {score} out of 100. {band}.",
+    "band": {
+      "excellent": "Very good",
+      "good": "Good",
+      "fair": "Needs work",
+      "poor": "At risk"
+    },
+    "analysed": {
+      "one": "{count} password analysed",
+      "other": "{count} passwords analysed"
+    },
+    "affected": {
+      "zero": "none with problems",
+      "one": "{count} with a problem",
+      "other": "{count} with a problem"
+    },
+    "summary": "{analysed}, {affected}.",
+    "madeOf": "What it is made of",
+    "explanation": "Every password starts with 100 points and loses them for its problems: all of them if it is leaked, more than half if it is weak or repeated, and a few for the rest. The score is the average. With any leaked password it never goes above 60.",
+    "countLabel": "{label}: {count}"
+  },
+  "issues": {
+    "breached": {
+      "title": "Leaked passwords",
+      "short": "Leaked",
+      "description": "They appear in known data breaches. Change them on each service as soon as you can."
+    },
+    "weak": {
+      "title": "Weak passwords",
+      "short": "Weak",
+      "description": "They are short or predictable: they can be guessed quickly."
+    },
+    "reused": {
+      "title": "Reused passwords",
+      "short": "Reused",
+      "description": "If one of these services is breached, every account sharing the password is exposed."
+    },
+    "insecure_url": {
+      "title": "Sites without HTTPS",
+      "short": "No HTTPS",
+      "description": "At these addresses the password travels unencrypted. Check whether the site has an https version."
+    },
+    "old": {
+      "title": "Old passwords",
+      "short": "Old",
+      "description": "They have not changed for more than a year."
+    },
+    "no_2fa": {
+      "title": "Accounts without two-step verification",
+      "short": "No second step",
+      "description": "These services support a second step and you have not saved their code here."
+    }
+  },
+  "severity": {
+    "critical": "Urgent",
+    "high": "Important",
+    "advice": "Advisable"
+  },
+  "problems": {
+    "title": "Problems found",
+    "description": "Ordered by severity. Open a group to see its items and go into each one to fix it.",
+    "noneTitle": "We found no problems",
+    "noneDescription": "No leaked, weak, repeated or old passwords. This is checked again every time you unlock the vault.",
+    "group": {
+      "one": "{title}: {count} item",
+      "other": "{title}: {count} items"
+    },
+    "expanded": "expanded",
+    "collapsed": "collapsed",
+    "toggleHint": "Shows or hides the items of the group.",
+    "unnamed": "No name",
+    "openHint": "Opens the item in the vault.",
+    "item": {
+      "breachedCount": {
+        "one": "{formatted} time in breaches",
+        "other": "{formatted} times in breaches"
+      },
+      "breached": "Appears in known breaches",
+      "weak": "Easy to guess",
+      "reused": "Repeated in another item",
+      "sharedWithOne": "Same as {name}",
+      "sharedWithMore": {
+        "one": "Same as {name} and {count} more",
+        "other": "Same as {name} and {count} more"
+      },
+      "old": "Unchanged since {date}",
+      "insecure": "Unencrypted address",
+      "no2fa": "Supports two-step verification"
+    }
+  },
+  "check": {
+    "title": "Breach check",
+    "last": "Last check: {time}",
+    "scanning": "Checking…",
+    "offline": "Offline: it will be checked when you are back",
+    "signedOut": "Session expired: it will be checked once you sign in again",
+    "never": "Not checked on this device yet",
+    "automatic": "It runs by itself every time you sign in or unlock the vault with a connection.",
+    "now": "Check now",
+    "offlineHint": "Checking for breaches needs a connection. What you see is the result of the last check.",
+    "doneClean": "Check finished. None of your passwords appear in known breaches.",
+    "doneFound": {
+      "one": "Check finished. {count} password appears in known breaches.",
+      "other": "Check finished. {count} passwords appear in known breaches."
+    }
+  },
+  "how": {
+    "title": "How the check works without sending your passwords",
+    "step1": "A 40-character fingerprint of each password is computed here, on your device. Only its first 5 characters travel to the server.",
+    "step2": "The server returns every leaked fingerprint that starts the same way, hundreds of them, and your device looks for yours among them. Nobody else learns which one it was or whether it was on the list.",
+    "step3": "When it finishes, AccioPass notes on your account which items are affected, by their internal identifier, so it can warn you by e-mail. It does not know which service they belong to or what password they hold.",
+    "source": "The lists are those of Pwned Passwords (Have I Been Pwned), queried through the AccioPass server."
+  },
+  "plan": {
+    "title": "Action plan",
+    "description": "What to do first, in order of importance.",
+    "create": "Prepare action plan",
+    "refresh": "Update plan",
+    "loading": "Preparing the plan…",
+    "sourceAi": "AI",
+    "sourceRules": "Built-in rules",
+    "sourceAiHint": "Written by the AI from the counts of your vault.",
+    "sourceRulesHint": "Prepared with the built-in rules of AccioPass, without AI.",
+    "stale": "Your vault has changed since this plan was prepared. Update it to see what is left.",
+    "priority": {
+      "critical": "Urgent",
+      "high": "Important",
+      "medium": "Worth doing",
+      "low": "No hurry"
+    },
+    "progress": {
+      "one": "{done} of {count} step done",
+      "other": "{done} of {count} steps done"
+    },
+    "nothing": "There is nothing to do right now.",
+    "offline": "Preparing the plan needs a connection. The rest of this page works without one.",
+    "sends": "Only the counts on this page are sent. Never passwords.",
+    "namesOn": "Service names: included",
+    "namesOnHint": "The plan may mention the affected services by name. You allowed it in Preferences.",
+    "namesOff": "Service names: not included",
+    "namesOffHint": "The plan speaks of quantities only. You can allow names in Preferences.",
+    "namesNeedAiHint": "You allowed names, but AI is turned off: without both preferences no name leaves this device.",
+    "namesChange": "Open Preferences",
+    "aiOff": "AI is turned off in your preferences: the plan is prepared with the built-in rules.",
+    "assistant": "Ask the assistant",
+    "assistantHint": "Answers security questions in a conversation."
+  },
+  "account": {
+    "title": "Your AccioPass account",
+    "twoFactorOff": "Turn on two-step verification",
+    "twoFactorOffHint": "Right now your account opens with the master password alone. With a second step, knowing it is not enough to get in.",
+    "twoFactorOn": "Two-step verification",
+    "twoFactorOnValue": "On",
+    "twoFactorOnHint": "Besides the master password, a code is asked for when signing in.",
+    "recoveryWords": "Recovery words",
+    "recoveryWordsHint": "They are the only way back in if you forget the master password. Check they are still where you kept them, on paper and away from this device."
+  },
+  "empty": {
+    "title": "There are no passwords to analyse yet",
+    "description": "Once you save passwords in the vault, you will see their state here and whether any appears in a breach.",
+    "action": "Add a password"
+  },
+  "loading": "Analysing the vault…",
+  "notice": {
+    "title": {
+      "one": "One of your passwords appears in breaches",
+      "other": "{count} of your passwords appear in breaches"
+    },
+    "body": {
+      "one": "We found it in the lists of leaked passwords that circulate on the internet. It does not mean someone got into your account, but you should change it as soon as you can.",
+      "other": "We found them in the lists of leaked passwords that circulate on the internet. It does not mean someone got into your accounts, but you should change them as soon as you can."
+    },
+    "list": "Affected items",
+    "more": {
+      "one": "and {count} more",
+      "other": "and {count} more"
+    },
+    "namesMore": {
+      "one": "{names} and {count} more",
+      "other": "{names} and {count} more"
+    },
+    "stale": "This is the result of the last check: there is no connection to repeat it now.",
+    "review": "Review now",
+    "later": "Later"
+  }
+}

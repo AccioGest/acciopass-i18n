@@ -1,0 +1,472 @@
+{
+  "title": "Ajustes",
+  "languages": {
+    "es": "Español",
+    "en": "English",
+    "partial": "parcial",
+    "partialHint": "Parcial: lo que aún no está traducido se muestra en español."
+  },
+  "summary": {
+    "verified": "Correo verificado",
+    "unverified": "Correo sin verificar",
+    "readOnly": "Solo lectura"
+  },
+  "groups": {
+    "account": "Cuenta",
+    "security": "Seguridad",
+    "app": "Aplicación",
+    "help": "Ayuda",
+    "session": "Sesión"
+  },
+  "nav": {
+    "account": "Cuenta",
+    "password": "Contraseña maestra",
+    "recoveryWords": "Palabras de recuperación",
+    "twoFactor": "Verificación en dos pasos",
+    "twoFactorOn": "Activada",
+    "twoFactorOff": "Desactivada",
+    "devices": "Dispositivos",
+    "loginHistory": "Actividad de inicio de sesión",
+    "linkedAccounts": "Cuentas vinculadas",
+    "apiKeys": "Claves de API",
+    "preferences": "Preferencias",
+    "data": "Datos",
+    "help": "Ayuda y reclamaciones",
+    "about": "Acerca de"
+  },
+  "session": {
+    "lock": "Bloquear",
+    "lockHint": "Cierra la bóveda en este dispositivo. Se abre de nuevo con tu contraseña maestra.",
+    "logout": "Cerrar sesión",
+    "logoutTitle": "¿Cerrar sesión?",
+    "logoutMessage": "Este dispositivo dejará de sincronizar hasta que vuelvas a iniciar sesión.",
+    "logoutAndWipe": "Cerrar sesión y borrar",
+    "wipeOption": "Borrar también la copia de este dispositivo",
+    "keepHint": "Si no lo marcas, la copia cifrada de tu bóveda se queda en este dispositivo y no hará falta descargarla al volver.",
+    "wipeHint": "Se borrará la copia cifrada de este dispositivo. Tu bóveda sigue en tu cuenta y se descarga al volver a iniciar sesión.",
+    "pendingKeep": {
+      "one": "Tienes {count} cambio sin enviar. Intentaremos enviarlo ahora; si no se puede, se queda en este dispositivo y se enviará cuando vuelvas a iniciar sesión.",
+      "other": "Tienes {count} cambios sin enviar. Intentaremos enviarlos ahora; si no se puede, se quedan en este dispositivo y se enviarán cuando vuelvas a iniciar sesión."
+    },
+    "pendingWipe": {
+      "one": "Tienes {count} cambio sin enviar. Intentaremos enviarlo antes de borrar; si no llega al servidor, se perderá.",
+      "other": "Tienes {count} cambios sin enviar. Intentaremos enviarlos antes de borrar; los que no lleguen al servidor se perderán."
+    },
+    "pendingOffline": {
+      "one": "Ahora mismo no hay conexión, así que no se podrá enviar.",
+      "other": "Ahora mismo no hay conexión, así que no se podrán enviar."
+    },
+    "wipeTitle": "¿Borrar los datos de este dispositivo?",
+    "wipeMessage": "Se cerrará la sesión y se borrará la copia cifrada de tu bóveda de este dispositivo. Tu cuenta y tus datos no se tocan: al volver a iniciar sesión se descargan de nuevo.",
+    "wipeConfirm": "Borrar y cerrar sesión"
+  },
+  "reauth": {
+    "password": "Contraseña maestra",
+    "passwordRequired": "Escribe tu contraseña maestra.",
+    "code": "Código de verificación en dos pasos",
+    "codeHint": "Las 6 cifras de tu app de autenticación, o uno de tus códigos de recuperación.",
+    "codeRequired": "Escribe el código.",
+    "codeInvalid": "Son 6 cifras, o un código de recuperación como ABCDE-12345.",
+    "retryIn": "Podrás volver a intentarlo en {time}."
+  },
+  "account": {
+    "title": "Cuenta",
+    "offline": "Sin conexión no se puede cambiar nada de la cuenta. Lo demás sigue funcionando.",
+    "restricted": "Tu cuenta está en solo lectura: no puedes cambiar el correo ni el idioma. Sí puedes eliminarla.",
+    "email": {
+      "section": "Correo",
+      "description": "Es la dirección con la que inicias sesión y a la que llegan los avisos.",
+      "current": "Correo de la cuenta",
+      "change": "Cambiar correo",
+      "title": "Cambiar correo",
+      "how": "Te enviaremos un código a la dirección nueva para comprobar que es tuya. Hasta que lo escribas aquí no cambia nada. Al confirmarlo avisaremos a tu dirección actual y, desde ese momento, iniciarás sesión con la nueva.",
+      "newLabel": "Correo nuevo",
+      "required": "Escribe el correo nuevo.",
+      "invalid": "Esa dirección no parece un correo. Revísala.",
+      "same": "Ese ya es el correo de tu cuenta.",
+      "rejected": "No podemos usar esa dirección. Revísala.",
+      "send": "Enviar código",
+      "confirmTitle": "Escribe el código",
+      "sent": "Hemos enviado un código de 6 cifras a {email}. Escríbelo para terminar el cambio.",
+      "notArriving": "Caduca en 15 minutos. Si no te llega, mira en el correo no deseado y comprueba la dirección: si ya tiene una cuenta de AccioPass, no se puede usar y no recibirá ningún código.",
+      "otherAddress": "Usar otra dirección",
+      "confirm": "Confirmar",
+      "changed": "Correo cambiado. A partir de ahora inicia sesión con {email}."
+    },
+    "locale": {
+      "section": "Idioma de los correos",
+      "description": "Los correos que te enviamos (avisos, códigos, justificantes) van en este idioma. El idioma de la app se elige en Preferencias."
+    },
+    "about": {
+      "section": "Tu cuenta",
+      "memberSince": "Cuenta creada el"
+    },
+    "delete": {
+      "section": "Eliminar la cuenta",
+      "summary": "Borra tu cuenta y todo lo que guarda, para siempre. Es inmediato y no se puede deshacer.",
+      "open": "Eliminar cuenta",
+      "title": "Eliminar la cuenta",
+      "warningTitle": "No se puede deshacer",
+      "warning": "La eliminación es inmediata. No hay periodo de espera ni forma de recuperar nada después, tampoco con tus palabras de recuperación.",
+      "erasedTitle": "Qué se borra",
+      "erased": {
+        "vault": "Tu bóveda entera: contraseñas, códigos y notas, de nuestros servidores.",
+        "shared": "Los elementos que compartes con otras personas: dejarán de tenerlos. Lo que otras personas comparten contigo sigue siendo suyo.",
+        "access": "Tus dispositivos y sesiones, el historial de inicios de sesión, las claves de API, las cuentas vinculadas y tus preferencias.",
+        "device": "La copia cifrada de este dispositivo. En tus otros dispositivos la sesión dejará de funcionar; borra allí la copia local al cerrar sesión."
+      },
+      "kept": "Se conservan, sin tu correo ni nada que te identifique, la constancia de los textos legales que aceptaste y tus solicitudes de ayuda, durante el plazo que indica la Política de privacidad. Recibirás un correo que confirma la eliminación.",
+      "exportFirst": "Exportar mis datos antes",
+      "word": "ELIMINAR",
+      "typeLabel": "Escribe {word} para confirmar",
+      "typeError": "Escribe {word}, tal cual, para confirmar.",
+      "offline": "Eliminar la cuenta necesita conexión.",
+      "confirm": "Eliminar para siempre",
+      "done": "Tu cuenta se ha eliminado."
+    }
+  },
+  "preferences": {
+    "title": "Preferencias",
+    "deviceNote": "Estos ajustes son de este dispositivo y se guardan al momento.",
+    "accountNote": "Estos son de tu cuenta: valen en todos tus dispositivos y necesitan conexión para cambiarse.",
+    "offline": "Sin conexión no se pueden cambiar los ajustes de la cuenta. Los de este dispositivo sí.",
+    "restricted": "Tu cuenta está en solo lectura: aquí solo puedes retirar un permiso (IA, nombres de servicios o que te encuentren por tu correo).",
+    "never": "Nunca",
+    "appearance": {
+      "section": "Aspecto",
+      "theme": "Tema",
+      "system": "Sistema",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "language": "Idioma de la app",
+      "languageHint": "El de los correos se elige en Cuenta."
+    },
+    "lock": {
+      "section": "Bloqueo",
+      "autoLock": "Bloqueo automático",
+      "autoLockHint": "La bóveda se bloquea sola cuando llevas este tiempo sin usar AccioPass.",
+      "minutes": {
+        "one": "{count} min",
+        "other": "{count} min"
+      },
+      "hour": "1 h",
+      "background": "Bloquear al pasar a segundo plano",
+      "backgroundHint": "La bóveda se bloquea en cuanto sales de la app.",
+      "backgroundHintWeb": "La bóveda se bloquea en cuanto cambias de pestaña o minimizas la ventana."
+    },
+    "biometrics": {
+      "label": "Desbloquear con huella o cara",
+      "description": "Abre la bóveda con la biometría de este dispositivo en lugar de escribir la contraseña maestra.",
+      "enableTitle": "Activar el desbloqueo biométrico",
+      "enableMessage": "Confirma tu contraseña maestra. La clave que abre tu bóveda se guardará en el almacén seguro de este dispositivo y solo se podrá leer con tu huella o tu cara.",
+      "enable": "Activar",
+      "enabled": "Desbloqueo biométrico activado.",
+      "disableTitle": "Desactivar el desbloqueo biométrico",
+      "disableMessage": "Confirma tu contraseña maestra. Se borrará la clave guardada en este dispositivo y volverás a desbloquear con la contraseña.",
+      "disable": "Desactivar",
+      "disabled": "Desbloqueo biométrico desactivado."
+    },
+    "codes": {
+      "section": "Portapapeles y códigos",
+      "clipboard": "Borrar el portapapeles",
+      "clipboardHint": "Lo que copies desde AccioPass (contraseñas, códigos) se borra del portapapeles pasado este tiempo, si sigue siendo lo que copiaste.",
+      "seconds": {
+        "one": "{count} s",
+        "other": "{count} s"
+      },
+      "showNext": "Mostrar el código siguiente",
+      "showNextHint": "Junto a cada código, en gris, el que valdrá cuando caduque el actual.",
+      "conceal": "Ocultar los códigos",
+      "concealHint": "Los códigos se muestran solo al tocarlos."
+    },
+    "notices": {
+      "section": "Avisos por correo",
+      "breaches": "Contraseñas filtradas",
+      "breachesHint": "Cuando la comprobación encuentra contraseñas tuyas en filtraciones conocidas. «Nuevas» avisa una vez por cada contraseña filtrada; «Siempre», cada vez que se comprueba y sigue habiendo alguna (como mucho una vez por hora).",
+      "breachesNew": "Nuevas",
+      "breachesAlways": "Siempre",
+      "loginAlerts": "Inicio de sesión en un dispositivo nuevo",
+      "loginAlertsHint": "Un correo cada vez que alguien entra en tu cuenta desde un dispositivo que no conocíamos.",
+      "shares": "Elementos compartidos",
+      "sharesHint": "Un correo cuando alguien quiere compartir un elemento contigo."
+    },
+    "signIn": {
+      "section": "Inicio de sesión",
+      "approvals": "Confirmar inicios de sesión nuevos desde un dispositivo de confianza",
+      "approvalsHint": "Cuando alguien entre desde un dispositivo nuevo, podrás aprobarlo o rechazarlo en otro en el que ya tengas la sesión abierta, eligiendo el número que muestra el nuevo. Si lo desactivas, tus otros dispositivos no reciben el aviso y el dispositivo nuevo se comprueba solo con un código por correo o con tu verificación en dos pasos."
+    },
+    "sharing": {
+      "section": "Compartir",
+      "discoverable": "Permitir que me encuentren por mi correo",
+      "discoverableHint": "Otras personas con cuenta en AccioPass pueden compartir un elemento contigo escribiendo tu correo. Si lo desactivas, nadie podrá empezar a compartir contigo: al buscarte verán que no hay ninguna cuenta con ese correo. Lo que ya tienes compartido no cambia."
+    },
+    "ai": {
+      "section": "Inteligencia artificial",
+      "intro": "Opcional. A la IA nunca se le envían contraseñas, códigos, secretos ni notas: las contraseñas se generan siempre en tu dispositivo.",
+      "enabled": "Activar las funciones de IA",
+      "enabledHint": "El asistente, las sugerencias del generador y el informe de seguridad usan un modelo de IA (Anthropic) a través de nuestro servidor. Se le envía lo que tú escribes al asistente o al generador y los recuentos de tu bóveda: cuántas contraseñas hay débiles, repetidas, antiguas o filtradas. Si lo desactivas, el asistente deja de estar disponible y lo demás lo calculan reglas fijas, sin IA.",
+      "names": "Permitir enviar los nombres de mis servicios para mejorar las sugerencias",
+      "namesHint": "Qué se envía: el nombre que has dado a un acceso (por ejemplo, «Banco») y la dirección de su web sin la ruta, cuando pides clasificarlo; y, en el informe de seguridad, los nombres de hasta 50 accesos con problemas y qué problema tiene cada uno. Qué no se envía nunca: usuarios, contraseñas, secretos de los códigos ni notas. Sin este permiso no hay clasificación automática y el informe usa solo recuentos.",
+      "namesNeedsAi": "Necesita las funciones de IA activadas.",
+      "serverOff": "Este servidor no tiene un proveedor de IA configurado ahora mismo: aunque lo actives, responden las reglas fijas del propio servidor y nada sale hacia un tercero."
+    },
+    "notifications": {
+      "section": "Notificaciones",
+      "pushIntro": "Avisos en este dispositivo aunque AccioPass esté cerrado. Nunca llevan datos de tu bóveda: solo dicen que hay algo que mirar.",
+      "pushLabel": "Notificaciones en este dispositivo",
+      "pushDescription": "Te avisan cuando otro dispositivo quiere iniciar sesión en tu cuenta y cuando se detectan contraseñas filtradas.",
+      "pushBlocked": "Las notificaciones de AccioPass están desactivadas en los ajustes del sistema. Actívalas allí y vuelve a intentarlo.",
+      "channel": "Avisos de seguridad",
+      "offline": "Activar o desactivar las notificaciones necesita conexión.",
+      "serverOff": "Este servidor no envía notificaciones push. Los avisos te llegarán por correo y dentro de la app.",
+      "browserIntro": "El permiso de este navegador para que AccioPass muestre avisos. Hoy AccioPass no envía notificaciones al navegador cuando está cerrado: con la app abierta te enteras de todo al momento, y lo demás llega por correo.",
+      "browserLabel": "Permitir notificaciones en este navegador",
+      "browserDescription": "El navegador te pedirá permiso. Te enseñaremos una de prueba para que veas cómo son.",
+      "browserOn": "Permiso concedido. Para retirarlo, usa los ajustes de este sitio en tu navegador.",
+      "browserBlocked": "Tu navegador tiene bloqueadas las notificaciones de este sitio. Cámbialo en los ajustes del sitio (el icono junto a la dirección).",
+      "browserTest": "Las notificaciones están activadas en este navegador.",
+      "blockedToast": "El permiso está denegado. Cámbialo en los ajustes del sistema o del navegador.",
+      "unavailable": "Las notificaciones no están disponibles en este dispositivo o en esta versión de la app."
+    }
+  },
+  "data": {
+    "title": "Datos",
+    "saveUnavailable": "No hemos podido guardar el archivo en este dispositivo.",
+    "kinds": {
+      "logins": {
+        "one": "{count} acceso",
+        "other": "{count} accesos"
+      },
+      "codes": {
+        "one": "{count} código",
+        "other": "{count} códigos"
+      },
+      "notes": {
+        "one": "{count} nota",
+        "other": "{count} notas"
+      },
+      "none": "Ningún elemento",
+      "join": "{list} y {last}"
+    },
+    "export": {
+      "section": "Exportar"
+    },
+    "accountExport": {
+      "title": "Los datos de mi cuenta",
+      "description": "Todo lo que nuestro servidor guarda de tu cuenta, en un archivo JSON: perfil y preferencias, dispositivos, sesiones, actividad, consentimientos, solicitudes de ayuda y tu bóveda. La bóveda va cifrada, tal como la guardamos: el archivo no contiene tus contraseñas en claro y sin tu contraseña maestra no se puede leer.",
+      "offline": "Esta exportación se pide al servidor: necesita conexión.",
+      "done": "Datos de la cuenta descargados."
+    },
+    "localExport": {
+      "title": "Mi bóveda, sin cifrar",
+      "description": "Un archivo JSON con tus contraseñas, códigos y notas en texto legible, para guardarlo tú o llevártelo a otro gestor. Se prepara en este dispositivo, también sin conexión.",
+      "open": "Exportar sin cifrar",
+      "warningTitle": "Este archivo NO va cifrado",
+      "warning": "Contendrá todas tus contraseñas, los secretos de tus códigos y tus notas en texto legible: quien lo abra lo verá todo. Guárdalo en un lugar seguro, no lo envíes por correo ni lo subas a la nube, y bórralo cuando ya no lo necesites.",
+      "counts": "Se exportarán {items}.",
+      "includesShared": {
+        "one": "Incluye {count} elemento que otra persona comparte contigo.",
+        "other": "Incluye {count} elementos compartidos."
+      },
+      "empty": "Tu bóveda está vacía: no hay nada que exportar.",
+      "understood": "Entiendo que el archivo no va cifrado",
+      "understoodRequired": "Marca la casilla para continuar.",
+      "confirmDownload": "Descargar sin cifrar",
+      "confirmShare": "Exportar sin cifrar",
+      "done": "Bóveda exportada. Recuerda borrar el archivo cuando ya no lo necesites.",
+      "fileWarning": "Este archivo contiene contraseñas y secretos SIN CIFRAR. Guárdalo en un lugar seguro y bórralo cuando ya no lo necesites."
+    },
+    "import": {
+      "section": "Importar",
+      "description": "Lo que importes se guarda en este dispositivo al momento y se sincroniza con tu cuenta cuando haya conexión.",
+      "restricted": "Tu cuenta está en solo lectura: no puedes importar elementos.",
+      "choose": "Elegir archivo",
+      "vaultTitle": "Desde un archivo de AccioPass",
+      "vaultDescription": "El archivo JSON de «Mi bóveda, sin cifrar».",
+      "codes": "Importar códigos de otra app",
+      "codesDescription": "Desde Google Authenticator, Ente Auth u otra app de códigos. Se hace en Códigos.",
+      "tooLarge": "El archivo es demasiado grande (más de 20 MB). Comprueba que es el correcto.",
+      "unreadableFile": "No hemos podido leer el archivo. Vuelve a elegirlo.",
+      "emptyFile": "El archivo no tiene ningún elemento que podamos importar.",
+      "notCsv": "No reconocemos ese archivo como CSV: no hemos encontrado columnas separadas por comas, puntos y coma o tabuladores.",
+      "problems": {
+        "notJson": "Ese archivo no es un JSON válido. Elige el que exportaste desde «Mi bóveda, sin cifrar».",
+        "wrongFormat": "Ese archivo no es una exportación de bóveda de AccioPass. Si viene de otro gestor, expórtalo como CSV e impórtalo desde ahí.",
+        "accountExport": "Ese archivo es la exportación de «Los datos de mi cuenta», cuya bóveda va cifrada: no se puede importar. Usa el archivo de «Mi bóveda, sin cifrar»."
+      },
+      "willImport": "Se importarán {items}.",
+      "nothingNew": "No hay nada nuevo que importar: tu bóveda ya tiene todo lo que trae el archivo.",
+      "duplicates": {
+        "one": "{count} elemento ya está en tu bóveda y se omite.",
+        "other": "{count} elementos ya están en tu bóveda y se omiten."
+      },
+      "unreadable": {
+        "one": "{count} entrada del archivo no se ha podido leer y no se importará.",
+        "other": "{count} entradas del archivo no se han podido leer y no se importarán."
+      },
+      "localFirst": "El historial de contraseñas y las fechas del archivo no se importan: los elementos entran como nuevos.",
+      "confirm": {
+        "one": "Importar {count} elemento",
+        "other": "Importar {count} elementos"
+      },
+      "done": {
+        "one": "{count} elemento importado.",
+        "other": "{count} elementos importados.",
+        "zero": "No se ha importado ningún elemento."
+      }
+    },
+    "csv": {
+      "title": "Desde un CSV de otro gestor",
+      "description": "El CSV que exportan Bitwarden, 1Password, LastPass, KeePass, Chrome, Firefox y otros. Antes de importar podrás decir qué columna es cada cosa y ver una muestra.",
+      "hasHeader": "La primera fila son los nombres de las columnas",
+      "columns": "Qué columna es cada dato",
+      "fields": {
+        "name": "Nombre",
+        "url": "Dirección web",
+        "username": "Usuario",
+        "password": "Contraseña",
+        "notes": "Notas"
+      },
+      "none": "No importar",
+      "column": "Columna {number}",
+      "choose": "Elegir la columna de {field}",
+      "preview": "Muestra",
+      "previewEmpty": "Con estas columnas no sale ningún acceso. Indica al menos la de la contraseña o la del usuario.",
+      "withPassword": "Con contraseña",
+      "noPassword": "Sin contraseña",
+      "summary": {
+        "one": "Se importará {count} acceso.",
+        "other": "Se importarán {count} accesos.",
+        "zero": "No hay ningún acceso que importar."
+      },
+      "skipped": {
+        "one": "{count} fila sin usuario ni contraseña, o sin nada con que nombrarla, se descarta.",
+        "other": "{count} filas sin usuario ni contraseña, o sin nada con que nombrarlas, se descartan."
+      },
+      "confirm": {
+        "one": "Importar {count} acceso",
+        "other": "Importar {count} accesos"
+      }
+    },
+    "device": {
+      "section": "En este dispositivo",
+      "notPersistent": "Este navegador no deja guardar datos (¿ventana privada?): lo que hagas aquí se pierde al cerrar la pestaña si no ha llegado al servidor.",
+      "items": "Elementos en la bóveda",
+      "space": "Espacio ocupado (aproximado)",
+      "pending": "Cambios pendientes de enviar",
+      "pendingNone": "Ninguno",
+      "pendingSome": {
+        "one": "{count} cambio. Está guardado aquí y se enviará al recuperar la conexión.",
+        "other": "{count} cambios. Están guardados aquí y se enviarán al recuperar la conexión."
+      },
+      "lastSync": "Última sincronización",
+      "never": "Todavía no",
+      "wipeTitle": "Borrar los datos de este dispositivo",
+      "wipeDescription": "Cierra la sesión y borra de aquí la copia cifrada de tu bóveda. Tu cuenta y tus datos no se tocan.",
+      "wipe": "Borrar datos"
+    }
+  },
+  "help": {
+    "title": "Ayuda y reclamaciones",
+    "formSection": "Escríbenos",
+    "intro": "Consultas, quejas, reclamaciones y solicitudes sobre tus datos personales. Te atiende una persona.",
+    "publicIntro": "No hace falta iniciar sesión para escribirnos. Si tienes cuenta y puedes entrar, hazlo desde Ajustes: así sabremos que la solicitud es tuya.",
+    "category": "¿De qué se trata?",
+    "categories": {
+      "help": {
+        "label": "Ayuda",
+        "hint": "Dudas sobre cómo usar AccioPass o algo que no funciona."
+      },
+      "complaint": {
+        "label": "Reclamación",
+        "hint": "Una queja o reclamación sobre el servicio, también contra la suspensión de tu cuenta. Te responderemos en un máximo de 15 días naturales."
+      },
+      "privacy": {
+        "label": "Privacidad",
+        "hint": "Ejercer tus derechos sobre tus datos personales: acceso, rectificación, supresión, oposición, limitación o portabilidad."
+      },
+      "illegal_content": {
+        "label": "Contenido ilícito",
+        "hint": "Avisarnos de un contenido o un uso ilícito del servicio. Cuéntanos dónde está, por qué lo consideras ilícito y cómo podemos contactarte."
+      }
+    },
+    "email": "Tu correo",
+    "emailHint": "Para responderte y enviarte el justificante.",
+    "emailDemanded": "Tu sesión no está activa en el servidor, así que necesitamos un correo para responderte.",
+    "answerTo": "Te responderemos a {email}, el correo de tu cuenta.",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "messageHint": "{count} de {max} caracteres.",
+    "noSecrets": "No pegues contraseñas, códigos ni palabras de recuperación. Nunca te los pediremos y no los necesitamos para ayudarte.",
+    "offline": "Para enviar la solicitud hace falta conexión. Lo que has escrito no se pierde mientras sigas en esta pantalla.",
+    "send": "Enviar solicitud",
+    "problems": {
+      "rejected": "El servidor no acepta este campo tal como está. Revísalo.",
+      "email": {
+        "required": "Escribe un correo para poder responderte.",
+        "invalid": "Esa dirección no parece un correo. Revísala."
+      },
+      "subject": {
+        "required": "Escribe un asunto.",
+        "tooShort": "El asunto necesita al menos 3 caracteres.",
+        "tooLong": "El asunto no puede pasar de 150 caracteres.",
+        "characters": "El asunto contiene caracteres que no se pueden enviar. Escríbelo de nuevo sin pegarlo."
+      },
+      "message": {
+        "required": "Cuéntanos qué necesitas.",
+        "tooShort": "El mensaje necesita al menos 10 caracteres.",
+        "tooLong": "El mensaje no puede pasar de 5000 caracteres.",
+        "characters": "El mensaje contiene caracteres que no se pueden enviar. Quita lo que hayas pegado de otro sitio y vuelve a intentarlo."
+      }
+    },
+    "sent": {
+      "title": "Solicitud recibida",
+      "reference": "Clave de tu solicitud",
+      "copyReference": "Copiar la clave",
+      "date": "Recibida el",
+      "receipt": "Te hemos enviado un justificante por correo a {email}, con la clave, la fecha y una copia de lo que has escrito.",
+      "next": "Guarda la clave: es la referencia de tu solicitud. Te responderemos lo antes posible y, si es una reclamación, en un máximo de 15 días naturales.",
+      "another": "Enviar otra solicitud"
+    },
+    "other": {
+      "section": "Otras formas de contactar",
+      "intro": "También puedes escribirnos por correo:",
+      "phoneAndPost": "Por teléfono, en el 950 674 456. Por correo postal: ACCIOSOFT S.L., Avda. Bulevar de El Ejido 463, Planta 21, Puerta 2, 04700 El Ejido (Almería), España."
+    },
+    "consumer": {
+      "section": "Tus derechos como consumidor",
+      "answer": "Al presentar una queja o reclamación recibes una clave identificativa y un justificante por correo. Te respondemos en el plazo más breve posible y, como máximo, en 15 días naturales.",
+      "escalate": "Si la respuesta no te convence, o no llega en plazo, puedes acudir a la oficina de consumo de tu municipio o de tu comunidad autónoma, o a los tribunales. Lo explican los Términos y condiciones (cláusula 23).",
+      "privacy": "Sobre tus datos personales también puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es)."
+    }
+  },
+  "about": {
+    "title": "Acerca de",
+    "appVersion": "Versión de la app",
+    "apiVersion": "Versión de la API en uso",
+    "loading": "Consultando…",
+    "offline": "Sin conexión",
+    "unknown": "No disponible",
+    "model": {
+      "section": "Qué podemos ver y qué no",
+      "intro": "El modelo de seguridad de AccioPass, en cinco frases.",
+      "encrypted": "Tu bóveda se cifra en tu dispositivo, con una clave que sale de tu contraseña maestra; a nuestro servidor solo llega cifrada.",
+      "password": "Tu contraseña maestra no sale nunca de tu dispositivo: no la conocemos y no podemos restablecerla.",
+      "cannotSee": "No podemos leer tus contraseñas, los secretos de tus códigos, tus notas ni los nombres de tus servicios, salvo los nombres que tú decidas enviar a la IA.",
+      "canSee": "Sí vemos lo necesario para prestar el servicio: tu correo, tus dispositivos y sesiones, las direcciones IP y una ubicación aproximada, con quién compartes (no qué) y qué elementos, por un identificador interno, tienen una contraseña filtrada.",
+      "recovery": "Si olvidas la contraseña maestra, solo tus 24 palabras de recuperación abren tu bóveda; sin ellas, ni tú ni nosotros podemos recuperar tus datos."
+    },
+    "legal": {
+      "section": "Documentos legales",
+      "accepted": "Aceptaste los Términos en su versión {terms} y la Política de privacidad en su versión {privacy} el {date}."
+    },
+    "openSource": {
+      "section": "Software libre",
+      "intro": "AccioPass se apoya en estos proyectos de código abierto. Gracias a quienes los mantienen."
+    },
+    "contact": {
+      "section": "Contacto"
+    },
+    "productOf": "Un producto de AccioSoft."
+  }
+}
