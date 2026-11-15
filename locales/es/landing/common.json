@@ -1,0 +1,52 @@
+{
+  "brand": {
+    "tagline": "Tus contraseñas y códigos, cifrados en tu dispositivo.",
+    "family": "Un producto de AccioSoft.",
+    "homeLabel": "AccioPass, inicio"
+  },
+  "nav": {
+    "label": "Principal",
+    "menu": "Menú",
+    "skip": "Saltar al contenido",
+    "home": "Inicio",
+    "security": "Seguridad",
+    "faq": "Preguntas",
+    "switchLanguage": "Ver esta página en {language}"
+  },
+  "theme": {
+    "label": "Tema",
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  "cta": {
+    "register": "Crear cuenta",
+    "login": "Iniciar sesión",
+    "haveAccount": "Ya tengo cuenta",
+    "security": "Leer el modelo de seguridad completo"
+  },
+  "shots": {
+    "caption": "La aplicación web, con datos de ejemplo."
+  },
+  "footer": {
+    "company": "Quién está detrás",
+    "brandNote": "AccioPass es una marca de {company}",
+    "taxId": "NIF {taxId}",
+    "country": "España",
+    "site": "Web de AccioSoft",
+    "product": "Producto",
+    "legal": "Legal",
+    "terms": "Términos y Condiciones",
+    "privacy": "Política de Privacidad",
+    "legalNotice": "Aviso legal",
+    "help": "Ayuda y reclamaciones",
+    "licenses": "Licencias de tipografías e iconos",
+    "legalNote": "Los documentos legales se abren en la aplicación y están en español. En el Aviso legal está la identificación de la empresa.",
+    "noTracking": "Esta página no usa analítica ni rastreadores. Solo guarda en tu navegador el tema que elijas."
+  },
+  "notFound": {
+    "title": "Esta página no existe.",
+    "body": "Puede que el enlace esté mal escrito o que la página se haya movido. Nada de tu bóveda depende de esta dirección.",
+    "home": "Volver al inicio"
+  }
+}

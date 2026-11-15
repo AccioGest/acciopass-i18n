@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "title": "AccioPass security: what we can and cannot see.",
+    "lead": "How your vault is encrypted, what the server keeps, how recovery works and where the model stops. No embellishment, and with what it does not cover."
+  },
+  "toc": {
+    "label": "On this page"
+  },
+  "create": {
+    "title": "What happens when you create an account",
+    "p1": "The keys are made on your device. A key is derived from your master password with Argon2id, a function that is slow on purpose: it uses 64 MiB of memory and 3 passes, so that trying passwords one by one is expensive.",
+    "p2": "Two keys come out of that one, separated with HKDF-SHA256: one to identify you to the server, which cannot decrypt anything, and another that wraps your vault key, 32 random bytes that encrypt everything else.",
+    "p3": "The master password must be at least 12 characters long. If you change it, the vault key is wrapped again; no item needs to be encrypted again."
+  },
+  "travels": {
+    "title": "What travels and what the server keeps",
+    "p1": "The master password never leaves your device. What travels is the identification key derived from it, and the server keeps only an Argon2id hash of that key.",
+    "p2": "Each item is encrypted on your device with XChaCha20-Poly1305 before it is sent. The ciphertext is bound to the identifier of the item, the type of item is inside the ciphertext and the content is padded to multiples of 256 bytes, so that size does not give away, for example, how long a password is.",
+    "p3": "The server keeps encrypted items. Without your master password, neither AccioSoft, nor Cloudflare, which the encrypted connection passes through, nor someone who copies the whole database can read your passwords, the secrets of your codes or your notes; nor the names of your services, except those you expressly allow to be sent to an AI feature. The limits of this protection are further down, under “What it does not cover”."
+  },
+  "diagram": {
+    "title": "Where each thing lives",
+    "description": "Diagram. On your device: the master password, the vault key and your readable data. Over the network travel the identification key, the wrapped vault key and the items, already encrypted. On the server: a hash of the identification key, the wrapped vault key, the encrypted items and the metadata.",
+    "device": "Your device",
+    "network": "The network",
+    "server": "The server",
+    "master": "Master password",
+    "derive": "Argon2id",
+    "vaultKey": "Vault key",
+    "readable": "Your data, readable",
+    "authKey": "Identification key",
+    "ciphertext": "Encrypted items",
+    "wrapped": "Vault key, wrapped",
+    "hash": "Hash of the identification key",
+    "metadata": "Metadata: e-mail, devices, dates",
+    "never": "Never leaves here",
+    "caption": "What is highlighted exists only on your device. What crosses the line crosses encrypted, or cannot decrypt anything."
+  },
+  "ledger": {
+    "title": "What the server does see",
+    "lead": "Providing the service needs data that is not end-to-end encrypted. These are the main ones; the full list is in the Privacy Policy."
+  },
+  "recovery": {
+    "title": "Recovery and its consequence",
+    "p1": "When you create the account a 32-byte recovery key is generated on your device, which you see only once as 24 words. The words come from the standard BIP-39 list, in English. The server keeps only a SHA-256 hash of a key derived from it, which cannot decrypt anything.",
+    "p2": "If you forget the master password, only your 24 recovery words, together with your e-mail, open your vault and let you choose a new password. Without them, neither you nor we can recover your data.",
+    "p3": "When you recover the account or change the master password, the other sessions are closed and the API keys are revoked."
+  },
+  "sharing": {
+    "title": "Sharing and key fingerprints",
+    "p1": "Every account has an X25519 key pair. When you share an item, its key is encrypted for the public key of the other person: the server hands out envelopes it cannot open. In that scope, the vault and what is shared, encryption is end to end.",
+    "p2": "The server does know who you share with. And it is the server that hands out the public keys: that is why each person has a key fingerprint that you can compare over another channel."
+  },
+  "breach": {
+    "title": "The leak check, step by step",
+    "reveals1": "What it reveals: the first 5 characters of a SHA-1 fingerprint, which hundreds of different passwords share.",
+    "reveals2": "What it reveals: nothing more. The comparison happens on your device.",
+    "reveals3": "What it reveals: which items, by their internal identifier, have a leaked password. Not how many times it appears or what it is.",
+    "master": "Your master password is checked in the same way when you choose it, when you change it and when you recover the account: only the first 5 characters of its fingerprint leave the device. When you create the account, that query is made before the account exists."
+  },
+  "ai": {
+    "title": "The AI rule",
+    "p1": "The AI features are a security assistant, generator settings from a description and a written action plan. The requests go from the AccioPass server to an external AI provider, without your e-mail, your IP address or any identifier of your account. AccioPass never sends the AI the passwords, codes, secrets or notes you keep: it receives counts and whatever you type.",
+    "p2": "They come switched on, but nothing is sent until you use one of them. The names of your services leave your device only if you expressly turn on two preferences; at that point they travel without end-to-end encryption and the provider receives them. You can turn them off; the generator, the action plan and the leak check work without AI.",
+    "p3": "Before sending what you type, the server replaces whatever looks like a password, a key or a code. That filter is not infallible: do not type secrets in your requests."
+  },
+  "primitives": {
+    "title": "The primitives, for those who want to check",
+    "caption": "Cryptographic algorithms AccioPass uses, and what for",
+    "purpose": "What for",
+    "algorithm": "Algorithm",
+    "kdf": "Deriving the key from the master password",
+    "kdfValue": "Argon2id v1.3 (RFC 9106): 64 MiB, 3 iterations, parallelism 1, 16-byte random salt",
+    "split": "Separating keys",
+    "splitValue": "HKDF-SHA256",
+    "aead": "Encrypting each item",
+    "aeadValue": "XChaCha20-Poly1305: 32-byte keys, random 24-byte nonce",
+    "share": "Sharing",
+    "shareValue": "X25519",
+    "recovery": "Recovery words",
+    "recoveryValue": "32 random bytes as 24 BIP-39 words",
+    "breach": "Checking for leaks",
+    "breachValue": "5-character SHA-1 prefix (k-anonymity); report with HMAC-SHA256",
+    "otp": "Verification codes",
+    "otpValue": "HMAC with SHA-1, SHA-256 or SHA-512 (RFC 4226 and RFC 6238)"
+  },
+  "limits": {
+    "title": "What it does not cover",
+    "device": {
+      "title": "A compromised device",
+      "body": "If your device has malware or someone records what you type, they can see what you see. Encryption does not prevent that."
+    },
+    "weak": {
+      "title": "A weak master password",
+      "body": "Argon2id makes each attempt slow, but it does not turn a password that is easy to guess into a safe one. Make it long and do not use it anywhere else."
+    },
+    "webapp": {
+      "title": "The code of the web app",
+      "body": "The web app is downloaded from our servers every time you open it. The protection assumes that the code you receive is the one we publish: whoever controlled the servers that serve it, ours or those of Cloudflare, could alter it and capture your master password as you type it."
+    },
+    "server": {
+      "title": "A tampered server",
+      "body": "Encryption prevents the server from reading your vault. In this version it does not by itself prevent a tampered server from handing you an older version of an item or substituting something shared; today that is protected by the access controls of the server."
+    },
+    "export": {
+      "title": "The files you export",
+      "body": "The readable export of the vault and the export of your codes are not encrypted. Once you download them, protecting them is up to you."
+    }
+  },
+  "audit": {
+    "title": "Audit",
+    "body": "AccioPass has not yet had an external audit. What you read here is our own description of the model and its limits."
+  },
+  "disclosure": {
+    "title": "If you find a security flaw",
+    "body": "Write to us before making it public, with what is needed to reproduce it. The conditions are in the Legal notice.",
+    "contact": "Contact e-mail"
+  },
+  "faq": {
+    "title": "More questions"
+  }
+}

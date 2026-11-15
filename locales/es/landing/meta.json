@@ -1,0 +1,38 @@
+{
+  "home": {
+    "title": "AccioPass — Gestor de contraseñas y autenticador",
+    "description": "Guarda tus contraseñas y genera tus códigos de verificación en dos pasos. Todo se cifra en tu dispositivo: nosotros no tenemos la clave para leerlo."
+  },
+  "security": {
+    "title": "Seguridad de AccioPass: qué podemos ver y qué no",
+    "description": "Cómo se cifra tu bóveda, qué guarda el servidor, cómo funciona la recuperación y qué límites tiene el modelo, explicado sin adornos.",
+    "breadcrumb": "Seguridad"
+  },
+  "notFound": {
+    "title": "Página no encontrada — AccioPass"
+  },
+  "og": {
+    "alt": "AccioPass: tus contraseñas y códigos, cifrados en tu dispositivo."
+  },
+  "app": {
+    "requirements": "Requiere JavaScript y WebAssembly",
+    "features": {
+      "codes": "Códigos de verificación en dos pasos TOTP, HOTP y Steam Guard",
+      "vault": "Bóveda cifrada de contraseñas y notas seguras",
+      "generator": "Generador de contraseñas, frases y PIN",
+      "breach": "Comprobación de contraseñas filtradas sin enviarlas",
+      "sharing": "Compartir elementos cifrados con otras cuentas",
+      "offline": "Uso sin conexión con sincronización posterior"
+    }
+  },
+  "alt": {
+    "vaultWide": "Captura de la aplicación web de AccioPass en una ventana ancha: la bóveda con siete elementos de ejemplo a la izquierda y el detalle de un inicio de sesión, con la contraseña oculta.",
+    "vault": "Captura de la aplicación web de AccioPass: la bóveda con siete inicios de sesión de ejemplo, el buscador y los filtros.",
+    "addCode": "Captura de la aplicación web de AccioPass: la pantalla para añadir un código, con las opciones de escanear el QR, escribir la clave a mano o pegar un enlace.",
+    "recovery": "Captura de la aplicación web de AccioPass: la pantalla de las 24 palabras de recuperación, con las palabras ocultas y el aviso de que no se volverán a mostrar.",
+    "offline": "Captura de la aplicación web de AccioPass sin conexión: un inicio de sesión recién añadido, con el aviso de que el cambio está guardado en el dispositivo y pendiente de sincronizar.",
+    "security": "Captura de la aplicación web de AccioPass: el centro de seguridad, con el estado de la bóveda de 0 a 100 y el recuento de contraseñas filtradas, débiles y repetidas.",
+    "share": "Captura de la aplicación web de AccioPass: la pantalla para compartir un elemento, que explica qué significa compartir y pide el correo de la otra persona.",
+    "generator": "Captura de la aplicación web de AccioPass: el generador con una contraseña aleatoria, su fortaleza estimada y los modos aleatoria, frase y PIN."
+  }
+}

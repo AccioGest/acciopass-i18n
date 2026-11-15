@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "title": "Seguridad de AccioPass: qué podemos ver y qué no.",
+    "lead": "Cómo se cifra tu bóveda, qué guarda el servidor, cómo funciona la recuperación y qué límites tiene el modelo. Sin adornos, y con lo que no cubre."
+  },
+  "toc": {
+    "label": "En esta página"
+  },
+  "create": {
+    "title": "Qué pasa cuando creas una cuenta",
+    "p1": "Las claves se crean en tu dispositivo. De tu contraseña maestra se deriva una clave con Argon2id, una función lenta a propósito: usa 64 MiB de memoria y 3 pasadas, para que probar contraseñas una a una salga caro.",
+    "p2": "De esa clave salen dos, separadas con HKDF-SHA256: una para identificarte ante el servidor, que no sirve para descifrar, y otra que envuelve la clave de tu bóveda, 32 bytes al azar que cifran todo lo demás.",
+    "p3": "La contraseña maestra debe tener al menos 12 caracteres. Si la cambias, se vuelve a envolver la clave de la bóveda; no hace falta volver a cifrar cada elemento."
+  },
+  "travels": {
+    "title": "Qué viaja y qué guarda el servidor",
+    "p1": "La contraseña maestra no sale nunca de tu dispositivo. Viaja la clave de identificación derivada de ella, y el servidor guarda solo un resumen Argon2id de esa clave.",
+    "p2": "Cada elemento se cifra en tu dispositivo con XChaCha20-Poly1305 antes de enviarse. El cifrado va ligado al identificador del elemento, el tipo de elemento va dentro de lo cifrado y el contenido se rellena hasta múltiplos de 256 bytes, para que el tamaño no delate, por ejemplo, lo larga que es una contraseña.",
+    "p3": "El servidor guarda elementos cifrados. Sin tu contraseña maestra, ni AccioSoft, ni Cloudflare, por donde pasa la conexión cifrada, ni quien copie la base de datos entera pueden leer tus contraseñas, los secretos de tus códigos ni tus notas; tampoco los nombres de tus servicios, salvo los que tú permitas expresamente enviar a una función de IA. Los límites de esta protección están más abajo, en «Lo que no cubre»."
+  },
+  "diagram": {
+    "title": "Dónde está cada cosa",
+    "description": "Diagrama. En tu dispositivo: la contraseña maestra, la clave de la bóveda y tus datos legibles. Por la red viajan la clave de identificación, la clave de la bóveda envuelta y los elementos ya cifrados. En el servidor: un resumen de la clave de identificación, la clave de la bóveda envuelta, los elementos cifrados y los metadatos.",
+    "device": "Tu dispositivo",
+    "network": "La red",
+    "server": "El servidor",
+    "master": "Contraseña maestra",
+    "derive": "Argon2id",
+    "vaultKey": "Clave de la bóveda",
+    "readable": "Tus datos, legibles",
+    "authKey": "Clave de identificación",
+    "ciphertext": "Elementos cifrados",
+    "wrapped": "Clave de la bóveda, envuelta",
+    "hash": "Resumen de la clave de identificación",
+    "metadata": "Metadatos: correo, dispositivos, fechas",
+    "never": "No sale de aquí",
+    "caption": "Lo que está resaltado solo existe en tu dispositivo. Lo que cruza la línea, cruza cifrado o no sirve para descifrar."
+  },
+  "ledger": {
+    "title": "Lo que el servidor sí ve",
+    "lead": "Para prestar el servicio hacen falta datos que no van cifrados de extremo a extremo. Estos son los principales; la lista completa está en la Política de Privacidad."
+  },
+  "recovery": {
+    "title": "La recuperación y su consecuencia",
+    "p1": "Al crear la cuenta se genera en tu dispositivo una clave de recuperación de 32 bytes, que ves una sola vez como 24 palabras. Las palabras son de la lista estándar BIP-39, en inglés. El servidor guarda solo un resumen SHA-256 de una clave derivada de ella, que no sirve para descifrar.",
+    "p2": "Si olvidas la contraseña maestra, solo tus 24 palabras de recuperación, junto con tu correo, abren tu bóveda y te dejan elegir una contraseña nueva. Sin ellas, ni tú ni nosotros podemos recuperar tus datos.",
+    "p3": "Al recuperar la cuenta o cambiar la contraseña maestra se cierran las demás sesiones y se revocan las claves de API."
+  },
+  "sharing": {
+    "title": "Compartir y huellas de clave",
+    "p1": "Cada cuenta tiene un par de claves X25519. Al compartir un elemento, su clave se cifra para la clave pública de la otra persona: el servidor reparte sobres que no puede abrir. En ese ámbito, el de la bóveda y lo compartido, el cifrado es de extremo a extremo.",
+    "p2": "El servidor sí sabe con quién compartes. Y es el servidor quien entrega las claves públicas: por eso cada persona tiene una huella de clave que podéis comparar por otro canal."
+  },
+  "breach": {
+    "title": "La comprobación de filtraciones, paso a paso",
+    "reveals1": "Qué revela: los 5 primeros caracteres de una huella SHA-1, que comparten cientos de contraseñas distintas.",
+    "reveals2": "Qué revela: nada más. La comparación ocurre en tu dispositivo.",
+    "reveals3": "Qué revela: qué elementos, por su identificador interno, tienen una contraseña filtrada. No cuántas veces aparece ni cuál es.",
+    "master": "Tu contraseña maestra se comprueba del mismo modo cuando la eliges, cuando la cambias y cuando recuperas la cuenta: solo salen los 5 primeros caracteres de su huella. Al crear la cuenta, esa consulta se hace antes de que la cuenta exista."
+  },
+  "ai": {
+    "title": "La regla de la IA",
+    "p1": "Las funciones de IA son un asistente de seguridad, ajustes del generador a partir de una descripción y un plan de acción redactado. Las peticiones salen del servidor de AccioPass hacia un proveedor externo de IA, sin tu correo, tu dirección IP ni ningún identificador de tu cuenta. AccioPass nunca envía a la IA las contraseñas, códigos, secretos ni notas que guardas: recibe recuentos y lo que tú escribas.",
+    "p2": "Vienen activadas, pero no se envía nada hasta que usas una de ellas. Los nombres de tus servicios solo salen de tu dispositivo si activas expresamente dos preferencias; en ese momento viajan sin cifrado de extremo a extremo y los recibe el proveedor. Puedes desactivarlas; el generador, el plan de acción y la comprobación de filtraciones funcionan sin IA.",
+    "p3": "Antes de enviar lo que escribes, el servidor sustituye lo que tiene aspecto de contraseña, clave o código. Ese filtro no es infalible: no escribas secretos en tus peticiones."
+  },
+  "primitives": {
+    "title": "Las primitivas, para quien quiera comprobarlo",
+    "caption": "Algoritmos criptográficos que usa AccioPass y para qué",
+    "purpose": "Para qué",
+    "algorithm": "Algoritmo",
+    "kdf": "Derivar la clave de la contraseña maestra",
+    "kdfValue": "Argon2id v1.3 (RFC 9106): 64 MiB, 3 iteraciones, paralelismo 1, sal aleatoria de 16 bytes",
+    "split": "Separar claves",
+    "splitValue": "HKDF-SHA256",
+    "aead": "Cifrar cada elemento",
+    "aeadValue": "XChaCha20-Poly1305: claves de 32 bytes, nonce aleatorio de 24 bytes",
+    "share": "Compartir",
+    "shareValue": "X25519",
+    "recovery": "Palabras de recuperación",
+    "recoveryValue": "32 bytes aleatorios como 24 palabras BIP-39",
+    "breach": "Comprobar filtraciones",
+    "breachValue": "Prefijo de 5 caracteres de SHA-1 (k-anonimato); informe con HMAC-SHA256",
+    "otp": "Códigos de verificación",
+    "otpValue": "HMAC con SHA-1, SHA-256 o SHA-512 (RFC 4226 y RFC 6238)"
+  },
+  "limits": {
+    "title": "Lo que no cubre",
+    "device": {
+      "title": "Un dispositivo comprometido",
+      "body": "Si tu dispositivo tiene un programa malicioso o alguien registra lo que tecleas, puede ver lo mismo que tú. El cifrado no lo evita."
+    },
+    "weak": {
+      "title": "Una contraseña maestra débil",
+      "body": "Argon2id hace cada intento lento, pero no convierte una contraseña fácil de adivinar en una segura. Que sea larga y que no la uses en otro sitio."
+    },
+    "webapp": {
+      "title": "El código de la aplicación web",
+      "body": "La aplicación web se descarga de nuestros servidores cada vez que la abres. La protección presupone que el código que recibes es el que publicamos: quien controlara los servidores que la sirven, los nuestros o los de Cloudflare, podría alterarlo y capturar tu contraseña maestra en el momento en que la escribes."
+    },
+    "server": {
+      "title": "Un servidor manipulado",
+      "body": "El cifrado impide que el servidor lea tu bóveda. En esta versión no impide por sí solo que un servidor manipulado te entregue una versión anterior de un elemento o sustituya algo compartido; eso lo protegen hoy los controles de acceso del servidor."
+    },
+    "export": {
+      "title": "Los archivos que exportas",
+      "body": "La exportación legible de la bóveda y la de tus códigos no van cifradas. Desde que las descargas, protegerlas es cosa tuya."
+    }
+  },
+  "audit": {
+    "title": "Auditoría",
+    "body": "AccioPass no ha pasado todavía una auditoría externa. Lo que lees aquí es la descripción que hacemos nosotros del modelo y de sus límites."
+  },
+  "disclosure": {
+    "title": "Si encuentras un fallo de seguridad",
+    "body": "Escríbenos antes de hacerlo público, con lo necesario para reproducirlo. Las condiciones están en el Aviso legal.",
+    "contact": "Correo de contacto"
+  },
+  "faq": {
+    "title": "Más preguntas"
+  }
+}

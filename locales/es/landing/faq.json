@@ -1,0 +1,58 @@
+{
+  "read": {
+    "q": "¿Podéis ver mis contraseñas?",
+    "a": "No. Se cifran en tu dispositivo con una clave que sale de tu contraseña maestra; al servidor solo llegan cifradas. Sí vemos lo necesario para prestar el servicio: entre otras cosas, tu correo, tus dispositivos y sesiones, direcciones IP y con quién compartes."
+  },
+  "forgot": {
+    "q": "¿Qué pasa si olvido la contraseña maestra?",
+    "a": "Solo tus 24 palabras de recuperación, junto con tu correo, te dejan elegir una nueva. Sin ellas no hay forma de abrir la bóveda: ni tú ni nosotros."
+  },
+  "breach": {
+    "q": "¿Y si hay una brecha en vuestros servidores?",
+    "a": "Quien copiara la base de datos tendría datos cifrados y metadatos: entre otros, correo, dispositivos, fechas y número de elementos. Para leer una bóveda tendría que adivinar su contraseña maestra, y Argon2id hace cada intento lento. Por eso importa que sea larga y que no la uses en otro sitio."
+  },
+  "offline": {
+    "q": "¿Funciona sin conexión?",
+    "a": "Sí para abrir, consultar, copiar, generar, añadir y editar. Crear la cuenta, entrar por primera vez en un dispositivo, compartir y comprobar filtraciones necesitan conexión."
+  },
+  "platforms": {
+    "q": "¿En qué dispositivos puedo usarlo?",
+    "a": "Hoy, en el navegador. Las apps de Android e iOS están en preparación."
+  },
+  "import": {
+    "q": "¿Puedo traer mis contraseñas y mis códigos de otra aplicación?",
+    "a": "Contraseñas: desde un archivo CSV exportado por otro gestor, eligiendo qué columna es cada cosa. Códigos: con el QR de «Transferir cuentas» de Google Authenticator o un archivo de texto con enlaces de autenticador."
+  },
+  "export": {
+    "q": "¿Puedo llevarme mis datos?",
+    "a": "Sí: exportas la bóveda a un archivo legible, que no va cifrado, así que guárdalo con cuidado, y los códigos en el formato estándar, tampoco cifrado. También puedes eliminar la cuenta desde Ajustes."
+  },
+  "together": {
+    "q": "¿Es buena idea tener contraseñas y códigos en el mismo sitio?",
+    "a": "Es más cómodo y los dos van cifrados igual; si prefieres separarlos, puedes usar AccioPass solo para una de las dos cosas. El segundo paso de tu propia cuenta de AccioPass conviene guardarlo fuera de esta bóveda."
+  },
+  "leaks": {
+    "q": "¿Cómo comprobáis las filtraciones sin ver mis contraseñas?",
+    "a": "De cada contraseña se calcula una huella en tu dispositivo y al servidor solo viajan sus 5 primeros caracteres. El servidor devuelve todas las huellas filtradas que empiezan igual y es tu dispositivo el que busca la tuya. Al terminar, AccioPass anota qué elementos están afectados, por su identificador interno, para poder avisarte."
+  },
+  "ai": {
+    "q": "¿Qué hace la IA y qué recibe?",
+    "a": "Hay un asistente de seguridad, ajustes del generador a partir de una descripción y un plan de acción redactado, a través de un proveedor externo de IA. Vienen activadas, pero no se envía nada hasta que usas una. AccioPass nunca envía a la IA las contraseñas, códigos, secretos ni notas que guardas: recibe recuentos y lo que tú escribas, así que no escribas secretos. Los nombres de tus servicios solo salen de tu dispositivo si activas expresamente dos preferencias. Puedes desactivarlas."
+  },
+  "team": {
+    "q": "¿Puedo compartir con mi equipo o mi familia?",
+    "a": "Elemento a elemento, con personas que tengan cuenta, con permiso de ver o de editar. No hay grupos ni organizaciones."
+  },
+  "audit": {
+    "q": "¿Ha sido auditado?",
+    "a": "Todavía no por un tercero. El modelo y sus límites están descritos en esta página."
+  },
+  "who": {
+    "q": "¿Quién está detrás?",
+    "a": "ACCIOSOFT S.L., una empresa española con sede en El Ejido (Almería)."
+  },
+  "cookies": {
+    "q": "¿Usáis cookies o analítica?",
+    "a": "La aplicación no usa cookies ni tecnologías de seguimiento con fines publicitarios o analíticos; guarda en el navegador solo lo necesario para funcionar. Esta página no usa analítica ni rastreadores; solo guarda en tu navegador el tema que elijas."
+  }
+}

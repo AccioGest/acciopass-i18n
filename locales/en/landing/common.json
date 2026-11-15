@@ -1,0 +1,52 @@
+{
+  "brand": {
+    "tagline": "Your passwords and codes, encrypted on your device.",
+    "family": "An AccioSoft product.",
+    "homeLabel": "AccioPass, home"
+  },
+  "nav": {
+    "label": "Main",
+    "menu": "Menu",
+    "skip": "Skip to content",
+    "home": "Home",
+    "security": "Security",
+    "faq": "Questions",
+    "switchLanguage": "View this page in {language}"
+  },
+  "theme": {
+    "label": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "cta": {
+    "register": "Create account",
+    "login": "Sign in",
+    "haveAccount": "I already have an account",
+    "security": "Read the full security model"
+  },
+  "shots": {
+    "caption": "The web app, with sample data."
+  },
+  "footer": {
+    "company": "Who is behind it",
+    "brandNote": "AccioPass is a trademark of {company}",
+    "taxId": "Tax ID (NIF) {taxId}",
+    "country": "Spain",
+    "site": "AccioSoft website",
+    "product": "Product",
+    "legal": "Legal",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy",
+    "legalNotice": "Legal notice",
+    "help": "Help and complaints",
+    "licenses": "Font and icon licences",
+    "legalNote": "The legal documents open in the app and are in Spanish. The Legal notice carries the identification of the company.",
+    "noTracking": "This page uses no analytics and no trackers. It only stores in your browser the theme you choose."
+  },
+  "notFound": {
+    "title": "This page does not exist.",
+    "body": "The link may be mistyped or the page may have moved. Nothing in your vault depends on this address.",
+    "home": "Back to home"
+  }
+}

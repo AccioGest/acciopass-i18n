@@ -1,0 +1,177 @@
+{
+  "hero": {
+    "title": "Tus contraseñas y códigos, cifrados en tu dispositivo.",
+    "lead": "Un gestor de contraseñas y autenticador. Todo se cifra con tu contraseña maestra antes de salir de tu dispositivo: nosotros no tenemos la clave para leerlo.",
+    "platform": "Hoy, en tu navegador. Las apps de Android e iOS están en preparación."
+  },
+  "demo": {
+    "label": "Demostración",
+    "region": "Demostración de códigos de verificación",
+    "caption": "Estos códigos se calculan ahora mismo en tu navegador con claves públicas de ejemplo. Así se leen en AccioPass: agrupados, en monoespaciada y con el tiempo que les queda.",
+    "bank": "Banco Ejemplo",
+    "mail": "Correo",
+    "shop": "Tienda",
+    "account": "ana",
+    "seconds": "Se renueva en {seconds} s"
+  },
+  "both": {
+    "title": "Contraseñas y códigos en un solo sitio.",
+    "lead": "Abres una sola aplicación, copias lo que necesitas y sigues con lo tuyo. Hoy AccioPass es una aplicación web: se abre en el navegador, sin instalar nada.",
+    "codes": {
+      "title": "Códigos",
+      "body": "Genera tus códigos de verificación en dos pasos: por tiempo (TOTP), por contador (HOTP) y Steam Guard. Añade uno escaneando el QR con la cámara, subiendo una captura del QR, pegando un enlace de autenticador o escribiendo la clave. La imagen se analiza en tu dispositivo y no se guarda ni se envía.",
+      "import": "Si vienes de otra app, importa el QR de «Transferir cuentas» de Google Authenticator o un archivo de texto con enlaces de autenticador, como el que exportan Ente Auth, Aegis o 2FAS. Las copias cifradas de otras apps no se pueden importar."
+    },
+    "vault": {
+      "title": "Bóveda",
+      "body": "Guarda contraseñas y notas seguras. Cada elemento se cifra en tu dispositivo antes de salir de él. Un inicio de sesión lleva usuario, contraseña, varias direcciones web, notas, etiquetas y, si quieres, su código de verificación. Se conservan sus 10 contraseñas anteriores.",
+      "import": "Trae tus contraseñas desde un archivo CSV exportado por otro gestor, como Bitwarden, 1Password, LastPass, KeePass, Chrome o Firefox, eligiendo qué columna es cada cosa."
+    }
+  },
+  "ledger": {
+    "title": "Qué podemos ver y qué no.",
+    "lead": "Tu bóveda se cifra en tu dispositivo, con una clave que sale de tu contraseña maestra; a nuestro servidor solo llega cifrada. Esto es lo que eso significa, columna a columna.",
+    "cannot": {
+      "title": "No podemos leer",
+      "passwords": "Tus contraseñas",
+      "secrets": "Los secretos de tus códigos",
+      "notes": "Tus notas",
+      "names": "Los nombres de tus servicios, salvo los que tú permitas expresamente enviar a una función de IA",
+      "master": "Tu contraseña maestra: no sale nunca de tu dispositivo"
+    },
+    "can": {
+      "title": "Sí vemos",
+      "email": "Tu correo",
+      "devices": "Tus dispositivos y sesiones, y el historial de inicios de sesión",
+      "ip": "Las direcciones IP y una ubicación aproximada",
+      "size": "Cuántos elementos guardas, su tamaño aproximado y cuándo cambian",
+      "sharing": "Con quién compartes, pero no qué",
+      "breached": "Qué elementos tienen una contraseña filtrada, por un identificador interno",
+      "social": "La cuenta de Google, Apple o GitHub con la que entras, si usas una",
+      "ai": "Lo que envías a una función de IA, mientras se atiende la petición",
+      "help": "Lo que escribes en el formulario de ayuda"
+    },
+    "note": "Ni AccioSoft ni quien copie la base de datos pueden leer tu bóveda sin tu contraseña maestra. Esa protección no alcanza a un dispositivo comprometido ni a una contraseña maestra fácil de adivinar, y presupone que el código de la aplicación web que recibes es el que publicamos."
+  },
+  "recovery": {
+    "title": "Nadie puede restablecer tu contraseña maestra. Tampoco nosotros.",
+    "body": "Al crear la cuenta recibes 24 palabras de recuperación, que se muestran una sola vez. Con ellas y tu correo puedes elegir una contraseña maestra nueva. AccioPass no las guarda.",
+    "consequence": "Sin ellas no hay forma de abrir la bóveda: nadie más tiene la clave. Es la contrapartida de que nadie más pueda leer tus datos.",
+    "keep": "Apúntalas en papel o guárdalas fuera de este dispositivo.",
+    "renew": "Puedes generar unas nuevas desde Ajustes; las anteriores dejan de valer al momento.",
+    "decide": "Tenlo en cuenta antes de crear la cuenta: si pierdes la contraseña maestra y las palabras, tus datos no se pueden recuperar."
+  },
+  "offline": {
+    "title": "Funciona sin conexión. Y siempre sabes en qué estado está.",
+    "body": "Tu bóveda está cifrada en el dispositivo. Sin conexión puedes desbloquear, ver y copiar códigos y contraseñas, generar, añadir, editar y borrar. Los cambios se envían solos al volver la conexión.",
+    "needsTitle": "Necesitan conexión",
+    "needs": {
+      "register": "Crear la cuenta",
+      "firstSignIn": "Entrar por primera vez en un dispositivo",
+      "sharing": "Compartir",
+      "breaches": "Comprobar filtraciones",
+      "ai": "Las funciones de IA",
+      "account": "Los cambios en la cuenta"
+    },
+    "sync": "Sincroniza entre tus dispositivos, que hoy son tus navegadores. Si cambias el mismo elemento en dos a la vez, se conserva el último cambio.",
+    "statesLabel": "Los tres estados que muestra la aplicación",
+    "states": {
+      "synced": "Todo sincronizado",
+      "pending": "Cambios pendientes",
+      "offline": "Sin conexión"
+    }
+  },
+  "breach": {
+    "title": "Encuentra los puntos débiles sin revelarlos.",
+    "lead": "AccioPass comprueba si tus contraseñas aparecen en filtraciones conocidas sin enviarlas.",
+    "step1": "De cada contraseña se calcula, en tu dispositivo, una huella de 40 caracteres. Al servidor solo viajan los 5 primeros.",
+    "step2": "El servidor devuelve todas las huellas filtradas que empiezan igual, que son cientos, y es tu dispositivo el que busca la tuya entre ellas.",
+    "step3": "Al terminar, AccioPass anota en tu cuenta qué elementos están afectados, por su identificador interno, para poder avisarte por correo. No sabe a qué servicio pertenecen ni qué contraseña tienen.",
+    "source": "Las listas son las de Pwned Passwords (Have I Been Pwned), consultadas a través del servidor de AccioPass. La comprobación se hace sola al iniciar sesión o al desbloquear con conexión. Comprueba las contraseñas que guardas y la contraseña maestra que eliges, no tus direcciones de correo ni tus cuentas.",
+    "centreTitle": "Centro de seguridad",
+    "centre": "Un estado de tu bóveda de 0 a 100 y un plan de acción: contraseñas filtradas, débiles, repetidas, antiguas, webs sin HTTPS y cuentas sin verificación en dos pasos. Sirve para decidir qué arreglar primero; una buena puntuación no es una garantía."
+  },
+  "sharing": {
+    "title": "Comparte exactamente una cosa.",
+    "body": "Comparte una contraseña, una nota o un código con otra persona que tenga cuenta en AccioPass. Elige si puede ver o también editar; los cambios le llegan solos. Puedes quitarle el acceso cuando quieras.",
+    "fingerprint": "Lo compartido viaja cifrado para cada persona. Cada una tiene una huella de clave que podéis comparar por otro canal, en persona o por teléfono.",
+    "caveat": "Lo que ya ha visto, lo conoce: si le quitas el acceso, cambia la contraseña en el servicio.",
+    "limits": "Se comparte elemento a elemento. No hay grupos, organizaciones ni enlaces públicos."
+  },
+  "account": {
+    "title": "Tu cuenta, bajo tu control.",
+    "newDevice": {
+      "title": "La contraseña maestra sola no abre un dispositivo nuevo",
+      "body": "Hace falta además un código enviado a tu correo, la aprobación desde un dispositivo de confianza eligiendo el número que muestra el nuevo, o tu segundo paso."
+    },
+    "twoFactor": {
+      "title": "Verificación en dos pasos",
+      "body": "Protege tu cuenta con un código de 6 dígitos de una app de autenticación y diez códigos de recuperación de un solo uso. Si pierdes la app y los diez códigos, no podrás entrar en dispositivos nuevos ni recuperar la cuenta."
+    },
+    "devices": {
+      "title": "Dispositivos e historial",
+      "body": "Ve qué dispositivos tienen sesión, renómbralos, cierra sesiones o desautorízalos, y revisa cada intento de inicio de sesión, lo consiguiera o no. El lugar que se muestra es aproximado."
+    },
+    "social": {
+      "title": "Google, Apple o GitHub",
+      "body": "Puedes entrar con ellos. El proveedor confirma quién eres; tu bóveda se sigue abriendo solo con tu contraseña maestra."
+    },
+    "apiKeys": {
+      "title": "Claves de API",
+      "body": "Crea claves con permisos concretos para conectar un programa a tu cuenta. Una clave no descifra nada: da acceso a datos cifrados."
+    },
+    "data": {
+      "title": "Tus datos son tuyos",
+      "body": "Exporta tu bóveda a un archivo JSON legible, o todo lo que el servidor guarda de tu cuenta, con la bóveda cifrada. El archivo legible no va cifrado: guárdalo con cuidado. También puedes eliminar la cuenta desde Ajustes."
+    }
+  },
+  "generator": {
+    "title": "Un generador que no envía nada.",
+    "body": "Genera contraseñas aleatorias, frases de varias palabras, con lista en español o en inglés, y PIN. Se crean en tu dispositivo con azar criptográfico y no se envían a ningún sitio.",
+    "strength": "La aplicación estima cuánto resistiría cada una bajo un supuesto que deja a la vista: 10 000 millones de intentos por segundo. Es una estimación, no una garantía."
+  },
+  "details": {
+    "title": "Los detalles.",
+    "theme": {
+      "term": "Tema",
+      "body": "Claro, oscuro o el del sistema."
+    },
+    "languages": {
+      "term": "Idiomas",
+      "body": "En español y en inglés."
+    },
+    "autolock": {
+      "term": "Bloqueo automático",
+      "body": "La bóveda se bloquea sola tras un tiempo sin uso, 15 minutos por defecto, y al recargar la página."
+    },
+    "clipboard": {
+      "term": "Portapapeles",
+      "body": "Lo que copias se borra del portapapeles a los 30 segundos por defecto, si sigue siendo lo que copiaste."
+    },
+    "trackers": {
+      "term": "Sin rastreadores",
+      "body": "Sin analítica, sin rastreadores y sin scripts de terceros, ni en la aplicación ni en esta página."
+    },
+    "ai": {
+      "term": "IA",
+      "body": "Un asistente de seguridad, ajustes del generador a partir de una descripción y un plan de acción redactado, a través de un proveedor externo de IA. Vienen activadas, pero no se envía nada hasta que usas una. AccioPass nunca envía a la IA las contraseñas, códigos, secretos ni notas que guardas: recibe recuentos y lo que tú escribas, así que no escribas secretos. Los nombres de tus servicios, solo si lo permites expresamente. Puedes desactivarlas."
+    },
+    "help": {
+      "term": "Ayuda",
+      "body": "Ayuda y reclamaciones: te atiende una persona. No hace falta iniciar sesión."
+    },
+    "native": {
+      "term": "En preparación",
+      "body": "Las apps de Android e iOS. Todavía no están publicadas."
+    }
+  },
+  "faq": {
+    "title": "Preguntas antes de crear una cuenta.",
+    "more": "Más preguntas, en la página de seguridad"
+  },
+  "closing": {
+    "title": "Un correo y una contraseña maestra.",
+    "body": "Solo necesitas un correo y una contraseña maestra: la única que tendrás que recordar.",
+    "reminder": "Guarda bien tus 24 palabras de recuperación: sin ellas, nadie puede devolverte el acceso."
+  }
+}

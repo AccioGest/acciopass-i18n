@@ -2,7 +2,7 @@
   "name": "acciopass-i18n",
   "version": "1.0.0",
   "private": true,
-  "description": "Traducciones de AccioPass (app y API), sincronizadas con Crowdin y servidas en vivo por la API.",
+  "description": "Traducciones de AccioPass (app, API y página de presentación), sincronizadas con Crowdin.",
   "type": "module",
   "engines": {
     "node": ">=22"

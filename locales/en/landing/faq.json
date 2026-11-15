@@ -1,0 +1,58 @@
+{
+  "read": {
+    "q": "Can you see my passwords?",
+    "a": "No. They are encrypted on your device with a key derived from your master password; the server only receives them encrypted. We do see what is needed to provide the service: among other things, your e-mail, your devices and sessions, IP addresses and who you share with."
+  },
+  "forgot": {
+    "q": "What happens if I forget the master password?",
+    "a": "Only your 24 recovery words, together with your e-mail, let you choose a new one. Without them there is no way to open the vault: neither for you nor for us."
+  },
+  "breach": {
+    "q": "What if your servers are breached?",
+    "a": "Whoever copied the database would have encrypted data and metadata: among others, e-mail, devices, dates and number of items. To read a vault they would have to guess its master password, and Argon2id makes each attempt slow. That is why it matters that it is long and that you do not use it anywhere else."
+  },
+  "offline": {
+    "q": "Does it work offline?",
+    "a": "Yes for opening, looking up, copying, generating, adding and editing. Creating the account, signing in on a device for the first time, sharing and checking for leaks need a connection."
+  },
+  "platforms": {
+    "q": "Which devices can I use it on?",
+    "a": "Today, in the browser. The Android and iOS apps are in preparation."
+  },
+  "import": {
+    "q": "Can I bring my passwords and codes from another app?",
+    "a": "Passwords: from a CSV file exported by another manager, choosing what each column is. Codes: with the “Transfer accounts” QR of Google Authenticator or a text file with authenticator links."
+  },
+  "export": {
+    "q": "Can I take my data with me?",
+    "a": "Yes: you export the vault to a readable file, which is not encrypted, so keep it carefully, and the codes in the standard format, not encrypted either. You can also delete the account from Settings."
+  },
+  "together": {
+    "q": "Is it a good idea to keep passwords and codes in the same place?",
+    "a": "It is more convenient and both are encrypted the same way; if you prefer to keep them apart, you can use AccioPass for just one of the two. The second step of your own AccioPass account is best kept outside this vault."
+  },
+  "leaks": {
+    "q": "How do you check for leaks without seeing my passwords?",
+    "a": "A fingerprint of each password is computed on your device and only its first 5 characters travel to the server. The server returns every leaked fingerprint that starts the same way and your device looks for yours. When it finishes, AccioPass notes which items are affected, by their internal identifier, so it can warn you."
+  },
+  "ai": {
+    "q": "What does the AI do and what does it receive?",
+    "a": "There is a security assistant, generator settings from a description and a written action plan, through an external AI provider. They come switched on, but nothing is sent until you use one. AccioPass never sends the AI the passwords, codes, secrets or notes you keep: it receives counts and whatever you type, so do not type secrets. The names of your services leave your device only if you expressly turn on two preferences. You can turn them off."
+  },
+  "team": {
+    "q": "Can I share with my team or my family?",
+    "a": "Item by item, with people who have an account, with permission to view or to edit. There are no groups or organisations."
+  },
+  "audit": {
+    "q": "Has it been audited?",
+    "a": "Not yet by a third party. The model and its limits are described on this page."
+  },
+  "who": {
+    "q": "Who is behind it?",
+    "a": "ACCIOSOFT S.L., a Spanish company based in El Ejido (Almería)."
+  },
+  "cookies": {
+    "q": "Do you use cookies or analytics?",
+    "a": "The app does not use cookies or tracking technologies for advertising or analytics; it stores in the browser only what it needs to work. This page uses no analytics and no trackers; it only stores in your browser the theme you choose."
+  }
+}

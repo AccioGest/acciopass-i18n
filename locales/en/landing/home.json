@@ -1,0 +1,177 @@
+{
+  "hero": {
+    "title": "Your passwords and codes, encrypted on your device.",
+    "lead": "A password manager and authenticator. Everything is encrypted with your master password before it leaves your device: we do not hold the key to read it.",
+    "platform": "Today, in your browser. The Android and iOS apps are in preparation."
+  },
+  "demo": {
+    "label": "Demonstration",
+    "region": "Demonstration of verification codes",
+    "caption": "These codes are being computed right now in your browser from public sample keys. This is how they read in AccioPass: grouped, in monospace and with the time they have left.",
+    "bank": "Example Bank",
+    "mail": "Mail",
+    "shop": "Shop",
+    "account": "anna",
+    "seconds": "Renews in {seconds} s"
+  },
+  "both": {
+    "title": "Passwords and codes in one place.",
+    "lead": "You open one app, copy what you need and get on with your day. Today AccioPass is a web app: it opens in the browser, with nothing to install.",
+    "codes": {
+      "title": "Codes",
+      "body": "Generate your two-step verification codes: time-based (TOTP), counter-based (HOTP) and Steam Guard. Add one by scanning the QR with the camera, uploading a screenshot of the QR, pasting an authenticator link or typing the key. The image is analysed on your device and is neither stored nor sent.",
+      "import": "If you come from another app, import the “Transfer accounts” QR of Google Authenticator or a text file with authenticator links, like the one Ente Auth, Aegis or 2FAS export. Encrypted backups of other apps cannot be imported."
+    },
+    "vault": {
+      "title": "Vault",
+      "body": "Keep passwords and secure notes. Each item is encrypted on your device before it leaves it. A login holds a username, a password, several web addresses, notes, tags and, if you want, its verification code. Its 10 previous passwords are kept.",
+      "import": "Bring your passwords from a CSV file exported by another manager, such as Bitwarden, 1Password, LastPass, KeePass, Chrome or Firefox, choosing what each column is."
+    }
+  },
+  "ledger": {
+    "title": "What we can and cannot see.",
+    "lead": "Your vault is encrypted on your device, with a key derived from your master password; our server only ever receives it encrypted. This is what that means, column by column.",
+    "cannot": {
+      "title": "We cannot read",
+      "passwords": "Your passwords",
+      "secrets": "The secrets of your codes",
+      "notes": "Your notes",
+      "names": "The names of your services, except those you expressly allow to be sent to an AI feature",
+      "master": "Your master password: it never leaves your device"
+    },
+    "can": {
+      "title": "We do see",
+      "email": "Your e-mail",
+      "devices": "Your devices and sessions, and the sign-in history",
+      "ip": "IP addresses and an approximate location",
+      "size": "How many items you keep, their approximate size and when they change",
+      "sharing": "Who you share with, but not what",
+      "breached": "Which items have a leaked password, by an internal identifier",
+      "social": "The Google, Apple or GitHub account you sign in with, if you use one",
+      "ai": "What you send to an AI feature, while the request is being answered",
+      "help": "What you write in the help form"
+    },
+    "note": "Neither AccioSoft nor someone who copies the database can read your vault without your master password. That protection does not reach a compromised device or a master password that is easy to guess, and it assumes that the web app code you receive is the one we publish."
+  },
+  "recovery": {
+    "title": "Nobody can reset your master password. Neither can we.",
+    "body": "When you create the account you receive 24 recovery words, shown only once. With them and your e-mail you can choose a new master password. AccioPass does not keep them.",
+    "consequence": "Without them there is no way to open the vault: nobody else holds the key. That is the other side of nobody else being able to read your data.",
+    "keep": "Write them on paper or keep them outside this device.",
+    "renew": "You can generate new ones from Settings; the previous ones stop working at once.",
+    "decide": "Bear it in mind before creating the account: if you lose the master password and the words, your data cannot be recovered."
+  },
+  "offline": {
+    "title": "It works offline. And you always know what state it is in.",
+    "body": "Your vault is encrypted on the device. Offline you can unlock, view and copy codes and passwords, generate, add, edit and delete. Changes are sent on their own when the connection returns.",
+    "needsTitle": "These need a connection",
+    "needs": {
+      "register": "Creating the account",
+      "firstSignIn": "Signing in on a device for the first time",
+      "sharing": "Sharing",
+      "breaches": "Checking for leaks",
+      "ai": "The AI features",
+      "account": "Changes to the account"
+    },
+    "sync": "It syncs across your devices, which today are your browsers. If you change the same item on two at once, the last change is kept.",
+    "statesLabel": "The three states the app shows",
+    "states": {
+      "synced": "Everything is synced",
+      "pending": "Pending changes",
+      "offline": "Offline"
+    }
+  },
+  "breach": {
+    "title": "Find the weak points without revealing them.",
+    "lead": "AccioPass checks whether your passwords appear in known leaks without sending them.",
+    "step1": "A 40-character fingerprint of each password is computed on your device. Only its first 5 characters travel to the server.",
+    "step2": "The server returns every leaked fingerprint that starts the same way, hundreds of them, and your device looks for yours among them.",
+    "step3": "When it finishes, AccioPass notes on your account which items are affected, by their internal identifier, so it can warn you by e-mail. It does not know which service they belong to or what password they hold.",
+    "source": "The lists are those of Pwned Passwords (Have I Been Pwned), queried through the AccioPass server. The check runs on its own when you sign in or unlock with a connection. It checks the passwords you keep and the master password you choose, not your e-mail addresses or your accounts.",
+    "centreTitle": "Security centre",
+    "centre": "A state of your vault from 0 to 100 and an action plan: leaked, weak, reused and old passwords, sites without HTTPS and accounts without two-step verification. It helps you decide what to fix first; a good score is not a guarantee."
+  },
+  "sharing": {
+    "title": "Share exactly one thing.",
+    "body": "Share a password, a note or a code with another person who has an AccioPass account. Choose whether they can view or also edit; changes reach them on their own. You can remove their access whenever you want.",
+    "fingerprint": "What you share travels encrypted for each person. Each one has a key fingerprint that you can compare over another channel, in person or by phone.",
+    "caveat": "What they have already seen, they know: if you remove their access, change the password at the service.",
+    "limits": "Sharing is item by item. There are no groups, organisations or public links."
+  },
+  "account": {
+    "title": "Your account, under your control.",
+    "newDevice": {
+      "title": "The master password alone does not open a new device",
+      "body": "It also takes a code sent to your e-mail, approval from a trusted device by choosing the number the new one shows, or your second step."
+    },
+    "twoFactor": {
+      "title": "Two-step verification",
+      "body": "Protect your account with a 6-digit code from an authenticator app and ten single-use recovery codes. If you lose the app and the ten codes, you will not be able to sign in on new devices or recover the account."
+    },
+    "devices": {
+      "title": "Devices and history",
+      "body": "See which devices are signed in, rename them, end sessions or deauthorise them, and review every sign-in attempt, successful or not. The place shown is approximate."
+    },
+    "social": {
+      "title": "Google, Apple or GitHub",
+      "body": "You can sign in with them. The provider confirms who you are; your vault still opens only with your master password."
+    },
+    "apiKeys": {
+      "title": "API keys",
+      "body": "Create keys with specific permissions to connect a program to your account. A key decrypts nothing: it gives access to encrypted data."
+    },
+    "data": {
+      "title": "Your data is yours",
+      "body": "Export your vault to a readable JSON file, or everything the server keeps about your account, with the vault encrypted. The readable file is not encrypted: keep it carefully. You can also delete the account from Settings."
+    }
+  },
+  "generator": {
+    "title": "A generator that sends nothing.",
+    "body": "Generate random passwords, passphrases of several words, from a Spanish or an English list, and PINs. They are created on your device with cryptographic randomness and are not sent anywhere.",
+    "strength": "The app estimates how long each would hold under an assumption it states openly: 10 billion guesses per second. It is an estimate, not a guarantee."
+  },
+  "details": {
+    "title": "The details.",
+    "theme": {
+      "term": "Theme",
+      "body": "Light, dark or the system one."
+    },
+    "languages": {
+      "term": "Languages",
+      "body": "In Spanish and in English."
+    },
+    "autolock": {
+      "term": "Auto-lock",
+      "body": "The vault locks itself after a while without use, 15 minutes by default, and when the page is reloaded."
+    },
+    "clipboard": {
+      "term": "Clipboard",
+      "body": "What you copy is cleared from the clipboard after 30 seconds by default, if it is still what you copied."
+    },
+    "trackers": {
+      "term": "No trackers",
+      "body": "No analytics, no trackers and no third-party scripts, neither in the app nor on this page."
+    },
+    "ai": {
+      "term": "AI",
+      "body": "A security assistant, generator settings from a description and a written action plan, through an external AI provider. They come switched on, but nothing is sent until you use one. AccioPass never sends the AI the passwords, codes, secrets or notes you keep: it receives counts and whatever you type, so do not type secrets. The names of your services, only if you expressly allow it. You can turn them off."
+    },
+    "help": {
+      "term": "Help",
+      "body": "Help and complaints: a person answers you. You do not need to sign in."
+    },
+    "native": {
+      "term": "In preparation",
+      "body": "The Android and iOS apps. They are not published yet."
+    }
+  },
+  "faq": {
+    "title": "Questions before creating an account.",
+    "more": "More questions, on the security page"
+  },
+  "closing": {
+    "title": "An e-mail address and a master password.",
+    "body": "All you need is an e-mail address and a master password: the only one you will have to remember.",
+    "reminder": "Keep your 24 recovery words safe: without them, nobody can give you access back."
+  }
+}

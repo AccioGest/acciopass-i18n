@@ -1,0 +1,38 @@
+{
+  "home": {
+    "title": "AccioPass — Password manager and authenticator",
+    "description": "Keep your passwords and generate your two-step verification codes. Everything is encrypted on your device: we do not hold the key to read it."
+  },
+  "security": {
+    "title": "AccioPass security: what we can and cannot see",
+    "description": "How your vault is encrypted, what the server keeps, how recovery works and what limits the model has, explained without embellishment.",
+    "breadcrumb": "Security"
+  },
+  "notFound": {
+    "title": "Page not found — AccioPass"
+  },
+  "og": {
+    "alt": "AccioPass: your passwords and codes, encrypted on your device."
+  },
+  "app": {
+    "requirements": "Requires JavaScript and WebAssembly",
+    "features": {
+      "codes": "TOTP, HOTP and Steam Guard two-step verification codes",
+      "vault": "Encrypted vault for passwords and secure notes",
+      "generator": "Generator of passwords, passphrases and PINs",
+      "breach": "Leaked-password check without sending the passwords",
+      "sharing": "Sharing of encrypted items with other accounts",
+      "offline": "Offline use with later sync"
+    }
+  },
+  "alt": {
+    "vaultWide": "Screenshot of the AccioPass web app in a wide window: the vault with seven sample items on the left and the detail of a login, with the password hidden.",
+    "vault": "Screenshot of the AccioPass web app: the vault with seven sample logins, the search box and the filters.",
+    "addCode": "Screenshot of the AccioPass web app: the screen for adding a code, with the options to scan the QR, type the key by hand or paste a link.",
+    "recovery": "Screenshot of the AccioPass web app: the screen of the 24 recovery words, with the words hidden and the warning that they will not be shown again.",
+    "offline": "Screenshot of the AccioPass web app offline: a login just added, with the notice that the change is saved on the device and waiting to be synchronised.",
+    "security": "Screenshot of the AccioPass web app: the security centre, with the state of the vault from 0 to 100 and the count of leaked, weak and reused passwords.",
+    "share": "Screenshot of the AccioPass web app: the screen for sharing an item, which explains what sharing means and asks for the e-mail of the other person.",
+    "generator": "Screenshot of the AccioPass web app: the generator with a random password, its estimated strength and the random, passphrase and PIN modes."
+  }
+}

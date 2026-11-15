@@ -1,9 +1,10 @@
 # acciopass-i18n
 
-Los textos de **AccioPass** —los de la aplicación y los que la API dice a una persona— viven aquí, en ficheros JSON ordenados por idioma. [Crowdin](https://crowdin.com) se sincroniza con este repositorio para que las traducciones se hagan y se aprueben allí, y la API recoge los cambios sola: **un texto corregido llega a la aplicación en segundos o, como mucho, en unos minutos, sin desplegar la API ni publicar una versión nueva de la app.**
+Los textos de **AccioPass** —los de la aplicación, los que la API dice a una persona y los de la página de presentación— viven aquí, en ficheros JSON ordenados por idioma. [Crowdin](https://crowdin.com) se sincroniza con este repositorio para que las traducciones se hagan y se aprueben allí, y la API recoge los cambios sola: **un texto corregido llega a la aplicación en segundos o, como mucho, en unos minutos, sin desplegar la API ni publicar una versión nueva de la app.**
 
 - Aplicación: [AccioGest/acciopass-frontend](https://github.com/AccioGest/acciopass-frontend)
 - API: [AccioGest/acciopass-backend](https://github.com/AccioGest/acciopass-backend)
+- Página de presentación: `acciopass-landing` (sitio estático; toma sus textos **al compilar**, ver [La página de presentación](#la-página-de-presentación))
 
 ## Índice
 
@@ -77,6 +78,7 @@ locales/
     locale.json               cómo se llama el idioma en el selector
     app/<espacio>.json        textos de la aplicación, un fichero por funcionalidad
     api/<espacio>.json        textos de la API: correos, notificaciones, errores, asistente
+    landing/<espacio>.json    textos de la página de presentación (acciopass-landing)
   en/                         una carpeta por idioma, con la misma estructura
     ...
 scripts/validate.mjs          el validador (biblioteca y línea de órdenes)
@@ -84,10 +86,11 @@ scripts/validate.test.mjs     sus pruebas
 scripts/check-l10n-pr.mjs     guarda de las peticiones de Crowdin: solo pueden tocar traducciones
 fixtures/validation-cases.json   casos de validación compartidos con la API y la aplicación
 .github/workflows/validate.yml   lo ejecuta en main y en cada petición de cambios
+.github/workflows/landing-deploy.yml   pide a Cloudflare Pages que vuelva a compilar la página de presentación
 ```
 
 - **Los idiomas no se listan en ningún sitio: se descubren por las carpetas** de `locales/`. El nombre de la carpeta es el código del idioma en minúsculas, con región opcional en mayúsculas: `en`, `fr`, `pt-BR`. Expresión exacta: `^[a-z]{2,3}(-[A-Z]{2})?$`.
-- **Proyectos**: `app` (lo que pinta la aplicación) y `api` (lo que la API dice a una persona). Están declarados en `i18n.config.json`.
+- **Proyectos**: `app` (lo que pinta la aplicación), `api` (lo que la API dice a una persona) y `landing` (la página de presentación). Están declarados en `i18n.config.json`. La API solo sirve `app` y `api`: ignora los ficheros de `landing`, que no llegan a la aplicación.
 - **Espacio de nombres** (*namespace*): cada fichero `.json`. La clave completa de un mensaje es `<espacio>.<ruta con puntos>`; por ejemplo, `actions.save` dentro de `locales/es/app/common.json` es `common.actions.save`.
 - **`locale.json`** contiene solo `{ "name": "Español", "englishName": "Spanish" }`: el nombre del idioma en su propia lengua y en inglés. Lo escribe una persona del equipo y **no se envía a Crowdin**. Es además **el interruptor de publicación** de un idioma: sin él, sus textos se validan pero ni la API ni la aplicación lo ofrecen.
 - Los **documentos legales** (Aviso Legal, Privacidad, Términos) no están aquí: siguen en sus repositorios, versionados junto al mecanismo de consentimiento. Sí están aquí los rótulos de la interfaz que los rodean.
@@ -244,13 +247,13 @@ Una traducción de una clave que ya no existe en español es un error (`unknown-
 2. No hay que tocar `crowdin.yml`: recoge todos los `.json` de cada proyecto.
 3. Sigue los pasos de «Añadir una clave» en el repositorio que lo use.
 
-Un **proyecto** nuevo (una tercera carpeta junto a `app` y `api`) sí exige declararlo en `i18n.config.json` y añadir su bloque en `crowdin.yml`; una prueba falla si se olvida.
+Un **proyecto** nuevo (otra carpeta junto a `app`, `api` y `landing`) sí exige declararlo en `i18n.config.json` y añadir su bloque en `crowdin.yml`; una prueba falla si se olvida. Declararlo importa también fuera de aquí: la sincronización de la API (`npm run i18n:sync` de acciopass-backend) deja fuera de su copia los proyectos declarados que no son suyos, y rechaza una carpeta que nadie haya declarado.
 
 ### Añadir un idioma
 
 Un idioma se **ofrece** —la API lo lista y lo sirve, y aparece en el selector de las aplicaciones ya instaladas— cuando tiene las dos cosas: su `locale.json` y al menos un texto de la aplicación traducido y válido. El orden da igual; mientras falte una, el idioma está «sin publicar» y no molesta a nadie.
 
-1. **En Crowdin**: añade el idioma de destino al proyecto (*Settings > Languages*). **Si es una variante regional, lee antes el apartado siguiente.** En su próxima exportación Crowdin escribirá `locales/<código>/app/*.json` y `locales/<código>/api/*.json` con todos los valores vacíos; es normal y la validación lo acepta (el idioma sale como «sin publicar»).
+1. **En Crowdin**: añade el idioma de destino al proyecto (*Settings > Languages*). **Si es una variante regional, lee antes el apartado siguiente.** En su próxima exportación Crowdin escribirá `locales/<código>/app/*.json`, `locales/<código>/api/*.json` y `locales/<código>/landing/*.json` con todos los valores vacíos; es normal y la validación lo acepta (el idioma sale como «sin publicar»).
 2. **Aquí**, cuando decidas publicarlo: crea `locales/<código>/locale.json` con el nombre del idioma en su propia lengua y en inglés, y fusiónalo en `main` (este fichero no lo escribe Crowdin nunca: que un idioma aparezca en el selector de todas las aplicaciones es una decisión de una persona del equipo).
 
    ```json
@@ -384,11 +387,11 @@ Pasos manuales, una sola vez. Los nombres de los menús son los de la documentac
 
 6. **Quién puede aprobar.** En Crowdin aprueban los roles *Owner*, *Manager*, *Language Coordinator* (en sus idiomas) y *Proofreader*; el rol *Translator* propone y vota, pero **no aprueba**. Da *Proofreader* o *Language Coordinator* solo a personas de confianza que dominen el idioma, y *Manager* a las mínimas imprescindibles (un *Manager* puede cambiar los ajustes de exportación y la integración). Recomendación: que quien aprueba no sea quien tradujo.
 
-7. **Comprueba el primer ciclo.** Tras la primera sincronización: los ficheros de `locales/es/app/` y `locales/es/api/` aparecen en Crowdin con su estructura de carpetas; `locale.json` **no** aparece; y la primera petición de cambios de `l10n_main` pasa el flujo `validar` (incluida la guarda «solo toca traducciones») y solo toca ficheros de `locales/<idioma>/`. Dos cosas que mirar en esa primera petición:
+7. **Comprueba el primer ciclo.** Tras la primera sincronización: los ficheros de `locales/es/app/`, `locales/es/api/` y `locales/es/landing/` aparecen en Crowdin con su estructura de carpetas; `locale.json` **no** aparece; y la primera petición de cambios de `l10n_main` pasa el flujo `validar` (incluida la guarda «solo toca traducciones») y solo toca ficheros de `locales/<idioma>/`. Dos cosas que mirar en esa primera petición:
    - **que no convierta en `""` ningún texto en inglés que hoy existe** (en la pestaña de diferencias, ninguna línea de `locales/en/` debe pasar de un texto a `""`; la tabla de `npm run validate` debe seguir diciendo 100 % para `en`). Si lo hace, faltó marcar «Allow target translation to match source» o «Approve added translations»: corrígelo en Crowdin (aprobando esas cadenas) y no fusiones esa petición.
    - si el validador avisa de `format` (ver «Límites conocidos»).
 
-Lo que ya resuelve `crowdin.yml`, sin pasos manuales: qué ficheros son fuente (`locales/es/app/*.json` y `locales/es/api/*.json`), dónde se escriben las traducciones (`locales/<código de dos letras>/...`, y una carpeta propia para las variantes regionales declaradas en `languages_mapping`), la conservación de la estructura de carpetas, la exclusión de `locale.json`, que un original modificado pierda la aprobación de sus traducciones, el título y la etiqueta de la petición de cambios, y un mensaje de *commit* **sin `[ci skip]`**. Esto último importa: el mensaje por defecto de Crowdin lleva esa marca, GitHub Actions no ejecuta los flujos de un *commit* que la lleve, y una comprobación obligatoria que no se ejecuta se queda «pendiente» para siempre.
+Lo que ya resuelve `crowdin.yml`, sin pasos manuales: qué ficheros son fuente (`locales/es/app/*.json`, `locales/es/api/*.json` y `locales/es/landing/*.json`), dónde se escriben las traducciones (`locales/<código de dos letras>/...`, y una carpeta propia para las variantes regionales declaradas en `languages_mapping`), la conservación de la estructura de carpetas, la exclusión de `locale.json`, que un original modificado pierda la aprobación de sus traducciones, el título y la etiqueta de la petición de cambios, y un mensaje de *commit* **sin `[ci skip]`**. Esto último importa: el mensaje por defecto de Crowdin lleva esa marca, GitHub Actions no ejecuta los flujos de un *commit* que la lleve, y una comprobación obligatoria que no se ejecuta se queda «pendiente» para siempre.
 
 ## Puesta en marcha de GitHub
 
@@ -426,6 +429,24 @@ En *Settings > Webhooks > Add webhook* de este repositorio:
 - **Sin token, la API puede quedarse sin cupo de GitHub**: las preguntas periódicas sin autenticar cuentan contra 60 por hora y por IP de salida aunque no haya cambios. Con más de unas pocas instancias, o un intervalo corto, configura `I18N_GITHUB_TOKEN` (solo lectura, solo este repositorio); está explicado en la documentación de la API.
 
 La configuración de la API (`I18N_SOURCE=github`, `I18N_GITHUB_REPOSITORY`, `I18N_GITHUB_REF`, etc.) está documentada en el repositorio de la API.
+
+### La página de presentación
+
+La página de presentación (`acciopass-landing`, proyecto `landing`) no pregunta a la API: es un sitio estático y sus textos se incluyen **al compilar**. Para que un texto fusionado en `main` se publique sin desplegar a mano, este repositorio pide a Cloudflare Pages que vuelva a compilarla:
+
+1. En Cloudflare Pages, en el proyecto de la página: *Settings > Builds & deployments > Deploy hooks > Add deploy hook*, para la rama de producción. Cloudflare da una URL; **es un secreto** (quien la tenga puede lanzar despliegues).
+2. En este repositorio: *Settings > Secrets and variables > Actions > New repository secret*, con nombre `LANDING_DEPLOY_HOOK_URL` y esa URL como valor.
+3. El flujo `.github/workflows/landing-deploy.yml` hace el resto: en cada *push* a `main` que toque `locales/*/landing/**` o un `locale.json`, valida el repositorio y llama al *hook*. También se puede lanzar a mano (*Actions > desplegar la página de presentación > Run workflow*). Sin el secreto, el flujo no hace nada y lo dice.
+4. La compilación de Cloudflare Pages (`npm run build:pages` en `acciopass-landing`) clona este repositorio, valida los textos con este mismo validador y compila. Si un texto no es válido o a un idioma le falta una traducción, la compilación falla y **se queda publicada la versión anterior**.
+
+Diferencias con la aplicación que conviene tener presentes:
+
+- **Un texto de `landing` sin traducir detiene el despliegue de la página**, no se muestra en español: una página pública a medio traducir es peor que la versión anterior. Cuando se añada o se cambie un texto español de `landing`, la página no se actualizará hasta que su traducción esté aprobada en Crowdin y fusionada aquí. El cambio del español y su traducción pueden ir en la misma petición de cambios si corre prisa. Este repositorio **no** exige que `landing` esté completo (una petición de cambios de Crowdin con un texto pendiente pasa la validación); lo exige la compilación de la página. Para una corrección urgente del español, la página tiene una válvula: compilar con `LANDING_ALLOW_FALLBACK=1` publica el texto español donde falte la traducción (`docs/DESPLIEGUE.md` de `acciopass-landing`).
+- **Los textos de `landing` no llevan direcciones**: URL, correos, teléfono y NIF son datos de la página (`src/config/site.ts` de `acciopass-landing`), no textos. La regla de validación de direcciones se aplica igual.
+- **Es publicidad.** Lo que afirma la página es exigible. Antes de cambiar un texto de `landing`, lee `docs/CONTENIDO.md` de `acciopass-landing`: la compilación de la página rechaza, además, una lista de afirmaciones que el producto no puede sostener, en cualquier idioma.
+- Tiempo hasta que se ve: lo que tarde la compilación de Cloudflare Pages (uno o dos minutos) desde la fusión en `main`.
+
+Este flujo no se ha podido ejecutar todavía: el repositorio de la página y su proyecto en Cloudflare Pages aún no existen.
 
 ## Límites conocidos
 

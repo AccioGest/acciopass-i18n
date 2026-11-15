@@ -59,3 +59,16 @@ files:
         pt-BR: pt-BR
         zh-CN: zh-CN
         zh-TW: zh-TW
+  - source: /locales/es/landing/*.json
+    translation: /locales/%two_letters_code%/landing/%original_file_name%
+    update_option: update_as_unapproved
+    languages_mapping:
+      two_letters_code:
+        es-MX: es-MX
+        es-AR: es-AR
+        es-US: es-US
+        en-GB: en-GB
+        fr-CA: fr-CA
+        pt-BR: pt-BR
+        zh-CN: zh-CN
+        zh-TW: zh-TW

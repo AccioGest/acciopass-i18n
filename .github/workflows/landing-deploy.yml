@@ -1,0 +1,56 @@
+name: desplegar la página de presentación
+
+# La página de presentación (acciopass-landing) es un sitio estático: toma sus
+# textos al compilar. Cuando cambian en main, se pide a Cloudflare Pages que
+# la vuelva a compilar con un «deploy hook». README.md, «La página de
+# presentación».
+#
+# La URL del hook es un secreto del repositorio (LANDING_DEPLOY_HOOK_URL): quien
+# la tenga puede lanzar despliegues. Sin el secreto, el flujo no hace nada.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'locales/*/landing/**'
+      - 'locales/*/locale.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Un solo despliegue en curso: si llegan dos cambios seguidos, vale el último.
+concurrency:
+  group: desplegar-landing
+  cancel-in-progress: true
+
+jobs:
+  desplegar:
+    name: desplegar
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # La compilación de la página valida otra vez; esto evita lanzarla para nada.
+      - name: Validar las traducciones
+        run: npm run validate
+      - name: Pedir a Cloudflare Pages que compile la página
+        env:
+          LANDING_DEPLOY_HOOK_URL: ${{ secrets.LANDING_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$LANDING_DEPLOY_HOOK_URL" ]; then
+            echo "::notice::No hay secreto LANDING_DEPLOY_HOOK_URL: no se despliega nada."
+            exit 0
+          fi
+          # Sin eco de la URL ni de la respuesta completa: la URL es el secreto.
+          status=$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' --max-time 30 --request POST "$LANDING_DEPLOY_HOOK_URL")
+          if [ "$status" -lt 200 ] || [ "$status" -ge 300 ]; then
+            echo "::error::Cloudflare Pages respondió $status al deploy hook."
+            exit 1
+          fi
+          echo "Despliegue solicitado (respuesta $status)."

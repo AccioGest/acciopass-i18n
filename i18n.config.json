@@ -7,6 +7,9 @@
     },
     "api": {
       "description": "Textos que la API dice a una persona: correos, notificaciones push, mensajes de error y respuestas del asistente."
+    },
+    "landing": {
+      "description": "Textos de la página de presentación (acciopass-landing): sitio estático que los toma al compilar."
     }
   }
 }

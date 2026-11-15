@@ -884,7 +884,7 @@ describe('this repository', () => {
     assert.equal(serialize(config), text);
     assert.equal(config.formatVersion, 1);
     assert.equal(config.sourceLocale, 'es');
-    assert.deepEqual(Object.keys(config.projects), ['app', 'api']);
+    assert.deepEqual(Object.keys(config.projects), ['app', 'api', 'landing']);
   });
 
   test('the hand-written locale.json files are valid', () => {
@@ -907,10 +907,40 @@ describe('this repository', () => {
     assert.doesNotMatch(settings, /locale\.json/);
   });
 
+  test('the landing texts carry no address, no telephone number and no plural', () => {
+    // The addresses of the landing are data of that repository, never texts, and its build has no plural rules.
+    // Completeness is NOT asserted here: Crowdin exports an empty value for a text whose translation is pending, and
+    // a pull request with one must still pass. The build of the landing is what requires every text (its i18n:check).
+    const result = validateDirectory(REPOSITORY);
+    const source = result.messages.get('es').get('landing');
+    assert.ok(source.size > 100);
+    for (const locale of result.locales) {
+      const messages = result.messages.get(locale.code)?.get('landing') ?? new Map();
+      for (const [key, value] of messages) {
+        assert.equal(typeof value, 'string', `${key}: la página no admite plurales`);
+        assert.deepEqual(addressesOf(value), [], `${locale.code}: ${key}`);
+        assert.deepEqual(digitRunsOf(value), [], `${locale.code}: ${key}`);
+      }
+    }
+  });
+
+  test('the workflow that redeploys the landing only runs for its texts and never prints the hook', () => {
+    const workflow = read('.github/workflows/landing-deploy.yml');
+    assert.match(workflow, /^ {2}push:\n {4}branches:\n {6}- main\n {4}paths:\n {6}- 'locales\/\*\/landing\/\*\*'\n {6}- 'locales\/\*\/locale\.json'$/m);
+    assert.match(workflow, /^ {2}workflow_dispatch:$/m);
+    assert.match(workflow, /contents: read/);
+    assert.match(workflow, /persist-credentials: false/);
+    assert.match(workflow, /run: npm run validate/);
+    assert.match(workflow, /secrets\.LANDING_DEPLOY_HOOK_URL/);
+    assert.doesNotMatch(workflow, /pull_request/);
+    assert.doesNotMatch(workflow, /curl[^\n]*(-v|--verbose|--trace)/);
+    assert.doesNotMatch(workflow, /https:\/\/api\.cloudflare\.com\/[^\s]*deploy_hooks\/[0-9a-f-]{8,}/);
+  });
+
   test('crowdin.yml gives regional variants their own folder in every files block', () => {
     const crowdin = read('crowdin.yml');
     const blocks = crowdin.split(/^ {2}- source: /m).slice(1);
-    assert.equal(blocks.length, 2);
+    assert.equal(blocks.length, 3);
     for (const block of blocks) {
       assert.match(block, /^ {4}languages_mapping:\n {6}two_letters_code:$/m);
       const pairs = [...block.matchAll(/^ {8}([A-Za-z-]+): ([A-Za-z-]+)$/gm)].map((match) => [match[1], match[2]]);
